@@ -413,7 +413,7 @@ html, body, section, .loading, .second, .three, .fourth, .fifth, .sixth {
 
 .third_con {
   position: absolute;
-  top: 4rem;
+  top: 3.5rem;
   left: 50%;
   margin-left: -2.84rem;
   width: 5.68rem;
@@ -525,7 +525,7 @@ html, body, section, .loading, .second, .three, .fourth, .fifth, .sixth {
 
 .fourth_body .body_left {
   position: absolute;
-  top: 4.3rem;
+  top: 3.3rem;
   left: .86rem;
   width: .96rem;
   height: .98rem;
@@ -546,15 +546,15 @@ html, body, section, .loading, .second, .three, .fourth, .fifth, .sixth {
 }
 
 .fourth_body li:nth-of-type(2) .body_left {
-  top: 6rem;
+  top: 5rem;
 }
 
 .fourth_body li:nth-of-type(3) .body_left {
-  top: 7.7rem;
+  top: 6.7rem;
 }
 
 .fourth_body li:nth-of-type(4) .body_left {
-  top: 9.4rem;
+  top: 8.4rem;
 }
 
 .fourth_body .body_center {
@@ -563,20 +563,20 @@ html, body, section, .loading, .second, .three, .fourth, .fifth, .sixth {
   background: url("../img/left_corner.png") no-repeat;
   background-size: cover;
   position: absolute;
-  top: 4.6rem;
+  top: 3.6rem;
   left: 2.02rem;
 }
 
 .fourth_body li:nth-of-type(2) .body_center {
-  top: 6.3rem;
+  top: 5.3rem;
 }
 
 .fourth_body li:nth-of-type(3) .body_center {
-  top: 8rem;
+  top: 7rem;
 }
 
 .fourth_body li:nth-of-type(4) .body_center {
-  top: 9.7rem;
+  top: 8.7rem;
 }
 
 .fourth_body .body_right {
@@ -585,22 +585,22 @@ html, body, section, .loading, .second, .three, .fourth, .fifth, .sixth {
   background: url("../img/skill.png") no-repeat;
   background-size: cover;
   position: absolute;
-  top: 4.5rem;
+  top: 3.5rem;
   right: .58rem;
   text-align: center;
   vertical-align: middle;
 }
 
 .fourth_body li:nth-of-type(2) .body_right {
-  top: 6.2rem;
+  top: 5.2rem;
 }
 
 .fourth_body li:nth-of-type(3) .body_right {
-  top: 7.9rem;
+  top: 6.9rem;
 }
 
 .fourth_body li:nth-of-type(4) .body_right {
-  top: 9.6rem;
+  top: 8.6rem;
 }
 
 .fourth_body .body_right img {
