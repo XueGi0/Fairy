@@ -93,7 +93,7 @@ html, body, section, .loading, .second, .three, .fourth, .fifth, .sixth {
   position: absolute;
   left: 1.62rem;
   top: 4.82rem;
-  letter-spacing: .25em;
+  text-align: center;
   line-height: .96rem;
 }
 
