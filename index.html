@@ -10,9 +10,6 @@
   <link rel="stylesheet" href="css/animate.min.css">
   <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
   <link rel="stylesheet" href="css/index.css">
-  <style>
-
-  </style>
   <script type="text/javascript">
     ~function () {
       let computed = function () {
@@ -223,7 +220,6 @@
 
 
 <script>
-  //  //->这个JS是为了让滑动到每一页都重新加载动画，需要把动画写到page1...id名下
   let change = function (example) {
     let {slides: slideAry, activeIndex} = example;
     [].forEach.call(slideAry, (item, index) => {
@@ -234,14 +230,11 @@
       item.id = null;
     });
   };
-  //  //->这是swiper的滑动效果
   let mySwiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     onInit: change,
     onTransitionEnd: change,
   });
-  //
-  //  //->这是控制音乐播放和暂停，还有播放图片旋转，暂停停止动画的JS
   let $play = $('.play'),
     musicAudio = $('#musicAudio')[0];
   musicAudio.play();
@@ -255,8 +248,6 @@
     musicAudio.pause();
     $play.removeClass('move');
   });
-
-
 </script>
 
 </html>
