@@ -648,7 +648,7 @@ html, body, section, .loading, .second, .three, .fourth, .fifth, .sixth {
   line-height: 1.7;
   right: 0;
   width: 100%;
-  top: 0;
+  top: .15rem;
   z-index: 10;
 }
 
