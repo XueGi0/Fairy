@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 全局作用域： 当在打开浏览器页面时形成；当关闭页面时，这个作用域才会销毁；
+    // 私有作用域： 函数执行的时候形成私有作用域
+//    var a =10;
+//    function fn(){
+//        var b =10;
+//        console.log(a)
+//    }
+//    fn();
+    // 上级作用域： 跟函数在哪执行没有任何关系，只跟函数在哪定义有关；
+//    var total = 100;
+//    function fn() {
+//
+//        return function () {
+//            console.log(total)// 10
+//        }
+//    }
+//    var f = fn();
+//    f()
+
+    // 全局变量 私有变量
+//    var a = 100;
+//    c = 99;
+//    var obj ={};
+//    obj.aa = 10;
+//    function sn() {
+//        var b =10;
+//    }
+    // 在全局下声明的函数，相当于window新增一个属性名是函数名，属性是整个函数；
+
+    // 私有变量 ： 在私有作用域定义的变量；形参也是私有变量；
+    // 函数执行四步：
+    // 1.形成私有作用域
+    // 2.形参赋值
+    // 3.变量提升
+    // 4.代码从上到下加载
+//    var a = 100;
+//    function fn() {
+//        console.log(a);// undefined
+//        var a = 1000;
+//
+//    }
+//    fn();
+//    console.log(a)// 100
+//    console.log(total)
+//    var total= 100;
+//    function total() {
+//        console.log(total);
+//        total +=200;
+//        console.log(total);
+//        total =300;
+//       console.log(total)
+//    }
+//    console.log(total)//100
+//    total();//total is not a function
+//    console.log(total) // undefined
+//    var total= 100;
+//    function fn() {
+//        console.log(total);//100
+//        total +=200;
+//        console.log(total);//300
+//        total =300;
+//        console.log(total)//300
+//    }
+//    console.log(total)//100
+//    fn();
+    // 函数定义发生在变量的阶段；
+//    console.log(total) //undefined
+//    var total= 100;
+//    function fn() {
+//        console.log(total);//undefined
+//        total +=200;
+//        console.log(total);//NaN
+//        var total = 300;
+//        console.log(total)// 300
+//    }
+//    console.log(total);
+//    fn()
+    console.log(total) //undefined
+    var total= 100;
+    function fn(total) {// total =100
+        console.log(total);// 100
+        total +=200;
+        console.log(total);//200
+        var total = 300;
+        console.log(total)// 300
+    }
+    console.log(total);
+    fn(total)
+
+    // 变量提升的特殊情况：
+    // 1.在if条件中，不管条件是否成立，都要进行变量提升
+    // 2.变量提升只发生在=左边
+    // 3.return后面的代码不进行变量提升；return下面的代码需要进行变量提升
+    // 4.变量重复，不再进行声明，只进行定义
+    // 5.自执行函数定义和执行一起完成
+
+    // 堆栈内存
+    // 全局作用域和私有作用域都是栈内存
+    // 对象数据类型的数据都存储到堆内存中；
+
+    // 全局作用域 ：
+    // 私有作用域 ：一般情况下， 当函数执行完成，私有作用域会自动销毁；
+    //    function fn() {
+    //        var  i =0;
+    //        i++;
+    //        console.log(i)
+    //    }
+    //    fn()
+    //    fn()
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
