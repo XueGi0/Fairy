@@ -60,7 +60,7 @@
       margin-top: .4rem;
     }
 
-    #camera {
+    #fileBtn {
       display: none;
     }
   </style>
@@ -75,7 +75,8 @@
 <section class="schPhoto" id="schPhoto">
   <section class="schPhotoIcon"></section>
   <p class="schPhotoTit">上传自拍照</p>
-  <input type="text">
+  <input id="fileBtn" type="file" onchange="upload();" accept="image/*" capture="camera"/>
+  <img src="" id="img"/>
 </section>
 
 <section class="schPhotoCon">
@@ -87,34 +88,18 @@
 
 <script>
   $('#schPhoto').on('click', function () {
-    console.log(navigator.mediaDevices.getUserMedia);
-    plus.camera.getCamera(2);
-    Camera.captureImage(success, errorCB)
+    $('#fileBtn').click();
   });
 
-  function success() {
-    alert('成功');
-  }
-
-  function errorCB() {
-    alert('失败')
-  }
-
-  function getUserMedia(constraints, success, error) {
-    if (navigator.mediaDevices.getUserMedia) {
-      //最新的标准API
-      navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
-    } else if (navigator.webkitGetUserMedia) {
-      //webkit核心浏览器
-      navigator.webkitGetUserMedia(constraints, success, error)
-    } else if (navigator.mozGetUserMedia) {
-      //firfox浏览器
-      navigator.mozGetUserMedia(constraints, success, error);
-    } else if (navigator.getUserMedia) {
-      //旧版API
-      navigator.getUserMedia(constraints, success, error);
-    }
-  }
+  let upload = function () {
+    "use strict";
+    let file = $('#fileBtn').files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function (e) {
+      $('#img').attr("src", e.target.result);
+    };
+  };
 </script>
 </body>
 </html>
