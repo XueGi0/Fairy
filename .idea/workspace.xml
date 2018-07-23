@@ -28,8 +28,8 @@
       <file leaf-file-name="updateImg.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/updateImg.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="459">
+              <caret line="90" column="40" lean-forward="true" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -185,12 +185,12 @@
       <updated>1532323949820</updated>
       <workItem from="1532323951635" duration="3762000" />
       <workItem from="1532328265346" duration="2816000" />
-      <workItem from="1532335739486" duration="9946000" />
+      <workItem from="1532335739486" duration="10234000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16524000" />
+    <option name="totallyTimeSpent" value="16812000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -265,8 +265,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/updateImg.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+        <state relative-caret-position="459">
+          <caret line="90" column="40" lean-forward="true" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
         </state>
       </provider>
     </entry>
