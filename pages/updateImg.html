@@ -87,8 +87,34 @@
 
 <script>
   $('#schPhoto').on('click', function () {
-    $('#camera').click();
-  })
+    console.log(navigator.mediaDevices.getUserMedia);
+    plus.camera.getCamera(2);
+    Camera.captureImage(success, errorCB)
+  });
+
+  function success() {
+    alert('成功');
+  }
+
+  function errorCB() {
+    alert('失败')
+  }
+
+  function getUserMedia(constraints, success, error) {
+    if (navigator.mediaDevices.getUserMedia) {
+      //最新的标准API
+      navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
+    } else if (navigator.webkitGetUserMedia) {
+      //webkit核心浏览器
+      navigator.webkitGetUserMedia(constraints, success, error)
+    } else if (navigator.mozGetUserMedia) {
+      //firfox浏览器
+      navigator.mozGetUserMedia(constraints, success, error);
+    } else if (navigator.getUserMedia) {
+      //旧版API
+      navigator.getUserMedia(constraints, success, error);
+    }
+  }
 </script>
 </body>
 </html>
