@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/public.js"></script>
+  <link rel="stylesheet" href="../css/index.css">
+  <style>
+    .schedule {
+      width: 100%;
+      margin-top: 5%;
+    }
+
+    .schedule img {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .schPhoto {
+      border-radius: 50%;
+      height: 3rem;
+      width: 3rem;
+      background: #7C9DFE;
+      box-shadow: 0 0 .05rem .05rem #7C9DFE;
+      margin: 0 auto;
+      margin-top: 15%;
+      padding-top: .72rem;
+      box-sizing: border-box;
+    }
+
+    .schPhotoIcon {
+      height: 1.1rem;
+      width: 1.36rem;
+      margin: 0 auto;
+      background: url("../image/camera1_a.png") no-repeat center center;
+    }
+
+    .schPhotoTit {
+      font-size: .35rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    .schPhotoCon {
+      font-size: .42rem;
+      color: #424242;
+      margin: 0 auto;
+      margin-top: 1.47rem;
+      text-align: center;
+      font-weight: bold;
+      width: 56%;
+    }
+
+    .schPhotoConC {
+      font-size: .35rem;
+      color: #b3b3b3;
+      font-weight: normal;
+      text-align: left;
+      margin-top: .4rem;
+    }
+
+    #camera {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<section class="loginTit">
+  <p class="titCon">眼神科技 · 刷脸购</p>
+</section>
+<section class="schedule">
+  <img src="../image/camera3.png" alt="">
+</section>
+<section class="schPhoto" id="schPhoto">
+  <input type="file" accept="image/*" capture="camera" id="camera">
+  <section class="schPhotoIcon"></section>
+  <p class="schPhotoTit">上传自拍照</p>
+</section>
+
+<section class="schPhotoCon">
+  <p class="schPhotoConT">请拍摄清晰的面部照片并上传</p>
+  <span class="schPhotoConC">采集的面部照片将用于刷脸售货机上身份识别，确保您的账户安全，上传成功后，如果您想更换采集的照片，可以在设置中重新拍摄上传</span>
+</section>
+
+<script src="../js/jQuery-2.2.0.min.js"></script>
+
+<script>
+  $('#schPhoto').on('click', function () {
+    $('#camera').click();
+  })
+</script>
+</body>
+</html>

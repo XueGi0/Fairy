@@ -3,119 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>眼神科技·刷脸购</title>
-  <script>
-    ~function () {
-      let computed = function () {
-        let desW = 375;
-        let devW = document.documentElement.clientWidth;
-        if (devW >= 375) {
-          document.documentElement.style.fontSize = '100px';
-          return;
-        }
-        document.documentElement.style.fontSize = devW / desW * 100 + 'px';
-      };
-      computed();
-      window.addEventListener('resize', computed, false);
-    }();
-  </script>
-  <style>
-    body, html {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      height: 35%;
-      width: 100%;
-      box-sizing: border-box;
-      padding: 0 5%;
-      margin-top: 20%;
-    }
-
-    .phone {
-      height: 25%;
-      border-bottom: .01rem solid #a2a4a9;
-      margin-bottom: 5%;
-      box-sizing: border-box;
-      padding-top: 5%;
-    }
-
-    .phone .userIcon {
-      display: block;
-      width: 15%;
-      height: 100%;
-      float: left;
-      background: url("./image/loginuser.png") no-repeat center center;
-    }
-
-    .password .pwsIcon {
-      background: url("./image/logincode.png") no-repeat center center;
-    }
-
-    .phone .phoneCon {
-      outline: none;
-      height: 100%;
-      width: 80%;
-      border: 0;
-      padding: 0;
-      float: left;
-      font-size: .5rem;
-    }
-
-    .password .pwsCon {
-      width: 50%;
-    }
-
-    .login_btn {
-      width: 100%;
-      height: 30%;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      padding: 5% 0;
-    }
-
-    .login_btn button {
-      color: #fff;
-      width: 100%;
-      height: 100%;
-      -webkit-border-radius: .1rem;
-      -moz-border-radius: .1rem;
-      border-radius: .1rem;
-      background: #537EFA;
-      font-size: .5rem;
-    }
-
-    .loginTit {
-      height: 10%;
-      width: 100%;
-      background: #537EFA;
-    }
-
-    .loginTit .titCon {
-      margin: 0;
-      width: 100%;
-      text-align: center;
-      color: #fff;
-      font-size: .5rem;
-      line-height: 3.5;
-    }
-
-    .phone .sendCode {
-      width: 35%;
-      height: 80%;
-      background: #F7F7F7;
-      box-sizing: border-box;
-      border: .01rem solid #C8C8C8;
-      border-radius: .1rem;
-      font-size: .4rem;
-      color: #C8C8C8;
-      float: left;
-    }
-  </style>
+  <script src="js/public.js"></script>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <section class="loginTit">
@@ -124,27 +13,91 @@
 <section class="container">
   <section class="phone">
     <span class="userIcon"></span>
-    <input type="text" placeholder="请输入手机号" class="phoneCon" id="phoneCon">
+    <input type="number" placeholder="请输入手机号" class="phoneCon" id="phoneCon" pattern="[0-9]*" maxlength="11">
   </section>
   <section class="phone password">
     <span class="userIcon pwsIcon"></span>
-    <input type="text" placeholder="请输入验证码" class="phoneCon pwsCon">
-    <button class="sendCode">发送验证码</button>
+    <input type="number" placeholder="请输入验证码" class="phoneCon pwsCon" pattern="[0-9]*" maxlength="6" id="pwsCon">
+    <button class="sendCode" id="sendCode">发送验证码</button>
   </section>
 
   <section class="login_btn">
-    <button>登录</button>
+    <button id="login_btn">登录</button>
   </section>
 </section>
 
 <script src="js/jQuery-2.2.0.min.js"></script>
 <script>
-  $('#phoneCon').on('change', function () {
+  $('#phoneCon').bind('input propertychange', function () {
     let reg = /^(\+\d{2,3}\-)?\d{11}$/;
-    if (!reg.test($('#phoneCon').val())) {
+    if (!reg.test($('#phoneCon').val()) && $('#phoneCon').val().length == '11') {
       alert('1')
+    } else {
+      if ($('#phoneCon').val().length == '11') {
+        $('#sendCode').css('color', '#6C89C3');
+      } else {
+        $('#sendCode').css('color', '#C8C8C8');
+      }
     }
-  })
+  });
+
+
+  $('#sendCode').on('click', sendCodeMsg);
+
+  function sendCodeMsg() {
+    let maxTimer = 60;
+    $.ajax({
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/sendcheckcode',
+      data: {
+        mobile: $('#phoneCon').val()
+      },
+      type: 'POST',
+      success: function (data) {
+        console.log(data);
+        let timer = setInterval(function () {
+          maxTimer--;
+          $('#sendCode').html(maxTimer + 's倒计时');
+          if (maxTimer == 0) {
+            clearInterval(timer);
+            $('#sendCode').removeAttr('disabled');
+            $('#sendCode').css('color', '#6C89C3');
+            $('#sendCode').html('重新发送');
+          }
+        }, 1000);
+        $('#sendCode').attr('disabled', 'true');
+        $('#sendCode').css('color', '#C8C8C8');
+      },
+      error: function () {
+        $('#sendCode').attr('disabled', 'false');
+        $('#sendCode').css('color', '#6C89C3');
+        $('#sendCode').html('重新发送');
+        $('#sendCode').on('click', sendCodeMsg);
+      }
+    })
+  }
+
+
+  function loginBtn() {
+    $.ajax({
+      type: 'POST',
+      url: "https://payh5.xiongan.eyecool.cn/faceSell/wx/regcheckcode",
+      data: {
+        mobile: $('#phoneCon').val(),
+        mobileCheckCode: $('#pwsCon').val()
+      },
+      success: function (data) {
+        console.log(data);
+        window.location.href = './pages/updateImg.html';
+      },
+      error: function (e) {
+        alert('输入的验证码有误');
+        console.log(e)
+      }
+    })
+  }
+
+  $('#login_btn').on('click', loginBtn)
+
 </script>
 </body>
 </html>
