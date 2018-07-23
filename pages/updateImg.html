@@ -59,10 +59,7 @@
       text-align: left;
       margin-top: .4rem;
     }
-
-    #fileBtn {
-      display: none;
-    }
+    
   </style>
 </head>
 <body>
@@ -75,7 +72,7 @@
 <section class="schPhoto" id="schPhoto">
   <section class="schPhotoIcon"></section>
   <p class="schPhotoTit">上传自拍照</p>
-  <input id="fileBtn" type="file" onchange="upload();" accept="image/*" capture="camera"/>
+  <input id="fileBtn" type="file" onchange="upload('#fileBtn', '#img');" accept="image/*" capture="camera"/>
   <img src="" id="img"/>
 </section>
 
@@ -91,13 +88,16 @@
     $('#fileBtn').click();
   });
 
-  let upload = function () {
+
+  var upload = function (c, d) {
     "use strict";
-    let file = $('#fileBtn').files[0];
-    let reader = new FileReader();
+    var $c = document.querySelector(c);
+    var $d = document.querySelector(d);
+    var file = $c.files[0];
+    var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function (e) {
-      $('#img').attr("src", e.target.result);
+      $d.setAttribute("src", e.target.result);
     };
   };
 </script>
