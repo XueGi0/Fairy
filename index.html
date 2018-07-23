@@ -37,8 +37,10 @@
 
     .phone {
       height: 25%;
-      border-bottom: .01rem solid;
+      border-bottom: .01rem solid #a2a4a9;
       margin-bottom: 5%;
+      box-sizing: border-box;
+      padding-top: 5%;
     }
 
     .phone .userIcon {
@@ -55,12 +57,12 @@
 
     .phone .phoneCon {
       outline: none;
-      height: 75%;
+      height: 100%;
       width: 80%;
       border: 0;
       padding: 0;
+      float: left;
       font-size: .5rem;
-      letter-spacing: .05rem;
     }
 
     .password .pwsCon {
@@ -101,6 +103,18 @@
       font-size: .5rem;
       line-height: 3.5;
     }
+
+    .phone .sendCode {
+      width: 35%;
+      height: 80%;
+      background: #F7F7F7;
+      box-sizing: border-box;
+      border: .01rem solid #C8C8C8;
+      border-radius: .1rem;
+      font-size: .4rem;
+      color: #C8C8C8;
+      float: left;
+    }
   </style>
 </head>
 <body>
@@ -110,16 +124,27 @@
 <section class="container">
   <section class="phone">
     <span class="userIcon"></span>
-    <input type="text" placeholder="请输入手机号" class="phoneCon">
+    <input type="text" placeholder="请输入手机号" class="phoneCon" id="phoneCon">
   </section>
   <section class="phone password">
     <span class="userIcon pwsIcon"></span>
     <input type="text" placeholder="请输入验证码" class="phoneCon pwsCon">
+    <button class="sendCode">发送验证码</button>
   </section>
 
   <section class="login_btn">
     <button>登录</button>
   </section>
 </section>
+
+<script src="js/jQuery-2.2.0.min.js"></script>
+<script>
+  $('#phoneCon').on('change', function () {
+    let reg = /^(\+\d{2,3}\-)?\d{11}$/;
+    if (!reg.test($('#phoneCon').val())) {
+      alert('1')
+    }
+  })
+</script>
 </body>
 </html>
