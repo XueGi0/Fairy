@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/pages/ceshi.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ceshi.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/updateImg.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/updateImg.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,20 +26,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updateImg.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="updateImg.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/updateImg.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+            <state relative-caret-position="591">
+              <caret line="96" column="31" lean-forward="true" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ceshi.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ceshi.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/ceshi.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="22" selection-end-column="4" />
+            <state relative-caret-position="437">
+              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,8 +68,8 @@
         <option value="$PROJECT_DIR$/js/public.js" />
         <option value="$PROJECT_DIR$/css/index.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/pages/ceshi.html" />
         <option value="$PROJECT_DIR$/pages/updateImg.html" />
+        <option value="$PROJECT_DIR$/pages/ceshi.html" />
       </list>
     </option>
   </component>
@@ -78,10 +83,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="508" />
-    <option name="y" value="441" />
+    <option name="x" value="287" />
+    <option name="y" value="80" />
     <option name="width" value="1400" />
-    <option name="height" value="977" />
+    <option name="height" value="961" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -200,12 +205,12 @@
       <updated>1532323949820</updated>
       <workItem from="1532323951635" duration="3762000" />
       <workItem from="1532328265346" duration="2816000" />
-      <workItem from="1532335739486" duration="12616000" />
+      <workItem from="1532335739486" duration="16661000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19194000" />
+    <option name="totallyTimeSpent" value="23239000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -278,17 +283,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/ceshi.html">
+    <entry file="file://$PROJECT_DIR$/pages/updateImg.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="22" selection-end-column="4" />
+        <state relative-caret-position="591">
+          <caret line="96" column="31" lean-forward="true" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/updateImg.html">
+    <entry file="file://$PROJECT_DIR$/pages/ceshi.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+        <state relative-caret-position="437">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
