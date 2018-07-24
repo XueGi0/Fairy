@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/css/reset.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/loginIndex.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/myOrder.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/myPayment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/myPhoto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/loginSuc.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/loginSuc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/mianmi.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/mianmi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/photoRes.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/photoRes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/updateImg.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/updateImg.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,20 +13,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="photoRes.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/photoRes.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
+            <state relative-caret-position="-687">
+              <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mianmi.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/mianmi.html">
+      <file leaf-file-name="loginSuc.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/loginSuc.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            <state relative-caret-position="37">
+              <caret line="89" column="70" lean-forward="true" selection-start-line="89" selection-start-column="70" selection-end-line="89" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -62,7 +53,6 @@
         <option value="$PROJECT_DIR$/css/index.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/pages/loginIndex.html" />
-        <option value="$PROJECT_DIR$/pages/loginSuc.html" />
         <option value="$PROJECT_DIR$/css/reset.css" />
         <option value="$PROJECT_DIR$/pages/myOrder.html" />
         <option value="$PROJECT_DIR$/pages/updateImg.html" />
@@ -70,6 +60,7 @@
         <option value="$PROJECT_DIR$/pages/myPayment.html" />
         <option value="$PROJECT_DIR$/pages/photoRes.html" />
         <option value="$PROJECT_DIR$/pages/mianmi.html" />
+        <option value="$PROJECT_DIR$/pages/loginSuc.html" />
       </list>
     </option>
   </component>
@@ -83,8 +74,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="131" />
-    <option name="y" value="315" />
+    <option name="x" value="123" />
+    <option name="y" value="519" />
     <option name="width" value="1699" />
     <option name="height" value="710" />
   </component>
@@ -207,15 +198,15 @@
       <workItem from="1532328265346" duration="2816000" />
       <workItem from="1532335739486" duration="16661000" />
       <workItem from="1532398452746" duration="738000" />
-      <workItem from="1532399212470" duration="32929000" />
+      <workItem from="1532399212470" duration="33408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56906000" />
+    <option name="totallyTimeSpent" value="57385000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="131" y="315" width="1699" height="710" extended-state="0" />
+    <frame x="123" y="519" width="1699" height="710" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -339,27 +330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/loginIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/loginSuc.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="71" column="19" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1337">
-          <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/myOrder.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-132">
@@ -400,15 +370,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/photoRes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
+        <state relative-caret-position="235">
+          <caret line="67" column="20" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/mianmi.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        <state relative-caret-position="418">
+          <caret line="18" column="119" selection-start-line="18" selection-start-column="119" selection-end-line="18" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/loginIndex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-687">
+          <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/loginSuc.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="89" column="70" lean-forward="true" selection-start-line="89" selection-start-column="70" selection-end-line="89" selection-end-column="70" />
         </state>
       </provider>
     </entry>
