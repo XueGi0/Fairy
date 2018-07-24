@@ -105,6 +105,7 @@
     reader.onload = function (e) {
       window._imgSrc = e.target.result;
       var base64Img = window._imgSrc.split(',')[1];
+      alert(base64Img);
       var session_3rd = sessionStorage.getItem('session_3rd');
       $.ajax({
         url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
@@ -114,14 +115,14 @@
           photoImg: base64Img
         },
         success: function (data) {
-          console.log(data);
+          alert(data);
           if (data.code == '0000') {
             window.location.href = './photoRes.html';
             $('#img').attr("src", e.target.result);
           }
         },
         error: function (e) {
-          console.log(e)
+          alert(e)
         }
       });
 
