@@ -16,6 +16,34 @@
       width: 80%;
       margin: 0 auto;
     }
+
+    .showImg {
+      margin-top: .74rem;
+
+    }
+
+    .showImg img {
+      width: 6rem;
+      height: 6rem;
+      display: block;
+      margin: 0 auto;
+      border: .01rem solid #ededed;
+      border-radius: .04rem;
+    }
+
+    .showImgMsg {
+      text-align: center;
+      font-size: .35rem;
+      color: #272727;
+      font-weight: bold;
+    }
+
+    .next_btn {
+      width: 80%;
+      height: 35%;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -24,7 +52,16 @@
 </section>
 <section class="showImg">
   <img src="" alt="" id="photoImg">
-  <p>您的照片已上传成功并审核通过</p>
+  <p class="showImgMsg">您的照片已上传成功并审核通过</p>
 </section>
+<section class="login_btn next_btn">
+  <button id="next_btn">下一步</button>
+</section>
+
+<script src="../js/jQuery-2.2.0.min.js"></script>
+<script>
+  let imgSrc = sessionStorage.getItem('baseImg');
+  $('#photoImg').attr('src', imgSrc)
+</script>
 </body>
 </html>

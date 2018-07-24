@@ -25,6 +25,8 @@
 
 <script src="js/jQuery-2.2.0.min.js"></script>
 <script>
+  let timer;
+
   $('#phoneCon').bind('input propertychange', function () {
     let reg = /^(\+\d{2,3}\-)?\d{11}$/;
     if (!reg.test($('#phoneCon').val()) && $('#phoneCon').val().length == '11') {
@@ -32,8 +34,15 @@
     } else {
       if ($('#phoneCon').val().length == '11') {
         $('#sendCode').css('color', '#6C89C3');
+        $('#sendCode').removeAttr('disabled');
+        $('#sendCode').html('发送验证码');
+        $('#sendCode').on('click', sendCodeMsg);
+        if (timer) {
+          clearInterval(timer);
+        }
       } else {
         $('#sendCode').css('color', '#C8C8C8');
+        $('#sendCode').attr('disabled', 'true')
       }
     }
   });
@@ -51,18 +60,28 @@
       type: 'POST',
       success: function (data) {
         console.log(data);
-        let timer = setInterval(function () {
-          maxTimer--;
-          $('#sendCode').html(maxTimer + 's倒计时');
-          if (maxTimer == 0) {
-            clearInterval(timer);
-            $('#sendCode').removeAttr('disabled');
-            $('#sendCode').css('color', '#6C89C3');
-            $('#sendCode').html('重新发送');
-          }
-        }, 1000);
-        $('#sendCode').attr('disabled', 'true');
-        $('#sendCode').css('color', '#C8C8C8');
+        if (data.state == 1) {
+          timer = setInterval(function () {
+            maxTimer--;
+            $('#sendCode').html(maxTimer + 's倒计时');
+            if (maxTimer == 0) {
+              clearInterval(timer);
+              $('#sendCode').removeAttr('disabled');
+              $('#sendCode').css('color', '#6C89C3');
+              $('#sendCode').html('重新发送');
+            }
+          }, 1000);
+          $('#sendCode').attr('disabled', 'true');
+          $('#sendCode').css('color', '#C8C8C8');
+        }
+        if (data.state == 0) {
+          clearInterval(timer);
+          $('#sendCode').attr('disabled', 'false');
+          $('#sendCode').css('color', '#6C89C3');
+          $('#sendCode').html('重新发送');
+          $('#sendCode').on('click', sendCodeMsg);
+          alert(data.msg)
+        }
       },
       error: function () {
         $('#sendCode').attr('disabled', 'false');
@@ -84,9 +103,14 @@
       },
       success: function (data) {
         console.log(data);
-        if (data.state == 1) {
+        if (data.state == '1' && data.img == '0') { //->登录成功且没有照片信息
           sessionStorage.setItem('session_3rd', data.session_3rd);
           window.location.href = './pages/updateImg.html';
+        } else if (data.state == '1' && data.img > 0) {
+          sessionStorage.setItem('session_3rd', data.session_3rd);
+          window.location.href = './page/loginSuc.html';  //->登录成功并且有照片信息
+        } else {
+          alert('验证码输入有误');
         }
       },
       error: function (e) {
@@ -96,7 +120,15 @@
     })
   }
 
-  $('#login_btn').on('click', loginBtn)
+  $('#login_btn').on('click', function () {
+    if ($('#phoneCon').val().length == '11' && $('#pwsCon').val().length == '4') {
+      loginBtn();
+    } else if ($('#phoneCon').val().length < 11) {
+      alert('手机号输入有误')
+    } else {
+      alert('请输入验证码')
+    }
+  })
 
 </script>
 </body>
