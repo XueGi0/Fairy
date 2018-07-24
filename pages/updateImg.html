@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>眼神科技 · 刷脸购</title>
   <script src="../js/public.js"></script>
   <link rel="stylesheet" href="../css/index.css">
   <style>
@@ -70,12 +70,13 @@
       z-index: 99
     }
 
+    #img {
+      display: none;
+    }
+
   </style>
 </head>
 <body>
-<section class="loginTit">
-  <p class="titCon">眼神科技 · 刷脸购</p>
-</section>
 <section class="schedule">
   <img src="../image/camera3.png" alt="">
 </section>
@@ -96,12 +97,35 @@
 <script>
 
   let upload = function () {
+    console.log($('#fileBtn')[0].files);
     "use strict";
-    let file = $('#fileBtn').files[0];
+    let file = $('#fileBtn')[0].files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function (e) {
-      $('#img').attr("src", e.target.result);
+      window._imgSrc = e.target.result;
+      var base64Img = window._imgSrc.split(',')[1];
+      var session_3rd = sessionStorage.getItem('session_3rd');
+      $.ajax({
+        url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
+        type: 'POST',
+        data: {
+          session_3rd: session_3rd,
+          photoImg: base64Img
+        },
+        success: function (data) {
+          console.log(data);
+          if (data.code == '0000') {
+            window.location.href = './photoRes.html';
+            $('#img').attr("src", e.target.result);
+          }
+        },
+        error: function (e) {
+          console.log(e)
+        }
+      });
+
+
     };
   };
 </script>

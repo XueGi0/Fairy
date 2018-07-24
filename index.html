@@ -7,9 +7,6 @@
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<section class="loginTit">
-  <p class="titCon">眼神科技 · 刷脸购</p>
-</section>
 <section class="container">
   <section class="phone">
     <span class="userIcon"></span>
@@ -87,7 +84,10 @@
       },
       success: function (data) {
         console.log(data);
-        window.location.href = './pages/updateImg.html';
+        if (data.state == 1) {
+          sessionStorage.setItem('session_3rd', data.session_3rd);
+          window.location.href = './pages/updateImg.html';
+        }
       },
       error: function (e) {
         alert('输入的验证码有误');
