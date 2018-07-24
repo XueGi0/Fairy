@@ -15,11 +15,11 @@
   <section class="phone password">
     <span class="userIcon pwsIcon"></span>
     <input type="number" placeholder="请输入验证码" class="phoneCon pwsCon" pattern="[0-9]*" maxlength="6" id="pwsCon">
-    <button class="sendCode" id="sendCode">发送验证码</button>
+    <button type="button" class="sendCode" id="sendCode">发送验证码</button>
   </section>
 
   <section class="login_btn">
-    <button id="login_btn">登录</button>
+    <button id="login_btn" type="button">登录</button>
   </section>
 </section>
 
@@ -36,7 +36,6 @@
         $('#sendCode').css('color', '#6C89C3');
         $('#sendCode').removeAttr('disabled');
         $('#sendCode').html('发送验证码');
-        $('#sendCode').on('click', sendCodeMsg);
         if (timer) {
           clearInterval(timer);
         }
@@ -53,6 +52,7 @@
   function sendCodeMsg() {
     let maxTimer = 60;
     $.ajax({
+
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/sendcheckcode',
       data: {
         mobile: $('#phoneCon').val()
@@ -76,18 +76,16 @@
         }
         if (data.state == 0) {
           clearInterval(timer);
-          $('#sendCode').attr('disabled', 'false');
+          $('#sendCode').removeAttr('disabled');
           $('#sendCode').css('color', '#6C89C3');
           $('#sendCode').html('重新发送');
-          $('#sendCode').on('click', sendCodeMsg);
           alert(data.msg)
         }
       },
       error: function () {
-        $('#sendCode').attr('disabled', 'false');
+        $('#sendCode').removeAttr('disabled');
         $('#sendCode').css('color', '#6C89C3');
         $('#sendCode').html('重新发送');
-        $('#sendCode').on('click', sendCodeMsg);
       }
     })
   }
@@ -114,7 +112,7 @@
         }
       },
       error: function (e) {
-        alert('输入的验证码有误');
+        alert('验证码输入有误');
         console.log(e)
       }
     })
@@ -123,10 +121,13 @@
   $('#login_btn').on('click', function () {
     if ($('#phoneCon').val().length == '11' && $('#pwsCon').val().length == '6') {
       loginBtn();
+      return;
     } else if ($('#phoneCon').val().length < 11) {
-      alert('手机号输入有误')
+      alert('手机号输入有误');
+      return;
     } else {
-      alert('请输入验证码')
+      alert('请输入6位正确的验证码');
+      return;
     }
   })
 
