@@ -2,9 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>眼神科技 · 刷脸购</title>
+  <title>个人中心</title>
+  <script src="../js/public.js"></script>
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+
+    .perCenter .cenHead {
+      height: 15%;
+      width: 100%;
+      background: #537EFA;
+      padding: 0 5%;
+      padding-top: 5%;
+      box-sizing: border-box;
+    }
+
+    .cenHead p {
+      margin: 0;
+    }
+
+    .cenHead .userID {
+      font-size: .35rem;
+      color: #fff;
+    }
+
+    .cenHead .userInfo {
+      margin-top: .26rem;
+      color: #fff;
+      font-size: .8rem;
+      clear: both;
+    }
+
+    .userInfo .userPhone {
+      float: left;
+      position: relative;
+    }
+
+    .userPhone .pigeon {
+      position: absolute;
+      display: block;
+      width: .96rem;
+      height: .96rem;
+      background: url("../image/gezi1.png") no-repeat center center;
+      background-size: cover;
+      top: -.5rem;
+      right: -.5rem;
+    }
+
+    .userInfo .exit {
+      width: 1.7rem;
+      height: 1.07rem;
+      background: #fff;
+      color: #537efa;
+      font-size: .4rem;
+      float: right;
+      line-height: 1.07rem;
+      outline: none;
+      border-radius: .2rem;
+    }
+
+    .cenCon {
+      width: 100%;
+      margin-top: .5rem;
+      background: #fff;
+    }
+
+    .cenCon a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .cenCon li {
+      height: 1rem;
+      width: 100%;
+      border-bottom: .01rem solid #e4e4e4;
+      font-size: .35rem;
+      color: #333;
+      line-height: 1rem;
+      clear: both;
+    }
+
+    .cenCon .listIcon {
+      display: block;
+      float: left;
+      width: 1rem;
+      height: 1rem;
+      background: url("../image/person1.png") no-repeat center center;
+    }
+
+    .cenCon .myPhoto {
+      background: url("../image/person2.png") no-repeat center center;
+    }
+
+    .cenCon .mPayment {
+      background: url("../image/person4.png") no-repeat center center;
+    }
+
+    .cenCon .arrRight {
+      display: block;
+      float: right;
+      width: 1rem;
+      height: 1rem;
+      background: url("../image/person5.png") no-repeat center center;
+    }
+
+
+  </style>
 </head>
 <body>
-我是有图片的
+<section class="perCenter">
+  <section class="cenHead">
+    <p class="userID">用户账号</p>
+    <section class="userInfo">
+      <p class="userPhone">18514250265 <span class="pigeon"></span></p>
+      <button class="exit" id="userExit">退出</button>
+    </section>
+  </section>
+  <section class="cenCon">
+    <ul>
+      <li><a href="./myOrder.html"><span class="listIcon orderList"></span>我的订单<span class="arrRight"></span></a></li>
+      <li><a href="./myPhoto.html"><span class="listIcon myPhoto"></span>我的照片<span class="arrRight"></span></a></li>
+      <li><a href="./myPayment.html"><span class="listIcon mPayment"></span>免密支付<span class="arrRight"></span></a></li>
+    </ul>
+  </section>
+  <section class="cenFooter">
+    <ul>
+      <li><a href="./loginIndex.html"><span class="footIcon indexIcon"></span>首页</a></li>
+      <li><a href="./loginSuc.html"><span class="footIcon myIcon"></span>我的</a></li>
+    </ul>
+  </section>
+</section>
+<script src="../js/jQuery-2.2.0.min.js"></script>
+<script>
+
+</script>
 </body>
 </html>

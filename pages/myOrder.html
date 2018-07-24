@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>眼神科技 · 刷脸购</title>
+  <script src="../js/public.js"></script>
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+    .myOrder {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .noOrder {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .noOrder img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      margin-top: 2rem;
+    }
+
+    .noOrder .noTitle {
+      font-size: .5rem;
+      color: #000;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+      margin: .2rem 0;
+    }
+
+    .noTitle .pigeon {
+      position: absolute;
+      width: .64rem;
+      height: .64rem;
+      top: -.32rem;
+      right: 0;
+      display: block;
+      background: url("../image/gezi2.png") no-repeat center center;
+      background-size: cover;
+    }
+
+    .noCon {
+      font-size: .35rem;
+      font-weight: normal;
+      text-align: center;
+      color: #282828;
+    }
+
+  </style>
+</head>
+<body>
+<section class="myOrder">
+  <section class="noOrder">
+    <img src="../image/no.png" alt="">
+    <p class="noTitle">您还没有购物订单 <span class="pigeon"></span></p>
+    <p class="noCon">快去开始第一次刷脸购物吧~</p>
+  </section>
+</section>
+</body>
+</html>

@@ -24,7 +24,7 @@
 
     .showImg img {
       width: 6rem;
-      height: 6rem;
+      height: 7.5rem;
       display: block;
       margin: 0 auto;
       border: .01rem solid #ededed;
@@ -72,7 +72,10 @@
 <script src="../js/jQuery-2.2.0.min.js"></script>
 <script>
   let imgSrc = sessionStorage.getItem('baseImg');
-  $('#photoImg').attr('src', imgSrc)
+  $('#photoImg').attr('src', imgSrc);
+  $('#next_btn').on('click', function () {
+    window.location.href = './mianmi.html';
+  })
 </script>
 </body>
 </html>
