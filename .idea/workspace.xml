@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/pages/detailOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detailOrder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/loginSuc.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/loginSuc.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/myOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/myOrder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/myPayment.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/myPayment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/myPhoto.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/myPhoto.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,12 +17,11 @@
       <file leaf-file-name="myOrder.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/myOrder.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
+            <state relative-caret-position="621">
+              <caret line="207" column="32" lean-forward="true" selection-start-line="207" selection-start-column="32" selection-end-line="207" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
                 <element signature="e#281#351#0" />
-                <element signature="n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#li#0;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#1;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -56,8 +52,8 @@
       <file leaf-file-name="myPhoto.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/myPhoto.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="112" column="34" lean-forward="true" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="34" />
+            <state relative-caret-position="291">
+              <caret line="77" column="26" lean-forward="true" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -97,10 +93,10 @@
         <option value="$PROJECT_DIR$/css/index.css" />
         <option value="$PROJECT_DIR$/pages/loginIndex.html" />
         <option value="$PROJECT_DIR$/pages/myPhoto.html" />
-        <option value="$PROJECT_DIR$/pages/myPayment.html" />
         <option value="$PROJECT_DIR$/pages/loginSuc.html" />
-        <option value="$PROJECT_DIR$/pages/myOrder.html" />
         <option value="$PROJECT_DIR$/pages/detailOrder.html" />
+        <option value="$PROJECT_DIR$/pages/myOrder.html" />
+        <option value="$PROJECT_DIR$/pages/myPayment.html" />
       </list>
     </option>
   </component>
@@ -234,12 +230,12 @@
       <workItem from="1532328265346" duration="2816000" />
       <workItem from="1532335739486" duration="16661000" />
       <workItem from="1532398452746" duration="738000" />
-      <workItem from="1532399212470" duration="72802000" />
+      <workItem from="1532399212470" duration="73513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96779000" />
+    <option name="totallyTimeSpent" value="97490000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="294" y="105" width="1699" height="898" extended-state="0" />
@@ -422,37 +418,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/myPayment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39">
-          <caret line="138" column="32" selection-start-line="138" selection-start-column="32" selection-end-line="138" selection-end-column="32" />
-          <folding>
-            <element signature="e#3203#3340#0" />
-            <element signature="e#3385#3950#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/loginSuc.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
           <caret line="158" selection-start-line="158" selection-end-line="158" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/myOrder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="e#281#351#0" />
-            <element signature="n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#1;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#2;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -463,10 +432,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/myPayment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="184" column="26" selection-start-line="184" selection-start-column="26" selection-end-line="184" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/myOrder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="207" column="32" lean-forward="true" selection-start-line="207" selection-start-column="32" selection-end-line="207" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="e#281#351#0" />
+            <element signature="n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/myPhoto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="112" column="34" lean-forward="true" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="34" />
+        <state relative-caret-position="291">
+          <caret line="77" column="26" lean-forward="true" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
         </state>
       </provider>
     </entry>

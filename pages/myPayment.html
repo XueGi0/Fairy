@@ -182,7 +182,9 @@
         sessionStorage.setItem('agreement_state', 0)
       },
       error: function (e) {
-        alert('关闭免密支付失败')
+        alert('关闭免密支付失败');
+        $('#checked').css('display', 'none');
+        $('#noChecked').css('display', 'block');
       }
     })
   })

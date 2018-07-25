@@ -206,7 +206,7 @@
         session_3rd: session_3rd
       },
       success: function (data) {
-        if (data.data.length) {
+        if (!data.data.length) {
           $('#noOrder').css('display', 'block');
         } else {
           $('#noOrder').css('display', 'none');
