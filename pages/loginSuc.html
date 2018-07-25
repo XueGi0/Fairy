@@ -146,9 +146,9 @@
   let userPhone = sessionStorage.getItem('userPhone');
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    //$('#userPhone').text(userPhone);
-    //getUserInfo();
-    //getUserPayLog();
+    $('#userPhone').text(userPhone);
+    getUserInfo();
+    getUserPayLog();
   };
 
   $('#userExit').on('click', function () {
