@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>眼神科技 · 刷脸购</title>
   <script src="../js/public.js"></script>
   <link rel="stylesheet" href="../css/reset.css">
@@ -15,6 +16,7 @@
     .noOrder {
       width: 50%;
       margin: 0 auto;
+      display: none;
     }
 
     .noOrder img {
@@ -22,36 +24,102 @@
       width: 100%;
       height: 100%;
       margin: 0 auto;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .noOrder .noTitle {
-      font-size: .5rem;
+      font-size: .2rem;
       color: #000;
       font-weight: bold;
       text-align: center;
       position: relative;
-      margin: .2rem 0;
+      margin: .1rem 0;
     }
 
     .noTitle .pigeon {
       position: absolute;
-      width: .64rem;
-      height: .64rem;
-      top: -.32rem;
-      right: 0;
+      width: .32rem;
+      height: .32rem;
+      top: -.25rem;
+      right: -.15rem;
       display: block;
       background: url("../image/gezi2.png") no-repeat center center;
       background-size: cover;
     }
 
     .noCon {
-      font-size: .35rem;
+      font-size: .14rem;
       font-weight: normal;
       text-align: center;
       color: #282828;
     }
 
+    .orderList {
+      margin-top: .5rem;
+    }
+
+    .listItem {
+      width: 90%;
+      margin: 0 auto;
+      border-radius: .2rem;
+      background: #fff;
+      padding-left: .1rem;
+      position: relative;
+    }
+
+    .listItem .itemTop {
+      clear: both;
+      height: .5rem;
+      border-bottom: .01rem solid #BFBFBF;
+    }
+
+    .listItem .logoIcon {
+      display: block;
+      width: .34rem;
+      height: .34rem;
+      background: url("../image/logo.png") no-repeat center center;
+      background-size: cover;
+      float: left;
+      margin-top: .08rem;
+      margin-right: .1rem;
+    }
+
+    .listItem .deviceName {
+      font-size: .2rem;
+      color: #000;
+      float: left;
+      line-height: 2.5;
+      font-weight: bold;
+    }
+
+    .listItem .arrowR {
+      width: .2rem;
+      height: .2rem;
+      margin: .15rem;
+      display: block;
+      float: right;
+      background: url("../image/person5.png") no-repeat center center;
+      background-size: cover;
+    }
+
+    .listItem .itemBot {
+      height: .5rem;
+    }
+
+    .itemBot .payTime {
+      font-size: .13rem;
+      color: #aaa;
+      float: left;
+      line-height: 4;
+    }
+
+    .itemBot .payMoney {
+      font-size: .15rem;
+      color: #000;
+      float: right;
+      line-height: 3.5;
+      margin-right: .5rem;
+    }
   </style>
 </head>
 <body>
@@ -61,9 +129,81 @@
     <p class="noTitle">您还没有购物订单 <span class="pigeon"></span></p>
     <p class="noCon">快去开始第一次刷脸购物吧~</p>
   </section>
+  <ul class="orderList" id="orderList">
+    <li class="listItem" style="margin-top: .1rem" id="1">
+      <section class="itemTop">
+        <span class="logoIcon"></span>
+        <p class="deviceName">自动售货机001</p>
+        <span class="arrowR"></span>
+      </section>
+      <section class="itemBot">
+        <span class="payTime">2018-07-24 08:30:32</span>
+        <span class="payMoney">￥0</span>
+      </section>
+    </li>
+    <li class="listItem" style="margin-top: .1rem" id="2">
+      <section class="itemTop">
+        <span class="logoIcon"></span>
+        <p class="deviceName">自动售货机001</p>
+        <span class="arrowR"></span>
+      </section>
+      <section class="itemBot">
+        <span class="payTime">2018-07-24 08:30:32</span>
+        <span class="payMoney">￥0</span>
+      </section>
+    </li>
+    <li class="listItem" style="margin-top: .1rem" id="3">
+      <section class="itemTop">
+        <span class="logoIcon"></span>
+        <p class="deviceName">自动售货机001</p>
+        <span class="arrowR"></span>
+      </section>
+      <section class="itemBot">
+        <span class="payTime">2018-07-24 08:30:32</span>
+        <span class="payMoney">￥0</span>
+      </section>
+    </li>
+  </ul>
 </section>
 <script src="../js/jQuery-2.2.0.min.js"></script>
 <script>
+  let orderList = sessionStorage.getItem('orderList');
+  window.onload = function () {
+    //dataHtml();
+  };
+  $('#orderList li').on('click', function () {
+    console.log(this.id);
+    sessionStorage.setItem('id', this.id);
+    window.location.href = './detailOrder.html';
+  });
+
+  function dataHtml() {
+    let htmlStr = '';
+    for (let i = 0; i < orderList.length; i++) {
+      htmlStr += "<li class='listItem' id=" + orderList[i].id + ">";
+      htmlStr += "<section class='itemTop'>";
+      htmlStr += "<span class='logoIcon'></span>";
+      htmlStr += "<p class='deviceName'>" + orderList[i].deviceName + "</p>";
+      htmlStr += "<span class='arrowR'></span>";
+      htmlStr += "</section>";
+      htmlStr += "<section class='itemBot'>";
+      htmlStr += "<span class='payTime'>" + orderList[i].payTime + "</span>";
+      htmlStr += "<span class='payMoney'>" + orderList[i].realAmount + "</span>";
+      htmlStr += "</section>";
+      htmlStr += "</section>";
+      htmlStr += "</li>"
+    }
+    return htmlStr;
+  }
+
+  /*$('#orderList').on('click', function (e) {
+    let event = e || window.event;
+    let target = event.target || event.srcElement;
+    if (target.tagName.toLowerCase() == 'li' || target.parentNode.id != 'orderList' && target.tagName.toLowerCase() != 'ul') {
+      window.location.href = './detailOrder.html';
+    }
+  })*/
+
 
 </script>
 </body>

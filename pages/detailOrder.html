@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>眼神科技 · 刷脸购</title>
+  <script src="../js/public.js"></script>
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+    .detail ul {
+      width: 90%;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: .2rem;
+      margin-top: .5rem;
+      padding: 0 3%;
+      box-sizing: border-box;
+    }
+
+    .detail li {
+      padding: 0 3%;
+      box-sizing: border-box;
+      border-bottom: .01rem dotted #BFBFBF;
+    }
+
+    .detail li:nth-last-child(1) {
+      border-bottom: 0;
+    }
+
+    .detailTie {
+      font-size: .16rem;
+      font-weight: bold;
+      text-align: center;
+      height: .7rem;
+      line-height: 4.5;
+    }
+
+    .orderId, .orderTime {
+      font-size: .14rem;
+      color: #aaa;
+      line-height: 2;
+    }
+
+    .orderDetail {
+      height: .48rem;
+    }
+
+    .orderDetail span {
+      font-size: .14rem;
+      color: #000;
+      line-height: 3.5;
+      float: left;
+      margin-right: .14rem;
+    }
+
+    .orderDetail .orderAmount {
+      float: right;
+      margin-right: 0;
+    }
+
+    .orderDetail .orderNum {
+      float: right;
+    }
+
+    .tolAmount, .reduceAmo {
+      font-size: .16rem;
+      color: #aaa;
+      line-height: 2;
+    }
+
+    .tolAmoCon, .redAmoCon {
+      float: right;
+      font-size: .14rem;
+      line-height: 2;
+    }
+
+    .realAmo {
+      font-size: .16rem;
+      line-height: 3;
+    }
+
+    .realAmoCon {
+      font-weight: bold;
+      float: right;
+    }
+
+    .preIcoon {
+      height: .5rem;
+      text-align: center;
+    }
+
+    .preIcoon .logo {
+      display: inline-block;
+      width: .34rem;
+      height: .34rem;
+      background: url("../image/logo.png") no-repeat center center;
+      background-size: cover;
+      margin-right: .1rem;
+      position: relative;
+      top: .1rem;
+    }
+
+    .preIcoon p {
+      font-size: .18rem;
+      color: #000;
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+<section class="detail">
+  <ul>
+    <li><p class="detailTie" id="detailTie">自动售货机001</p></li>
+    <li>
+      <p class="orderId">
+        <span>订单编号：</span>
+        <span class="orderIdCon" id="orderIdCon">12345678909854321235678</span>
+      </p>
+      <p class="orderTime">
+        <span>下单时间：</span>
+        <span class="orderTimeCon" id="orderTimeCon">2018-07-24 08:30:32</span>
+      </p>
+    </li>
+    <li>
+      <p class="orderDetail" id="orderDetail">
+        <span class="serial" id="serial">1</span>
+        <span class="detailCon" id="detailCon">硬盒经典红双喜</span>
+        <span class="orderAmount" id="orderAmount">￥1.00</span>
+        <span class="orderNum" id="orderNum">x1</span>
+      </p>
+    </li>
+    <li>
+      <p class="tolAmount">
+        <span>订单总额</span>
+        <span class="tolAmoCon" id="tolAmoCon">￥0.01</span>
+      </p>
+      <p class="reduceAmo">
+        <span>减免金额</span>
+        <span class="redAmoCon" id="redAmoCon">-￥5.00</span>
+      </p>
+    </li>
+    <li>
+      <p class="realAmo">
+        <span>付款金额</span>
+        <span class="realAmoCon" id="realAmoCon">￥0.00</span>
+      </p>
+    </li>
+  </ul>
+  <section class="preIcoon">
+    <p><span class="logo"></span>欢迎您下次光临~</p>
+  </section>
+</section>
+<script src="../js/jQuery-2.2.0.min.js"></script>
+<script>
+  let id = sessionStorage.getItem('id');
+  let orderList = sessionStorage.getItem('orderList');
+  alert(id);
+  console.log(orderList);
+</script>
+</body>
+</html>

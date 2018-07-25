@@ -11,7 +11,6 @@ body, html, .perCenter {
 }
 
 .cenFooter {
-  height: 1.5rem;
   border-top: .01rem solid #e4e4e4;
   position: absolute;
   bottom: 0;
@@ -23,7 +22,7 @@ body, html, .perCenter {
   width: 50%;
   height: 100%;
   float: left;
-  font-size: .35rem;
+  font-size: .16rem;
   color: #282828;
   text-align: center;
   list-style: none;
@@ -31,9 +30,9 @@ body, html, .perCenter {
 
 .cenFooter .footIcon {
   display: block;
-  width: .8rem;
-  height: .8rem;
-  margin: .15rem auto 0;
+  width: .3rem;
+  height: .3rem;
+  margin: .05rem auto 0;
   background: url("../image/home.png") no-repeat center center;
   background-size: cover;
 }
