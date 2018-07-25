@@ -147,10 +147,10 @@
     </li>
     <li>
       <p class="orderDetail" id="orderDetail">
-        <span class="serial" id="serial">1</span>
+        <!--<span class="serial" id="serial">1</span>
         <span class="detailCon" id="detailCon">硬盒经典红双喜</span>
         <span class="orderAmount" id="orderAmount">￥1.00</span>
-        <span class="orderNum" id="orderNum">x1</span>
+        <span class="orderNum" id="orderNum">x1</span>-->
       </p>
     </li>
     <li>
@@ -178,8 +178,32 @@
 <script>
   let id = sessionStorage.getItem('id');
   let orderList = sessionStorage.getItem('orderList');
-  alert(id);
-  console.log(orderList);
+  window.onload = function () {
+    $('#detailTie').html(orderList[id - 1].deviceName);
+    $('#orderIdCon').html(orderList[id - 1].serialNum);
+    $('#orderTimeCon').html(orderList[id - 1].payTime);
+    $('#orderTimeCon').html(orderList[id - 1].payTime);
+    dataHtml();
+    if (!htmlStr) {
+      $('#orderDetail').html(htmlStr)
+    }
+    $('#tolAmoCon').html(orderList[id - 1].tolAmount);
+    $('#redAmoCon').html(orderList[id - 1].reduceAmount);
+    $('#realAmoCon').html(orderList[id - 1].realAmount);
+  };
+
+  function dataHtml() {
+    let htmlStr = '';
+    let data = orderList[id - 1].detailData;
+    for (let i = 0; i < data.length; i++) {
+      let k = i + 1;
+      htmlStr += "<span class='serial'>" + k + "</span>";
+      htmlStr += "<span class='detailCon'>" + data.dataName + "</span>";
+      htmlStr += "<span class='orderAmount'>" + data.orderAmount + "</span>";
+      htmlStr += "<span class='orderNum'>" + data.dataName + "</span>"
+    }
+    return htmlStr;
+  }
 </script>
 </body>
 </html>

@@ -156,45 +156,7 @@
     sessionStorage.clear();
   });
 
-  function getUserInfo() {
-    $.ajax({
-      type: 'POST',
-      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/info',
-      data: {
-        session_3rd: session_3rd
-      },
-      success: function (data) {
-        //alert(data.state);
-        if (data.state == 1) {
-          sessionStorage.setItem('agreement_state', data.agreement_state);
-          sessionStorage.setItem('imurl', data.imurl);
-        } else {
-          getUserInfo()
-        }
-      },
-      error: function (e) {
-        //alert('信息接口请求失败，重新请求中');
-        getUserInfo();
-      }
-    })
-  }
 
-  function getUserPayLog() {
-    $.ajax({
-      type: 'POST',
-      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/paylog',
-      data: {
-        session_3rd: session_3rd
-      },
-      success: function (data) {
-        alert('订单请求成功');
-        sessionStorage.setItem('orderList', data.data)
-      },
-      error: function (e) {
-        alert('订单请求失败')
-      }
-    })
-  }
 </script>
 </body>
 </html>

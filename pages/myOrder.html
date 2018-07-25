@@ -167,12 +167,14 @@
 </section>
 <script src="../js/jQuery-2.2.0.min.js"></script>
 <script>
-  let orderList = sessionStorage.getItem('orderList');
+  let orderList;
   window.onload = function () {
-    //dataHtml();
+    getUserPayLog();
+    if (!htmlStr) {
+      $('#orderList').html(htmlStr);
+    }
   };
   $('#orderList li').on('click', function () {
-    console.log(this.id);
     sessionStorage.setItem('id', this.id);
     window.location.href = './detailOrder.html';
   });
@@ -194,6 +196,29 @@
       htmlStr += "</li>"
     }
     return htmlStr;
+  }
+
+  function getUserPayLog() {
+    $.ajax({
+      type: 'POST',
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/paylog',
+      data: {
+        session_3rd: session_3rd
+      },
+      success: function (data) {
+        if (data.data.length) {
+          $('#noOrder').css('display', 'block');
+        } else {
+          $('#noOrder').css('display', 'none');
+          orderList = data.data;
+          sessionStorage.setItem('orderList', data.data);
+          dataHtml();
+        }
+      },
+      error: function (e) {
+        alert('订单请求失败')
+      }
+    })
   }
 
   /*$('#orderList').on('click', function (e) {
