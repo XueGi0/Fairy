@@ -9,7 +9,7 @@
   <style>
 
     .perCenter .cenHead {
-      height: 20%;
+      height: 25%;
       width: 100%;
       background: #537EFA;
       padding: 0 5%;
@@ -46,7 +46,7 @@
       background: url("../image/gezi1.png") no-repeat center center;
       background-size: cover;
       top: -.3rem;
-      right: 1rem;
+      right: 1.25rem;
     }
 
     .userInfo .exit {
@@ -146,8 +146,9 @@
   let userPhone = sessionStorage.getItem('userPhone');
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    $('#userPhone').text(userPhone);
-    getUserInfo();
+    //$('#userPhone').text(userPhone);
+    //getUserInfo();
+    //getUserPayLog();
   };
 
   $('#userExit').on('click', function () {

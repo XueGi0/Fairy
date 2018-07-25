@@ -7,6 +7,28 @@
   <script src="../js/public.js"></script>
   <link rel="stylesheet" href="../css/reset.css">
   <style>
+    .detail {
+      position: relative;
+    }
+
+    .detail .orderIcon {
+      position: absolute;
+      display: block;
+      top: 0;
+      width: .32rem;
+      height: .32rem;
+      background: url("../image/ding.png") no-repeat center;
+      background-size: cover;
+    }
+
+    .detail .left {
+      left: 5%;
+    }
+
+    .detail .right {
+      right: 5%;
+    }
+
     .detail ul {
       width: 90%;
       margin: 0 auto;
@@ -109,6 +131,8 @@
 </head>
 <body>
 <section class="detail">
+  <span class="orderIcon left"></span>
+  <span class="orderIcon right"></span>
   <ul>
     <li><p class="detailTie" id="detailTie">自动售货机001</p></li>
     <li>

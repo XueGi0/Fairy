@@ -15,7 +15,7 @@ body, html {
 }
 
 .phone {
-  height: 25%;
+  height: 30%;
   border-bottom: .01rem solid #a2a4a9;
   margin-bottom: 5%;
   box-sizing: border-box;
@@ -23,7 +23,7 @@ body, html {
 }
 
 .phone .userIcon {
-  margin-top: .05rem;
+  margin-top: .1rem;
   margin-right: .1rem;
   display: block;
   width: .32rem;
@@ -97,7 +97,7 @@ body, html {
   box-sizing: border-box;
   border: .01rem solid #C8C8C8;
   border-radius: .1rem;
-  font-size: .18rem;
+  font-size: .16rem;
   color: #C8C8C8;
   float: left;
 }
