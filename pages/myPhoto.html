@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>眼神科技 · 刷脸购</title>
   <script src="../js/public.js"></script>
   <link rel="stylesheet" href="../css/reset.css">
   <style>
@@ -58,7 +58,7 @@
 <body>
 <section class="myPhoto">
   <section class="showImg">
-    <img src="" alt="">
+    <img src="" alt="" id="imurl">
   </section>
   <section class="photoFooter">
     <button class="alterPhoto">修改图片</button>
@@ -68,14 +68,17 @@
 
 <script src="../js/jQuery-2.2.0.min.js"></script>
 <script>
+  let imurl = sessionStorage.getItem('imurl');
+  window.onload = function () {
+    $('#imurl').attr('src', imurl);
+  };
   let upload = function () {
-    console.log($('#fileBtn')[0].files);
     "use strict";
     let file = $('#fileBtn')[0].files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function (e) {
-      sessionStorage.setItem('baseImg', e.target.result);
+      sessionStorage.setItem('imurl', e.target.result);
       let base64Img = e.target.result.split(',')[1];
       let session_3rd = sessionStorage.getItem('session_3rd');
       $.ajax({
@@ -88,11 +91,11 @@
         success: function (data) {
           alert(data.code);
           if (data.code == '0000') {
-            window.location.href = './photoRes.html';
+            $('#imurl').attr('src', e.target.result);
           }
         },
         error: function (e) {
-          alert(e)
+          alert('发送失败，刷新重试')
         }
       });
     };

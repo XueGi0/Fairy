@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>眼神科技 · 刷脸购</title>
+  <script src="../js/public.js"></script>
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+    body {
+      background: #fff;
+    }
+
+    .schedule {
+      width: 100%;
+      margin-top: 5%;
+    }
+
+    .schedule img {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .freePayBody {
+      height: 55%;
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 1.5rem;
+      border: .01rem solid #e9e9e9;
+      box-shadow: 0 0 .08rem .04rem #e2e2e2;
+      border-radius: .1rem;
+    }
+
+    .freePayBody .payHead {
+      width: 100%;
+      height: 15%;
+      background: #FAFAFA;
+      color: #818181;
+      font-size: .5rem;
+      padding: 0 5%;
+      box-sizing: border-box;
+      line-height: 3;
+    }
+
+    .payCon {
+      padding: 0 5%;
+    }
+
+    .payCon .payTit {
+      font-size: .5rem;
+      font-weight: bold;
+      color: #2e2e2e;
+      margin: .3rem 0;
+      line-height: 1;
+    }
+
+    .payCon span {
+      display: block;
+      font-size: .45rem;
+      color: #b3b3b3;
+      padding-bottom: .4rem;
+      border-bottom: .01rem solid #ededed;
+    }
+
+    .freePayFoo {
+      width: 80%;
+      height: 20%;
+      margin: 0 auto;
+      margin-top: 1.5rem;
+    }
+
+    .freePayFoo .freeBtn {
+      height: 40%;
+      color: #fff;
+      width: 100%;
+      border-radius: .1rem;
+      background: #537EFA;
+      font-size: .5rem
+    }
+
+    .freePayFoo .payAgree {
+      font-size: .4rem;
+      color: #b3b3b3;
+      text-align: center;
+      margin-top: .5rem;
+    }
+
+    .freePayFoo .payAgree a {
+      color: #537efa;
+    }
+  </style>
+</head>
+<body>
+<section class="schedule">
+  <img src="../image/payment.png" alt="">
+</section>
+<section class="freePayBody">
+  <section class="payHead">刷脸售货机免密支付</section>
+  <ul class="payCon">
+    <li>
+      <p class="payTit">用户账户</p>
+      <span id="userPhone">18514250265</span>
+    </li>
+    <li>
+      <p class="payTit">套餐内容</p>
+      <span>该服务用于刷脸支付购买商品的金额，单笔消费低于300元的订单，用户无需输入密码，享受便捷的操作</span>
+    </li>
+    <li>
+      <p class="payTit">扣费方式</p>
+      <span>零钱</span>
+    </li>
+  </ul>
+</section>
+<section class="freePayFoo">
+  <button class="freeBtn" id="freeBtn">开通免密支付</button>
+  <p class="payAgree">您已阅读并同意<a href="./payAgree.html">《扣款授权确认书》</a></p>
+</section>
+<script src="../js/jQuery-2.2.0.min.js"></script>
+<script>
+  window.onload = function () {
+    let userPhone = sessionStorage.getItem('userPhone');
+    $('#userPhone').html(userPhone);
+  };
+  let session_3rd = sessionStorage.getItem('session_3rd');
+  $('#freeBtn').on('click', function () {
+    window.location.href = "https://payh5.xiongan.eyecool.cn/faceSell/main/pages/icbc.html?session_3rd=" + session_3rd;
+  });
+</script>
+</body>
+</html>

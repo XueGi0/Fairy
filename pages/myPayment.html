@@ -5,6 +5,20 @@
   <title>Title</title>
   <script src="../js/public.js"></script>
   <link rel="stylesheet" href="../css/reset.css">
+  <script>
+    (function () {
+      let agreement_state = sessionStorage.getItem('agreement_state');
+      if (agreement_state == 0) {
+        $('#checked').css('display', 'none');
+        $('#noChecked').css('display', 'block');
+        $('#noDredge').html('未开通');
+      } else {
+        $('#noChecked').css('display', 'none');
+        $('#checked').css('display', 'block');
+        $('#noDredge').html('已开通')
+      }
+    })()
+  </script>
   <style>
     .myPayment {
       width: 100%;
@@ -98,6 +112,10 @@
       right: 5%;
       font-size: .3rem
     }
+
+    #checked {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -109,12 +127,40 @@
       <p class="freePayConC">Eyecool Free Payment</p>
     </section>
     <section class="checkBox">
-      <input type="checkbox" class="switch">
+      <input id="noChecked" type="checkbox" class="switch"/>
+      <input id="checked" type="checkbox" class="switch"/>
     </section>
     <section class="freePayTip">
-      <span>未开通</span>
+      <span id="noDredge">未开通</span>
     </section>
   </section>
 </section>
+
+<script src="../js/jQuery-2.2.0.min.js"></script>
+<script>
+  let session_3rd = sessionStorage.getItem('session_3rd');
+  $('#noChecked').on('click', function () {
+    window.location.href = './freePay.html';
+  });
+  $('#checked').on('click', function () {
+    $.ajax({
+      type: 'POST',
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell/terminateV1',
+      data: {
+        session_3rd: session_3rd
+      },
+      success: function (data) {
+        alert(data);
+        $('#checked').css('display', 'none');
+        $('#noChecked').css('display', 'block');
+        $('#noDredge').html('未开通');
+        sessionStorage.setItem('agreement_state', 0)
+      },
+      error: function (e) {
+        alert('关闭免密支付失败')
+      }
+    })
+  })
+</script>
 </body>
 </html>

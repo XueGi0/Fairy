@@ -114,7 +114,7 @@
   <section class="cenHead">
     <p class="userID">用户账号</p>
     <section class="userInfo">
-      <p class="userPhone">18514250265 <span class="pigeon"></span></p>
+      <p class="userPhone" id="userPhone">18514250265 <span class="pigeon"></span></p>
       <button class="exit" id="userExit">退出</button>
     </section>
   </section>
@@ -134,7 +134,51 @@
 </section>
 <script src="../js/jQuery-2.2.0.min.js"></script>
 <script>
+  let userPhone = sessionStorage.getItem('userPhone');
+  let session_3rd = sessionStorage.getItem('session_3rd');
+  window.onload = function () {
+    $('#userPhone').text(userPhone);
+    getUserInfo();
+  };
 
+  function getUserInfo() {
+    $.ajax({
+      type: 'POST',
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/info',
+      data: {
+        session_3rd: session_3rd
+      },
+      success: function (data) {
+        alert(data.state);
+        if (data.state == 1) {
+          sessionStorage.setItem('agreement_state', data.agreement_state);
+          sessionStorage.setItem('imurl', data.imurl);
+        } else {
+          getUserInfo()
+        }
+      },
+      error: function (e) {
+        alert('信息接口请求失败，重新请求中');
+        getUserInfo();
+      }
+    })
+  }
+
+  function getUserPayLog() {
+    $.ajax({
+      type: 'POST',
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/paylog',
+      data: {
+        session_3rd: session_3rd
+      },
+      success: function (data) {
+
+      },
+      error: function (e) {
+
+      }
+    })
+  }
 </script>
 </body>
 </html>
