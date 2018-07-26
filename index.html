@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>眼神科技 · 刷脸购</title>
   <script src="js/public.js"></script>
+  <script>
+    if (sessionStorage.getItem('session_3rd')) {
+      window.location.href = './loginSuc.html';
+    }
+  </script>
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -26,6 +31,7 @@
 
 <script src="js/jQuery-2.2.0.min.js"></script>
 <script>
+
   $('body').height($('body')[0].clientHeight);
   let timer;
 

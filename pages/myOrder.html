@@ -12,6 +12,31 @@
     let htmlStr = '';
     let orderList;
 
+    function dataHtml() {
+      for (let i = 0; i < orderList.length; i++) {
+        htmlStr += "<li class='listItem' id=" + orderList[i].id + ">";
+        htmlStr += "<section class='itemTop'>";
+        htmlStr += "<span class='logoIcon'></span>";
+        htmlStr += "<p class='deviceName'>" + orderList[i].deviceName + "</p>";
+        htmlStr += "<span class='arrowR'></span>";
+        htmlStr += "</section>";
+        htmlStr += "<section class='itemBot'>";
+        htmlStr += "<span class='payTime'>" + orderList[i].payTime + "</span>";
+        htmlStr += "<span class='payMoney'>" + orderList[i].realAmount + "</span>";
+        htmlStr += "</section>";
+        htmlStr += "</section>";
+        htmlStr += "</li>"
+      }
+      return htmlStr;
+    }
+
+    function judgeObj(obj) {
+      for (let attr in obj) {
+        return false
+      }
+      return true;
+    }
+
     function getUserPayLog() {
       $.ajax({
         async: "true",
@@ -214,31 +239,6 @@
     sessionStorage.setItem('id', this.id);
     window.location.href = './detailOrder.html';
   });
-
-  function dataHtml() {
-    for (let i = 0; i < orderList.length; i++) {
-      htmlStr += "<li class='listItem' id=" + orderList[i].id + ">";
-      htmlStr += "<section class='itemTop'>";
-      htmlStr += "<span class='logoIcon'></span>";
-      htmlStr += "<p class='deviceName'>" + orderList[i].deviceName + "</p>";
-      htmlStr += "<span class='arrowR'></span>";
-      htmlStr += "</section>";
-      htmlStr += "<section class='itemBot'>";
-      htmlStr += "<span class='payTime'>" + orderList[i].payTime + "</span>";
-      htmlStr += "<span class='payMoney'>" + orderList[i].realAmount + "</span>";
-      htmlStr += "</section>";
-      htmlStr += "</section>";
-      htmlStr += "</li>"
-    }
-    return htmlStr;
-  }
-
-  function judgeObj(obj) {
-    for (let attr in obj) {
-      return false
-    }
-    return true;
-  }
 
 
   /*$('#orderList').on('click', function (e) {

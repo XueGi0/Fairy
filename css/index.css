@@ -12,6 +12,7 @@ input[type=number] {
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
+  background-color: transparent;
   -webkit-appearance: none;
   margin: 0;
   FILTER: alpha(opacity=0);

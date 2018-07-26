@@ -143,12 +143,9 @@
 </section>
 <script src="../js/jQuery-2.2.0.min.js"></script>
 <script>
-  let userPhone = sessionStorage.getItem('userPhone');
-  let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
+    let userPhone = sessionStorage.getItem('userPhone');
     $('#userPhone').text(userPhone);
-    getUserInfo();
-    getUserPayLog();
   };
 
   $('#userExit').on('click', function () {
