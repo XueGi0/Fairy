@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>眼神科技 · 刷脸购</title>
-  <script src="js/public.js"></script>
-  <script src="js/jQuery-2.2.0.min.js"></script>
+  <script src="../js/public.js"></script>
+  <script src="../js/jQuery-2.2.0.min.js"></script>
   <script>
     let userPhone = '';
     let session_3rd = sessionStorage.getItem('session_3rd');
     $.ajax({
       async: 'true',
       type: 'POST',
-      url: 'https://payh5.xiongan.eyecool.cn/faceSell//wx/loginbysession',
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/loginbysession',
       data: {
         loginbysession: session_3rd
       },
@@ -34,7 +34,7 @@
       }
     })
   </script>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 <section class="container">
@@ -137,12 +137,12 @@
           sessionStorage.setItem('session_3rd', data.session_3rd);
           userPhone = data.session_3rd.split(":")[0];
           sessionStorage.setItem('userPhone', userPhone);
-          window.location.href = './pages/updateImg.html';
+          window.location.href = 'official/updateImg.html';
         } else if (data.state == '1' && data.img > 0) {
           sessionStorage.setItem('session_3rd', data.session_3rd);
           userPhone = data.session_3rd.split(":")[0];
           sessionStorage.setItem('userPhone', userPhone);
-          window.location.href = './pages/loginSuc.html';  //->登录成功并且有照片信息
+          window.location.href = 'official/loginSuc.html';  //->登录成功并且有照片信息
         } else {
           alert('验证码输入有误');
         }

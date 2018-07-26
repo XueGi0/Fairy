@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>个人中心</title>
-  <script src="../js/public.js"></script>
-  <link rel="stylesheet" href="../css/reset.css">
+  <script src="../../js/public.js"></script>
+  <link rel="stylesheet" href="../../css/reset.css">
 
   <style>
 
@@ -44,7 +44,7 @@
       display: block;
       width: .48rem;
       height: .48rem;
-      background: url("../image/gezi1.png") no-repeat center center;
+      background: url("../../image/gezi1.png") no-repeat center center;
       background-size: cover;
       top: -.3rem;
       right: 1.25rem;
@@ -89,19 +89,19 @@
       float: left;
       width: .3rem;
       height: .3rem;
-      background: url("../image/person1.png") no-repeat center center;
+      background: url("../../image/person1.png") no-repeat center center;
       background-size: cover;
 
       margin: .1rem;
     }
 
     .cenCon .myPhoto {
-      background: url("../image/person2.png") no-repeat center center;
+      background: url("../../image/person2.png") no-repeat center center;
       background-size: cover;
     }
 
     .cenCon .mPayment {
-      background: url("../image/person4.png") no-repeat center center;
+      background: url("../../image/person4.png") no-repeat center center;
       background-size: cover;
     }
 
@@ -110,7 +110,7 @@
       float: right;
       width: .2rem;
       height: .2rem;
-      background: url("../image/person5.png") no-repeat 100%;
+      background: url("../../image/person5.png") no-repeat 100%;
       background-size: cover;
       margin: .15rem;
     }
@@ -130,19 +130,19 @@
   </section>
   <section class="cenCon">
     <ul>
-      <li><a href="./myOrder.html"><span class="listIcon orderList"></span>我的订单<span class="arrRight"></span></a></li>
-      <li><a href="./myPhoto.html"><span class="listIcon myPhoto"></span>我的照片<span class="arrRight"></span></a></li>
-      <li><a href="./myPayment.html"><span class="listIcon mPayment"></span>免密支付<span class="arrRight"></span></a></li>
+      <li><a href="myOrder.html"><span class="listIcon orderList"></span>我的订单<span class="arrRight"></span></a></li>
+      <li><a href="myPhoto.html"><span class="listIcon myPhoto"></span>我的照片<span class="arrRight"></span></a></li>
+      <li><a href="myPayment.html"><span class="listIcon mPayment"></span>免密支付<span class="arrRight"></span></a></li>
     </ul>
   </section>
   <section class="cenFooter">
     <ul>
-      <li><a href="./loginIndex.html"><span class="footIcon indexIcon"></span>首页</a></li>
+      <li><a href="loginIndex.html"><span class="footIcon indexIcon"></span>首页</a></li>
       <li class="active"><a href="./loginSuc.html"><span class="footIcon myIcon"></span>我的</a></li>
     </ul>
   </section>
 </section>
-<script src="../js/jQuery-2.2.0.min.js"></script>
+<script src="../../js/jQuery-2.2.0.min.js"></script>
 <script>
 
   let userPhone = sessionStorage.getItem('userPhone');
@@ -150,7 +150,7 @@
 
 
   $('#userExit').on('click', function () {
-    window.location.href = '../index.html';
+    window.location.href = '../officialIndex.html';
     sessionStorage.clear();
   });
 
