@@ -42,17 +42,17 @@ body, html, .perCenter {
   background-size: cover;
 }
 
-.cenFooter li:active .myIcon {
+.cenFooter li.active .myIcon {
   background: url("../image/a2.png") no-repeat center center;
   background-size: cover;
 }
 
-.cenFooter li:active .indexIcon {
+.cenFooter li.active .indexIcon {
   background: url("../image/home2.png") no-repeat center center;
   background-size: cover;
 }
 
-.cenFooter li:active {
+.cenFooter li.active {
   color: #537EFA
 }
 
@@ -61,7 +61,7 @@ a {
   color: #282828;
 }
 
-.cenFooter li a:active {
+.cenFooter li.active a {
   color: #537EFA
 }
 

@@ -12,9 +12,16 @@
     let htmlStr = '';
     let orderList;
 
+    if (htmlStr != '') {
+      $('#orderList').html(htmlStr);
+    } else {
+      $('#orderList').css('display', 'none');
+      $('#noOrder').css('display', 'block');
+    }
+
     function dataHtml() {
       for (let i = 0; i < orderList.length; i++) {
-        htmlStr += "<li class='listItem' id=" + orderList[i].id + ">";
+        htmlStr += "<li class='listItem' id=" + i + ">";
         htmlStr += "<section class='itemTop'>";
         htmlStr += "<span class='logoIcon'></span>";
         htmlStr += "<p class='deviceName'>" + orderList[i].deviceName + "</p>";
@@ -22,7 +29,7 @@
         htmlStr += "</section>";
         htmlStr += "<section class='itemBot'>";
         htmlStr += "<span class='payTime'>" + orderList[i].payTime + "</span>";
-        htmlStr += "<span class='payMoney'>" + orderList[i].realAmount + "</span>";
+        htmlStr += "<span class='payMoney'>" + '￥' + orderList[i].realAmount + "</span>";
         htmlStr += "</section>";
         htmlStr += "</section>";
         htmlStr += "</li>"
@@ -48,16 +55,19 @@
         success: function (data) {
           if (data.state == '1') {
             if (judgeObj(data.data)) {
-              alert('我没有订单');
               $('#orderList').css('display', 'none');
               $('#noOrder').css('display', 'block');
             } else {
-              alert('我有订单');
               $('#noOrder').css('display', 'none');
               $('#orderList').css('display', 'block');
               orderList = data.data;
-              sessionStorage.setItem('orderList', data.data);
               dataHtml();
+              $('#orderList').html(htmlStr);
+              $('#orderList li').on('click', function () {
+                sessionStorage.setItem('id', this.id);
+                sessionStorage.setItem('detailData', JSON.stringify(orderList[this.id]));
+                window.location.href = './detailOrder.html';
+              });
             }
           }
         },
@@ -68,18 +78,12 @@
     }
 
     getUserPayLog();
-    if (htmlStr != '') {
-      $('#orderList').html(htmlStr);
-    } else {
-      $('#orderList').css('display', 'none');
-      $('#noOrder').css('display', 'block');
-    }
   </script>
   <style>
     .myOrder {
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      overflow: scroll !important;
     }
 
     .noOrder {
@@ -133,6 +137,7 @@
       background: #fff;
       padding-left: .1rem;
       position: relative;
+      margin-bottom: .2rem;
     }
 
     .listItem .itemTop {
@@ -233,23 +238,6 @@
     </li>-->
   </ul>
 </section>
-<script>
 
-  $('#orderList li').on('click', function () {
-    sessionStorage.setItem('id', this.id);
-    window.location.href = './detailOrder.html';
-  });
-
-
-  /*$('#orderList').on('click', function (e) {
-    let event = e || window.event;
-    let target = event.target || event.srcElement;
-    if (target.tagName.toLowerCase() == 'li' || target.parentNode.id != 'orderList' && target.tagName.toLowerCase() != 'ul') {
-      window.location.href = './detailOrder.html';
-    }
-  })*/
-
-
-</script>
 </body>
 </html>

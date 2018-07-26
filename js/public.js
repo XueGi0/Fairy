@@ -1,4 +1,3 @@
-
 ~function () {
   let computed = function () {
     let desW = 375;
@@ -12,3 +11,4 @@
   computed();
   window.addEventListener('resize', computed, false);
 }();
+

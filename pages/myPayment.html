@@ -170,7 +170,7 @@
   $('#checked').on('click', function () {
     $.ajax({
       type: 'POST',
-      url: 'https://payh5.xiongan.eyecool.cn/faceSell/terminateV1',
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell/paycenter/terminateV1',
       data: {
         session_3rd: session_3rd
       },
@@ -182,8 +182,8 @@
       },
       error: function (e) {
         alert('关闭免密支付失败');
-        $('#noChecked').css('display', 'block');
-        $('#checked').css('display', 'none');
+        $('#noChecked').css('display', 'none');
+        $('#checked').css('display', 'block');
       }
     })
   })

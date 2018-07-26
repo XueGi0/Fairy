@@ -176,31 +176,28 @@
 </section>
 <script src="../js/jQuery-2.2.0.min.js"></script>
 <script>
-  let id = sessionStorage.getItem('id');
-  let orderList = sessionStorage.getItem('orderList');
+  let htmlStr = '';
+  let orderCon = JSON.parse(sessionStorage.getItem('detailData'));
+  let detailData = JSON.parse(orderCon.detailData).detail_data;
   window.onload = function () {
-    $('#detailTie').html(orderList[id - 1].deviceName);
-    $('#orderIdCon').html(orderList[id - 1].serialNum);
-    $('#orderTimeCon').html(orderList[id - 1].payTime);
-    $('#orderTimeCon').html(orderList[id - 1].payTime);
+    $('#detailTie').html(orderCon.deviceName);
+    $('#orderIdCon').html(orderCon.serialNum);
+    $('#orderTimeCon').html(orderCon.payTime);
+    $('#orderTimeCon').html(orderCon.payTime);
     dataHtml();
-    if (!htmlStr) {
-      $('#orderDetail').html(htmlStr)
-    }
-    $('#tolAmoCon').html(orderList[id - 1].tolAmount);
-    $('#redAmoCon').html(orderList[id - 1].reduceAmount);
-    $('#realAmoCon').html(orderList[id - 1].realAmount);
+    $('#orderDetail').html(htmlStr);
+    $('#tolAmoCon').html('￥' + orderCon.tolAmount);
+    $('#redAmoCon').html('-￥' + orderCon.reduceAmount);
+    $('#realAmoCon').html('￥' + orderCon.realAmount);
   };
 
   function dataHtml() {
-    let htmlStr = '';
-    let data = orderList[id - 1].detailData;
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < detailData.length; i++) {
       let k = i + 1;
       htmlStr += "<span class='serial'>" + k + "</span>";
-      htmlStr += "<span class='detailCon'>" + data.goods_name + "</span>";
-      htmlStr += "<span class='orderAmount'>" + data.slaenum + "</span>";
-      htmlStr += "<span class='orderNum'>" + data.subtotal + "</span>"
+      htmlStr += "<span class='detailCon'>" + detailData[i].goods_name + "</span>";
+      htmlStr += "<span class='orderAmount'>" + '￥' + detailData[i].salenum + "</span>";
+      htmlStr += "<span class='orderNum'>" + 'x' + detailData[i].subtotal + "</span>"
     }
     return htmlStr;
   }
