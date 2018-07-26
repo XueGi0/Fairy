@@ -5,7 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>眼神科技 · 刷脸购</title>
   <script src="../js/public.js"></script>
+  <script src="../js/jQuery-2.2.0.min.js"></script>
   <link rel="stylesheet" href="../css/reset.css">
+  <script>
+    let session_3rd = sessionStorage.getItem('session_3rd');
+    let htmlStr = '';
+    let orderList;
+
+    function getUserPayLog() {
+      $.ajax({
+        async: "true",
+        type: 'POST',
+        url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/paylog',
+        data: {
+          session_3rd: session_3rd
+        },
+        success: function (data) {
+          if (data.state == '1') {
+            if (judgeObj(data.data)) {
+              alert('我没有订单');
+              $('#orderList').css('display', 'none');
+              $('#noOrder').css('display', 'block');
+            } else {
+              alert('我有订单');
+              $('#noOrder').css('display', 'none');
+              $('#orderList').css('display', 'block');
+              orderList = data.data;
+              sessionStorage.setItem('orderList', data.data);
+              dataHtml();
+            }
+          }
+        },
+        error: function (e) {
+          alert('订单请求失败')
+        }
+      })
+    }
+
+    getUserPayLog();
+    if (htmlStr != '') {
+      $('#orderList').html(htmlStr);
+    } else {
+      $('#orderList').css('display', 'none');
+      $('#noOrder').css('display', 'block');
+    }
+  </script>
   <style>
     .myOrder {
       width: 100%;
@@ -129,7 +173,7 @@
     <p class="noCon">快去开始第一次刷脸购物吧~</p>
   </section>
   <ul class="orderList" id="orderList">
-    <li class="listItem" style="margin-top: .1rem" id="1">
+    <!--<li class="listItem" style="margin-top: .1rem" id="1">
       <section class="itemTop">
         <span class="logoIcon"></span>
         <p class="deviceName">自动售货机001</p>
@@ -161,24 +205,11 @@
         <span class="payTime">2018-07-24 08:30:32</span>
         <span class="payMoney">￥0</span>
       </section>
-    </li>
+    </li>-->
   </ul>
 </section>
-<script src="../js/jQuery-2.2.0.min.js"></script>
 <script>
-  let orderList;
-  let htmlStr = '';
 
-  let session_3rd = sessionStorage.getItem('session_3rd');
-  window.onload = function () {
-    getUserPayLog();
-    if (htmlStr != '') {
-      $('#orderList').html(htmlStr);
-    } else {
-      $('#orderList').css('display', 'none');
-      $('#noOrder').css('display', 'block');
-    }
-  };
   $('#orderList li').on('click', function () {
     sessionStorage.setItem('id', this.id);
     window.location.href = './detailOrder.html';
@@ -209,35 +240,6 @@
     return true;
   }
 
-  function getUserPayLog() {
-    $.ajax({
-      async: "true",
-      type: 'POST',
-      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/paylog',
-      data: {
-        session_3rd: session_3rd
-      },
-      success: function (data) {
-        if (data.state == '1') {
-          if (judgeObj(data.data)) {
-            alert('我没有订单');
-            $('#orderList').css('display', 'none');
-            $('#noOrder').css('display', 'block');
-          } else {
-            alert('我有订单');
-            $('#noOrder').css('display', 'none');
-            $('#orderList').css('display', 'block');
-            orderList = data.data;
-            sessionStorage.setItem('orderList', data.data);
-            dataHtml();
-          }
-        }
-      },
-      error: function (e) {
-        alert('订单请求失败')
-      }
-    })
-  }
 
   /*$('#orderList').on('click', function (e) {
     let event = e || window.event;

@@ -62,6 +62,17 @@
       border-bottom: .01rem solid #ededed;
     }
 
+    #userPhone {
+      font-size: .18rem;
+    }
+
+    #userPhone .fourNum {
+      display: inline-block;
+      border-bottom: none;
+      font-size: .2rem;
+      font-weight: bold;
+    }
+
     .freePayFoo {
       width: 80%;
       height: 20%;
@@ -100,7 +111,7 @@
   <ul class="payCon">
     <li>
       <p class="payTit">注册手机号</p>
-      <span id="userPhone">18514250265</span>
+      <span id="userPhone">1851425<span class="fourNum">0265</span></span>
     </li>
     <li>
       <p class="payTit">使用规则</p>
@@ -120,7 +131,9 @@
 <script>
   window.onload = function () {
     let userPhone = sessionStorage.getItem('userPhone');
-    $('#userPhone').html(userPhone);
+    let fourNum = userPhone.slice(7);
+    let beforeNum = userPhone.slice(0, 7);
+    $('#userPhone').html(beforeNum + "<span class='fourNum'>" + fourNum + "</span>");
   };
   let session_3rd = sessionStorage.getItem('session_3rd');
   $('#freeBtn').on('click', function () {

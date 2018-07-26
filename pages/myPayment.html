@@ -101,7 +101,7 @@
       font-size: .15rem
     }
 
-    #noChecked {
+    #checked {
       display: none;
     }
   </style>
@@ -115,11 +115,11 @@
       <p class="freePayConC">Eyecool Free Payment</p>
     </section>
     <section class="checkBox">
-      <input id="noChecked" type="checkbox" class="switch" checked/>
-      <input id="checked" type="checkbox" class="switch"/>
+      <input id="noChecked" type="checkbox" class="switch"/>
+      <input id="checked" type="checkbox" class="switch" checked/>
     </section>
     <section class="freePayTip">
-      <span id="noDredge">未开通</span>
+      <span id="noDredge"></span>
     </section>
   </section>
 </section>
@@ -142,8 +142,8 @@
         if (data.state == 1) {
           if (data.agreement_state == 0) {
             alert('我未开通');
-            $('#checked').css('display', 'none');
-            $('#noChecked').css('display', 'block');
+            $('#checked').css('display', 'block');
+            $('#noChecked').css('display', 'none');
             $('#noDredge').html('未开通');
           } else {
             alert('我开通了');
@@ -182,8 +182,8 @@
       },
       error: function (e) {
         alert('关闭免密支付失败');
-        $('#noChecked').css('display', 'none');
-        $('#checked').css('display', 'block');
+        $('#noChecked').css('display', 'block');
+        $('#checked').css('display', 'none');
       }
     })
   })
