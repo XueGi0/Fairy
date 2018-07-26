@@ -5,10 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>眼神科技 · 刷脸购</title>
   <script src="js/public.js"></script>
+  <script src="js/jQuery-2.2.0.min.js"></script>
   <script>
-    if (sessionStorage.getItem('session_3rd')) {
-      window.location.href = './loginSuc.html';
-    }
+    let userPhone = '';
+    let session_3rd = sessionStorage.getItem('session_3rd');
+    $.ajax({
+      async: 'true',
+      type: 'POST',
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell//wx/loginbysession',
+      data: {
+        loginbysession: session_3rd
+      },
+      success: function (data) {
+        if (data.state == '1') {
+          if (data.img > 0) {
+            userPhone = session_3rd.split(':')[0];
+            sessionStorage.setItem('userPhone', userPhone);
+            window.location.href = './loginSuc.html';
+          } else {
+            userPhone = session_3rd.split(":")[0];
+            sessionStorage.setItem('userPhone', userPhone);
+            window.location.href = './pages/updateImg.html';
+          }
+        }
+      },
+      error: function (e) {
+        
+      }
+    })
   </script>
   <link rel="stylesheet" href="css/index.css">
 </head>
@@ -29,7 +53,6 @@
   </section>
 </section>
 
-<script src="js/jQuery-2.2.0.min.js"></script>
 <script>
 
   $('body').height($('body')[0].clientHeight);
@@ -98,7 +121,6 @@
     })
   }
 
-  let userPhone = '';
 
   function loginBtn() {
 
