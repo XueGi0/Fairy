@@ -141,13 +141,15 @@
       success: function (data) {
         if (data.state == 1) {
           if (data.agreement_state == 0) {
+            alert('我未开通');
             $('#checked').css('display', 'none');
             $('#noChecked').css('display', 'block');
             $('#noDredge').html('未开通');
           } else {
+            alert('我开通了');
             $('#noChecked').css('display', 'none');
             $('#checked').css('display', 'block');
-            $('#noDredge').html('已开通')
+            $('#noDredge').html('已开通');
           }
         } else {
           getUserInfo()
@@ -160,14 +162,12 @@
     })
   }
 
-  $('#checked').on('click', function () {
+  $('#noChecked').on('click', function () {
     $('#checked').css('display', 'none');
     $('#noChecked').css('display', 'block');
     window.location.href = './freePay.html';
   });
-  $('#noChecked').on('click', function () {
-    $('#noChecked').css('display', 'none');
-    $('#checked').css('display', 'block');
+  $('#checked').on('click', function () {
     $.ajax({
       type: 'POST',
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/terminateV1',
@@ -175,16 +175,15 @@
         session_3rd: session_3rd
       },
       success: function (data) {
-        alert(data);
+        alert('我应该关闭成功');
         $('#checked').css('display', 'none');
         $('#noChecked').css('display', 'block');
         $('#noDredge').html('未开通');
-        sessionStorage.setItem('agreement_state', 0)
       },
       error: function (e) {
         alert('关闭免密支付失败');
-        $('#checked').css('display', 'none');
-        $('#noChecked').css('display', 'block');
+        $('#noChecked').css('display', 'none');
+        $('#checked').css('display', 'block');
       }
     })
   })

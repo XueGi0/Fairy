@@ -84,7 +84,7 @@
       },
       success: function (data) {
         if (data.state == 1) {
-          $('#imurl').attr('src', imurl);
+          $('#imurl').attr('src', data.imurl);
         } else {
           getUserInfo()
         }

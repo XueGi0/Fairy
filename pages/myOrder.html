@@ -202,6 +202,13 @@
     return htmlStr;
   }
 
+  function judgeObj(obj) {
+    for (let attr in obj) {
+      return false
+    }
+    return true;
+  }
+
   function getUserPayLog() {
     $.ajax({
       async: "true",
@@ -212,10 +219,12 @@
       },
       success: function (data) {
         if (data.state == '1') {
-          if (!data.data) {
+          if (judgeObj(data.data)) {
+            alert('我没有订单');
             $('#orderList').css('display', 'none');
             $('#noOrder').css('display', 'block');
           } else {
+            alert('我有订单');
             $('#noOrder').css('display', 'none');
             $('#orderList').css('display', 'block');
             orderList = data.data;
