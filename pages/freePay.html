@@ -6,13 +6,6 @@
   <title>眼神科技 · 刷脸购</title>
   <script src="../js/public.js"></script>
   <link rel="stylesheet" href="../css/reset.css">
-  <script src="../js/jQuery-2.2.0.min.js"></script>
-  <script>
-    let userPhone = sessionStorage.getItem('userPhone');
-    let fourNum = userPhone.slice(7);
-    let beforeNum = userPhone.slice(0, 7);
-    $('#userPhone').html(beforeNum + "<span class='fourNum'>" + fourNum + "</span>");
-  </script>
   <style>
     body {
       background: #fff;
@@ -118,7 +111,7 @@
   <ul class="payCon">
     <li>
       <p class="payTit">注册手机号</p>
-      <span id="userPhone">1851425<span class="fourNum">0265</span></span>
+      <span id="userPhone"><span class="fourNum"></span></span>
     </li>
     <li>
       <p class="payTit">使用规则</p>
@@ -134,9 +127,15 @@
   <button class="freeBtn" id="freeBtn">开通免密支付</button>
   <p class="payAgree">您已阅读并同意<a href="./payAgree.html">《扣款授权确认书》</a></p>
 </section>
-<script>
-  window.onload = function () {
+<script src="../js/jQuery-2.2.0.min.js"></script>
 
+<script>
+  let userPhone = sessionStorage.getItem('userPhone');
+
+  window.onload = function () {
+    let fourNum = userPhone.slice(7);
+    let beforeNum = userPhone.slice(0, 7);
+    $('#userPhone').html(beforeNum + "<span class='fourNum'>" + fourNum + "</span>");
   };
   let session_3rd = sessionStorage.getItem('session_3rd');
   $('#freeBtn').on('click', function () {

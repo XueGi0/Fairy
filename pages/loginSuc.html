@@ -6,11 +6,7 @@
   <title>个人中心</title>
   <script src="../js/public.js"></script>
   <link rel="stylesheet" href="../css/reset.css">
-  <script src="../js/jQuery-2.2.0.min.js"></script>
-  <script>
-    let userPhone = sessionStorage.getItem('userPhone');
-    $('#userPhone').text(userPhone);
-  </script>
+
   <style>
 
     .perCenter .cenHead {
@@ -146,7 +142,12 @@
     </ul>
   </section>
 </section>
+<script src="../js/jQuery-2.2.0.min.js"></script>
 <script>
+
+  let userPhone = sessionStorage.getItem('userPhone');
+  $('#userPhone').html(userPhone);
+ 
 
   $('#userExit').on('click', function () {
     window.location.href = '../index.html';
