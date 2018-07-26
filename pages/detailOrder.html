@@ -186,6 +186,7 @@
     $('#orderTimeCon').html(orderCon.payTime);
     for (let i = 0; i < detailData.length; i++) {
       let k = i + 1;
+      alert(detailData[i].goods_name);
       htmlStr += "<span class='serial'>" + k + "</span>";
       htmlStr += "<span class='detailCon'>" + detailData[i].goods_name + "</span>";
       htmlStr += "<span class='orderAmount'>" + '￥' + detailData[i].salenum + "</span>";
