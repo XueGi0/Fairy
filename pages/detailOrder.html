@@ -184,14 +184,6 @@
     $('#orderIdCon').html(orderCon.serialNum);
     $('#orderTimeCon').html(orderCon.payTime);
     $('#orderTimeCon').html(orderCon.payTime);
-    dataHtml();
-    $('#orderDetail').html(htmlStr);
-    $('#tolAmoCon').html('￥' + orderCon.tolAmount);
-    $('#redAmoCon').html('-￥' + orderCon.reduceAmount);
-    $('#realAmoCon').html('￥' + orderCon.realAmount);
-  };
-
-  function dataHtml() {
     for (let i = 0; i < detailData.length; i++) {
       let k = i + 1;
       htmlStr += "<span class='serial'>" + k + "</span>";
@@ -199,8 +191,12 @@
       htmlStr += "<span class='orderAmount'>" + '￥' + detailData[i].salenum + "</span>";
       htmlStr += "<span class='orderNum'>" + 'x' + detailData[i].subtotal + "</span>"
     }
-    return htmlStr;
-  }
+    $('#orderDetail').html(htmlStr);
+    $('#tolAmoCon').html('￥' + orderCon.tolAmount);
+    $('#redAmoCon').html('-￥' + orderCon.reduceAmount);
+    $('#realAmoCon').html('￥' + orderCon.realAmount);
+  };
+
 </script>
 </body>
 </html>

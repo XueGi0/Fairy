@@ -6,6 +6,42 @@
   <title>眼神科技 · 刷脸购</title>
   <script src="../js/public.js"></script>
   <link rel="stylesheet" href="../css/reset.css">
+  <script src="../js/jQuery-2.2.0.min.js"></script>
+  <script>
+    let session_3rd = sessionStorage.getItem('session_3rd');
+    function getUserInfo() {
+      $.ajax({
+        type: 'POST',
+        url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/info',
+        data: {
+          session_3rd: session_3rd
+        },
+        success: function (data) {
+          if (data.state == 1) {
+            if (data.agreement_state == 0) {
+              alert('我未开通');
+              $('#checked').css('display', 'none');
+              $('#noChecked').css('display', 'block');
+              $('#noDredge').html('未开通');
+            } else {
+              alert('我开通了');
+              $('#noChecked').css('display', 'none');
+              $('#checked').css('display', 'block');
+              $('#noDredge').html('已开通');
+            }
+          } else {
+            getUserInfo()
+          }
+        },
+        error: function (e) {
+          //alert('信息接口请求失败，重新请求中');
+          getUserInfo();
+        }
+      })
+    }
+
+    getUserInfo();
+  </script>
   <style>
     .myPayment {
       width: 100%;
@@ -123,44 +159,8 @@
     </section>
   </section>
 </section>
-<script src="../js/jQuery-2.2.0.min.js"></script>
 
 <script>
-  let session_3rd = sessionStorage.getItem('session_3rd');
-  window.onload = function () {
-    getUserInfo();
-  };
-
-  function getUserInfo() {
-    $.ajax({
-      type: 'POST',
-      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/info',
-      data: {
-        session_3rd: session_3rd
-      },
-      success: function (data) {
-        if (data.state == 1) {
-          if (data.agreement_state == 0) {
-            alert('我未开通');
-            $('#checked').css('display', 'none');
-            $('#noChecked').css('display', 'block');
-            $('#noDredge').html('未开通');
-          } else {
-            alert('我开通了');
-            $('#noChecked').css('display', 'none');
-            $('#checked').css('display', 'block');
-            $('#noDredge').html('已开通');
-          }
-        } else {
-          getUserInfo()
-        }
-      },
-      error: function (e) {
-        //alert('信息接口请求失败，重新请求中');
-        getUserInfo();
-      }
-    })
-  }
 
   $('#noChecked').on('click', function () {
     $('#checked').css('display', 'none');

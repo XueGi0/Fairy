@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/reset.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/public.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/public.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/detailOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detailOrder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/loginIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/loginIndex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/freePay.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/freePay.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/loginSuc.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/loginSuc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/myOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/myOrder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/myPayment.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/myPayment.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,93 +15,44 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1078">
-                  <caret line="8" column="48" lean-forward="true" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="myPayment.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/myPayment.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="415">
-                  <caret line="175" column="8" selection-start-line="175" selection-start-column="8" selection-end-line="175" selection-end-column="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="reset.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/css/reset.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="924">
-                  <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="loginIndex.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/loginIndex.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="154">
-                  <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="myOrder.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/myOrder.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4686">
-                  <caret line="239" column="10" lean-forward="true" selection-start-line="239" selection-start-column="10" selection-end-line="239" selection-end-column="10" />
-                  <folding>
-                    <element signature="n#li#0;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#li#1;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#li#2;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="loginSuc.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/pages/loginSuc.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="679">
-                  <caret line="142" column="10" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="detailOrder.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/detailOrder.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="657">
-                  <caret line="201" column="19" selection-start-line="201" selection-start-column="19" selection-end-line="201" selection-end-column="19" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="public.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js/public.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="242">
-                  <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="113" column="68" lean-forward="true" selection-start-line="113" selection-start-column="68" selection-end-line="113" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myPayment.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/myPayment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reset.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/reset.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="924">
+              <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loginIndex.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/loginIndex.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -134,16 +81,16 @@
         <option value="$PROJECT_DIR$/pages/ceshi.html" />
         <option value="$PROJECT_DIR$/pages/return.html" />
         <option value="$PROJECT_DIR$/pages/myPhoto.html" />
-        <option value="$PROJECT_DIR$/pages/freePay.html" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/pages/detailOrder.html" />
-        <option value="$PROJECT_DIR$/pages/myPayment.html" />
         <option value="$PROJECT_DIR$/pages/myOrder.html" />
         <option value="$PROJECT_DIR$/css/index.css" />
         <option value="$PROJECT_DIR$/js/public.js" />
         <option value="$PROJECT_DIR$/css/reset.css" />
         <option value="$PROJECT_DIR$/pages/loginIndex.html" />
         <option value="$PROJECT_DIR$/pages/loginSuc.html" />
+        <option value="$PROJECT_DIR$/pages/detailOrder.html" />
+        <option value="$PROJECT_DIR$/pages/freePay.html" />
+        <option value="$PROJECT_DIR$/pages/myPayment.html" />
       </list>
     </option>
   </component>
@@ -282,12 +229,12 @@
       <workItem from="1532328265346" duration="2816000" />
       <workItem from="1532335739486" duration="16661000" />
       <workItem from="1532398452746" duration="738000" />
-      <workItem from="1532399212470" duration="92132000" />
+      <workItem from="1532399212470" duration="93498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116109000" />
+    <option name="totallyTimeSpent" value="117475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -295,24 +242,24 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.009061834" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15458423" />
+      <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -431,39 +378,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/freePay.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1078">
-          <caret line="8" column="48" lean-forward="true" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/detailOrder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
-          <caret line="201" column="19" selection-start-line="201" selection-start-column="19" selection-end-line="201" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/myOrder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4686">
-          <caret line="239" column="10" lean-forward="true" selection-start-line="239" selection-start-column="10" selection-end-line="239" selection-end-column="10" />
-          <folding>
-            <element signature="n#li#0;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#1;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#2;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/payAgree.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-44">
@@ -485,17 +399,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/myPayment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="175" column="8" selection-start-line="175" selection-start-column="8" selection-end-line="175" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/reset.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="924">
           <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="113" column="68" lean-forward="true" selection-start-line="113" selection-start-column="68" selection-end-line="113" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/detailOrder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1053">
+          <caret line="194" column="48" selection-start-line="194" selection-start-column="48" selection-end-line="194" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/loginSuc.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2555">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/myOrder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3212">
+          <caret line="239" column="10" lean-forward="true" selection-start-line="239" selection-start-column="10" selection-end-line="239" selection-end-column="10" />
+          <folding>
+            <element signature="n#li#0;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#1;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#2;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/freePay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2266">
+          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -506,10 +453,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/loginSuc.html">
+    <entry file="file://$PROJECT_DIR$/pages/myPayment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="142" column="10" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
+        <state relative-caret-position="286">
+          <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
         </state>
       </provider>
     </entry>
