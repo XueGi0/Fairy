@@ -98,8 +98,10 @@
     })
   }
 
+  let userPhone = '';
 
   function loginBtn() {
+
     $.ajax({
       type: 'POST',
       url: "https://payh5.xiongan.eyecool.cn/faceSell/wx/regcheckcode",
@@ -111,11 +113,13 @@
         console.log(data);
         if (data.state == '1' && data.img == '0') { //->登录成功且没有照片信息
           sessionStorage.setItem('session_3rd', data.session_3rd);
-          sessionStorage.setItem('userPhone', $('#phoneCon').val());
+          userPhone = data.session_3rd.split(":")[0];
+          sessionStorage.setItem('userPhone', userPhone);
           window.location.href = './pages/updateImg.html';
         } else if (data.state == '1' && data.img > 0) {
           sessionStorage.setItem('session_3rd', data.session_3rd);
-          sessionStorage.setItem('userPhone', $('#phoneCon').val());
+          userPhone = data.session_3rd.split(":")[0];
+          sessionStorage.setItem('userPhone', userPhone);
           window.location.href = './pages/loginSuc.html';  //->登录成功并且有照片信息
         } else {
           alert('验证码输入有误');
