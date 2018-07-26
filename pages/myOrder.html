@@ -16,7 +16,6 @@
     .noOrder {
       width: 50%;
       margin: 0 auto;
-      display: none;
     }
 
     .noOrder img {
@@ -168,10 +167,16 @@
 <script src="../js/jQuery-2.2.0.min.js"></script>
 <script>
   let orderList;
+  let htmlStr = '';
+
+  let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
     getUserPayLog();
-    if (!htmlStr) {
+    if (htmlStr != '') {
       $('#orderList').html(htmlStr);
+    } else {
+      $('#orderList').css('display', 'none');
+      $('#noOrder').css('display', 'block');
     }
   };
   $('#orderList li').on('click', function () {
@@ -180,7 +185,6 @@
   });
 
   function dataHtml() {
-    let htmlStr = '';
     for (let i = 0; i < orderList.length; i++) {
       htmlStr += "<li class='listItem' id=" + orderList[i].id + ">";
       htmlStr += "<section class='itemTop'>";
@@ -200,19 +204,24 @@
 
   function getUserPayLog() {
     $.ajax({
+      async: "true",
       type: 'POST',
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/paylog',
       data: {
         session_3rd: session_3rd
       },
       success: function (data) {
-        if (!data.data.length) {
-          $('#noOrder').css('display', 'block');
-        } else {
-          $('#noOrder').css('display', 'none');
-          orderList = data.data;
-          sessionStorage.setItem('orderList', data.data);
-          dataHtml();
+        if (data.state == '1') {
+          if (!data.data) {
+            $('#orderList').css('display', 'none');
+            $('#noOrder').css('display', 'block');
+          } else {
+            $('#noOrder').css('display', 'none');
+            $('#orderList').css('display', 'block');
+            orderList = data.data;
+            sessionStorage.setItem('orderList', data.data);
+            dataHtml();
+          }
         }
       },
       error: function (e) {

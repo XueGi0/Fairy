@@ -198,9 +198,9 @@
     for (let i = 0; i < data.length; i++) {
       let k = i + 1;
       htmlStr += "<span class='serial'>" + k + "</span>";
-      htmlStr += "<span class='detailCon'>" + data.dataName + "</span>";
-      htmlStr += "<span class='orderAmount'>" + data.orderAmount + "</span>";
-      htmlStr += "<span class='orderNum'>" + data.dataName + "</span>"
+      htmlStr += "<span class='detailCon'>" + data.goods_name + "</span>";
+      htmlStr += "<span class='orderAmount'>" + data.slaenum + "</span>";
+      htmlStr += "<span class='orderNum'>" + data.subtotal + "</span>"
     }
     return htmlStr;
   }
