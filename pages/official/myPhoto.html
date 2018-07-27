@@ -55,6 +55,10 @@
       opacity: 0;
       z-index: 99
     }
+
+    #savePhoto {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -63,7 +67,8 @@
     <img src="" alt="" id="imurl">
   </section>
   <section class="photoFooter">
-    <button class="alterPhoto">修改图片</button>
+    <button class="alterPhoto" id="alterPhoto">修改图片</button>
+    <button class="alterPhoto" id="savePhoto">保存图片</button>
     <input id="fileBtn" type="file" onchange="upload();" accept="image/*" capture="camera"/>
   </section>
 </section>
@@ -97,32 +102,53 @@
     })
   }
 
+  function savePhoto() {
+    let base64Img = $('#imurl').attr('src').split(',')[1];
+    $.ajax({
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
+      type: 'POST',
+      data: {
+        session_3rd: session_3rd,
+        photoImg: base64Img
+      },
+      success: function (data) {
+        if (data.code == '0000') {
+          showTips('修改成功');
+          $('#savePhoto').css('display', 'none');
+          $('#afterPhoto').css('display', 'block');
+          $('#fileBtn').css({
+            display: 'block',
+            visibility: 'hidden'
+          });
+        } else {
+          showTips('修改失败');
+          setTimeout(function () {
+            window.location.href = './myPhoto.html';
+          }, 1500)
+        }
+      },
+      error: function (e) {
+        showTips('修改失败，刷新重试');
+        setTimeout(function () {
+          window.location.href = './myPhoto.html';
+        }, 1500)
+      }
+    });
+  }
+
+  $('#savePhoto').on('click', savePhoto);
+
   let upload = function () {
     "use strict";
     let file = $('#fileBtn')[0].files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function (e) {
-      let base64Img = e.target.result.split(',')[1];
-      $.ajax({
-        url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
-        type: 'POST',
-        data: {
-          session_3rd: session_3rd,
-          photoImg: base64Img
-        },
-        success: function (data) {
-          if (data.code == '0000') {
-            showTips('修改成功');
-            $('#imurl').attr('src', e.target.result);
-          } else {
-            showTips('修改失败');
-          }
-        },
-        error: function (e) {
-          showTips('修改失败，刷新重试')
-        }
-      });
+      console.log(e.target.result);
+      $('#imurl').attr('src', e.target.result);
+      $('#alterPhoto').css('display', 'none');
+      $('#fileBtn').css('display', 'none');
+      $('#savePhoto').css('display', 'block');
     };
   };
 </script>
