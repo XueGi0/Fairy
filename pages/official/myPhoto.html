@@ -112,13 +112,15 @@
           photoImg: base64Img
         },
         success: function (data) {
-          alert(data.code);
           if (data.code == '0000') {
+            showTips('修改成功');
             $('#imurl').attr('src', e.target.result);
+          } else {
+            showTips('修改失败');
           }
         },
         error: function (e) {
-          alert('发送失败，刷新重试')
+          showTips('修改失败，刷新重试')
         }
       });
     };
