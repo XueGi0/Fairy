@@ -56,7 +56,7 @@
       z-index: 99
     }
 
-    #savePhoto {
+    #savePhoto, #hiddenImg {
       display: none;
     }
   </style>
@@ -65,6 +65,7 @@
 <section class="myPhoto">
   <section class="showImg">
     <img src="" alt="" id="imurl">
+    <img src="" alt="" id="hiddenImg">
   </section>
   <section class="photoFooter">
     <button class="alterPhoto" id="alterPhoto">修改图片</button>
@@ -104,6 +105,7 @@
 
   function savePhoto() {
     let base64Img = $('#imurl').attr('src').split(',')[1];
+    console.log(base64Img);
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
       type: 'POST',
@@ -113,7 +115,7 @@
       },
       success: function (data) {
         if (data.code == '0000') {
-          showTips('修改成功');
+          showTips('修改成功', 0);
           $('#savePhoto').css('display', 'none');
           $('#afterPhoto').css('display', 'block');
           $('#fileBtn').css({
@@ -124,14 +126,14 @@
           showTips('修改失败');
           setTimeout(function () {
             window.location.href = './myPhoto.html';
-          }, 1500)
+          }, 1500);
         }
       },
       error: function (e) {
         showTips('修改失败，刷新重试');
         setTimeout(function () {
           window.location.href = './myPhoto.html';
-        }, 1500)
+        }, 1500);
       }
     });
   }
@@ -144,8 +146,10 @@
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function (e) {
-      console.log(e.target.result);
-      $('#imurl').attr('src', e.target.result);
+      $('#hiddenImg').attr('src', e.target.result);
+      $('#hiddenImg').css('transform', 'scale(.5)');
+      console.log($('#hiddenImg').attr('src'));
+      $('#imurl').attr('src', $('#hiddenImg').attr('src'));
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
