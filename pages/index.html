@@ -53,6 +53,7 @@
   </section>
 </section>
 
+<script src="../js/showTips.js"></script>
 <script>
 
   $('body').height($('body')[0].clientHeight);
@@ -61,7 +62,7 @@
   $('#phoneCon').bind('input propertychange', function () {
     let reg = /^(\+\d{2,3}\-)?\d{11}$/;
     if (!reg.test($('#phoneCon').val()) && $('#phoneCon').val().length == '11') {
-      alert('1')
+      showTips('请输入正确的手机号', 1);
     } else {
       if ($('#phoneCon').val().length == '11') {
         $('#sendCode').css('color', '#6C89C3');
@@ -90,8 +91,8 @@
       },
       type: 'POST',
       success: function (data) {
-        console.log(data);
         if (data.state == 1) {
+          showTips('发送成功', 0);
           timer = setInterval(function () {
             maxTimer--;
             $('#sendCode').html(maxTimer + 's倒计时');
@@ -110,13 +111,14 @@
           $('#sendCode').removeAttr('disabled');
           $('#sendCode').css('color', '#6C89C3');
           $('#sendCode').html('重新发送');
-          alert(data.msg)
+          showTips(data.msg, 2)
         }
       },
       error: function () {
         $('#sendCode').removeAttr('disabled');
         $('#sendCode').css('color', '#6C89C3');
         $('#sendCode').html('重新发送');
+        showTips('发送失败', 1)
       }
     })
   }
@@ -132,23 +134,24 @@
         mobileCheckCode: $('#pwsCon').val()
       },
       success: function (data) {
-        console.log(data);
         if (data.state == '1' && data.img == '0') { //->登录成功且没有照片信息
           sessionStorage.setItem('session_3rd', data.session_3rd);
           userPhone = data.session_3rd.split(":")[0];
           sessionStorage.setItem('userPhone', userPhone);
+          showTips('登录成功', 0);
           window.location.href = 'official/updateImg.html';
         } else if (data.state == '1' && data.img > 0) {
           sessionStorage.setItem('session_3rd', data.session_3rd);
           userPhone = data.session_3rd.split(":")[0];
           sessionStorage.setItem('userPhone', userPhone);
+          showTips('登录成功', 0);
           window.location.href = 'official/loginSuc.html';  //->登录成功并且有照片信息
         } else {
-          alert('验证码输入有误');
+          showTips('验证码输入有误', 1);
         }
       },
       error: function (e) {
-        alert('验证码输入有误');
+        showTips('验证码输入有误', 1);
         console.log(e)
       }
     })
@@ -157,13 +160,10 @@
   $('#login_btn').on('click', function () {
     if ($('#phoneCon').val().length == '11' && $('#pwsCon').val().length == '6') {
       loginBtn();
-      return;
     } else if ($('#phoneCon').val().length < 11) {
-      alert('手机号输入有误');
-      return;
+      showTips('手机号输入有误', 1);
     } else {
-      alert('请输入6位正确的验证码');
-      return;
+      showTips('请输入6位正确的验证码', 1);
     }
   })
 

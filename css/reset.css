@@ -68,3 +68,17 @@ a {
 ul {
   list-style: none !important;
 }
+
+.msgIcon {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  background: url("../image/msgSuc.png") no-repeat center;
+  background-size: cover;
+  margin-top: .2rem;
+}
+
+.failIcon {
+  background: url("../image/msgFail.png") no-repeat center;
+  background-size: cover;
+}

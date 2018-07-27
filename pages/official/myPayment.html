@@ -7,8 +7,10 @@
   <script src="../../js/public.js"></script>
   <link rel="stylesheet" href="../../css/reset.css">
   <script src="../../js/jQuery-2.2.0.min.js"></script>
+  <script src="../../js/showTips.js"></script>
   <script>
     let session_3rd = sessionStorage.getItem('session_3rd');
+
     function getUserInfo() {
       $.ajax({
         type: 'POST',
@@ -159,7 +161,6 @@
     </section>
   </section>
 </section>
-
 <script>
 
   $('#noChecked').on('click', function () {
