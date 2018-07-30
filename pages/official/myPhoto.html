@@ -79,12 +79,12 @@
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    getUserInfo();
+    // getUserInfo();
   };
 
   let img = document.getElementById('imurl');
 
-  function getBase64Image(img) {
+  function getBase64Image(img, ratio) {
     let canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
@@ -92,7 +92,7 @@
     let ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, img.width, img.height);
 
-    let dataURL = canvas.toDataURL("image/jpeg");
+    let dataURL = canvas.toDataURL("image/jpeg", ratio);
     return dataURL;
   }
 
@@ -120,8 +120,11 @@
   let base64;
 
   function savePhoto() {
-    base64 = getBase64Image(img);
+    base64 = getBase64Image(img, 0.5);
+    console.log(base64);
     base64 = base64.split(',')[1];
+    console.log(base64);
+    console.log($('#imurl').attr('src'));
     $('#savePhoto').html('上传图片中...请稍后');
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
@@ -142,7 +145,7 @@
           });
         } else {
           showTips(data.code);
-          showTips('修改失败');
+          showTips(data.msg);
           setTimeout(function () {
             window.location.href = './myPhoto.html';
           }, 1500);
