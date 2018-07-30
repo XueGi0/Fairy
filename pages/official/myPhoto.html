@@ -56,7 +56,11 @@
       z-index: 99
     }
 
-    #savePhoto, #hiddenImg {
+    #hiddenImg {
+      display: block;
+    }
+
+    #savePhoto {
       display: none;
     }
   </style>
@@ -64,7 +68,7 @@
 <body>
 <section class="myPhoto">
   <section class="showImg">
-    <img src="" alt="" id="imurl">
+    <img src="../../image/success.png" alt="" id="imurl">
     <img src="" alt="" id="hiddenImg">
   </section>
   <section class="photoFooter">
@@ -79,8 +83,25 @@
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    getUserInfo();
+    //getUserInfo();
   };
+
+  let img = document.getElementById('imurl');
+
+  function getBase64Image(img) {
+    let canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    let ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    let dataURL = canvas.toDataURL("image/jpeg");
+    return dataURL;
+
+    // return dataURL.replace("data:image/png;base64,", "");
+  }
+
 
   function getUserInfo() {
     $.ajax({
@@ -103,25 +124,27 @@
     })
   }
 
+  let base64;
+
   function savePhoto() {
-    let base64Img = $('#imurl').attr('src').split(',')[1];
-    console.log(base64Img);
+    $('#savePhoto').html('上传图片中...请稍后');
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
       type: 'POST',
       data: {
         session_3rd: session_3rd,
-        photoImg: base64Img
+        photoImg: base64
       },
       success: function (data) {
         if (data.code == '0000') {
           showTips('修改成功', 0);
+          $('#savePhoto').html('保存图片');
           $('#savePhoto').css('display', 'none');
-          $('#afterPhoto').css('display', 'block');
           $('#fileBtn').css({
             display: 'block',
             visibility: 'hidden'
           });
+          $('#afterPhoto').css('display', 'block');
         } else {
           showTips('修改失败');
           setTimeout(function () {
@@ -146,15 +169,16 @@
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function (e) {
-      $('#hiddenImg').attr('src', e.target.result);
-      $('#hiddenImg').css('transform', 'scale(.5)');
-      console.log($('#hiddenImg').attr('src'));
-      $('#imurl').attr('src', $('#hiddenImg').attr('src'));
+      $('#imurl').attr('src', e.target.result);
+      base64 = getBase64Image(img);
+      $('#imurl').attr('src', base64);
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
     };
   };
+
+
 </script>
 </body>
 </html>

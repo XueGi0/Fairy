@@ -6,6 +6,41 @@
   <title>眼神科技 · 刷脸购</title>
   <script src="../../js/public.js"></script>
   <link rel="stylesheet" href="../../css/reset.css">
+  <script src="../../js/jQuery-2.2.0.min.js"></script>
+  <script>
+    let session_3rd = sessionStorage.getItem('session_3rd');
+
+    function getUserInfo() {
+      $.ajax({
+        async: 'true',
+        type: 'POST',
+        url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/info',
+        data: {
+          session_3rd: session_3rd
+        },
+        success: function (data) {
+          if (data.state == 1) {
+            if (data.agreement_state == 0) {
+              $('#sucIcon').attr('src', '../../image/fail.png');
+              $('#successTit').html('开通失败');
+              $('#wxxcx').css('background-color', '#D81E06');
+            } else {
+              $('#sucIcon').attr('src', '../../image/success.png');
+              $('#successTit').html('已开通成功');
+              $('#wxxcx').css('background-color', '#39B54A');
+            }
+          } else {
+            getUserInfo()
+          }
+        },
+        error: function (e) {
+          getUserInfo();
+        }
+      })
+    }
+
+    getUserInfo();
+  </script>
   <style>
     .success_img {
       width: 25%;
@@ -45,20 +80,15 @@
 </head>
 <body>
 <section class="ICBCreturn">
-  <section class="sucRetBtn">
-    <span class="sucRetBtnLeft"></span>
-    <span class="sucRetBtnCen"></span>
-    <span class="sucRetBtnRight"></span>
-  </section>
+
   <section class="success_img">
     <img src="../../image/success.png" alt="" id="sucIcon">
   </section>
   <p class="success_title" id="successTit">已开通成功</p>
   <button type="button" id="wxxcx" class="return_btn" onclick="fanhui()" value="返回">返回</button>
 </section>
-<script src="../../js/jQuery-2.2.0.min.js"></script>
 <script>
-  //跳转
+  // //跳转
 
   function fanhui() {
     wx.miniProgram.switchTab({
