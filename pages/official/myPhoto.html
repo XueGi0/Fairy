@@ -10,7 +10,6 @@
     .myPhoto {
       width: 100%;
       height: 100%;
-      overflow: hidden;
     }
 
     .showImg {
@@ -127,7 +126,11 @@
   let base64;
 
   function savePhoto() {
+    base64 = getBase64Image(img);
+    $('#hiddenImg').attr('src', base64);
     $('#savePhoto').html('上传图片中...请稍后');
+    console.log($('#imurl').attr('src'));
+    console.log($('#hiddenImg').attr('src'));
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
       type: 'POST',
@@ -146,17 +149,17 @@
           });
           $('#afterPhoto').css('display', 'block');
         } else {
-          showTips('修改失败');
-          setTimeout(function () {
-            window.location.href = './myPhoto.html';
-          }, 1500);
+          //showTips('修改失败');
+          //setTimeout(function () {
+          //  window.location.href = './myPhoto.html';
+          //}, 1500);
         }
       },
       error: function (e) {
-        showTips('修改失败，刷新重试');
-        setTimeout(function () {
-          window.location.href = './myPhoto.html';
-        }, 1500);
+        //showTips('修改失败，刷新重试');
+        //setTimeout(function () {
+        //  window.location.href = './myPhoto.html';
+        //}, 1500);
       }
     });
   }
@@ -170,8 +173,6 @@
     reader.readAsDataURL(file);
     reader.onload = function (e) {
       $('#imurl').attr('src', e.target.result);
-      base64 = getBase64Image(img);
-      $('#imurl').attr('src', base64);
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
