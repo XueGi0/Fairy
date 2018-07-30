@@ -123,7 +123,6 @@
     base64 = getBase64Image(img);
     base64 = base64.split(',')[1];
     $('#savePhoto').html('上传图片中...请稍后');
-    let base64Img = $('#hiddenImg').attr('src').split(',')[1];
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
       type: 'POST',
@@ -142,6 +141,7 @@
             visibility: 'hidden'
           });
         } else {
+          showTips(data.code);
           showTips('修改失败');
           setTimeout(function () {
             window.location.href = './myPhoto.html';
