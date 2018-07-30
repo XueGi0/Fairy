@@ -40,8 +40,8 @@
       <file leaf-file-name="myPhoto.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="789">
-              <caret line="147" column="29" selection-start-line="147" selection-start-column="29" selection-end-line="147" selection-end-column="29" />
+            <state relative-caret-position="965">
+              <caret line="122" column="36" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -243,15 +243,15 @@
       <workItem from="1532335739486" duration="16661000" />
       <workItem from="1532398452746" duration="738000" />
       <workItem from="1532399212470" duration="120656000" />
-      <workItem from="1532912787994" duration="11330000" />
+      <workItem from="1532912787994" duration="11989000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155963000" />
+    <option name="totallyTimeSpent" value="156622000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="63" y="90" width="1444" height="898" extended-state="0" />
+    <frame x="371" y="55" width="1444" height="898" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -535,8 +535,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="789">
-          <caret line="147" column="29" selection-start-line="147" selection-start-column="29" selection-end-line="147" selection-end-column="29" />
+        <state relative-caret-position="965">
+          <caret line="122" column="36" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
         </state>
       </provider>
     </entry>
