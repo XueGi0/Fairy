@@ -10,6 +10,7 @@
     .myPhoto {
       width: 100%;
       height: 100%;
+      overflow: hidden;
     }
 
     .showImg {
@@ -55,11 +56,7 @@
       z-index: 99
     }
 
-    #hiddenImg {
-      display: block;
-    }
-
-    #savePhoto {
+    #savePhoto, #hiddenImg {
       display: none;
     }
   </style>
@@ -67,7 +64,7 @@
 <body>
 <section class="myPhoto">
   <section class="showImg">
-    <img src="../../image/success.png" alt="" id="imurl">
+    <img src="" alt="" id="imurl">
     <img src="" alt="" id="hiddenImg">
   </section>
   <section class="photoFooter">
@@ -82,7 +79,7 @@
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    //getUserInfo();
+    getUserInfo();
   };
 
   let img = document.getElementById('imurl');
@@ -97,10 +94,7 @@
 
     let dataURL = canvas.toDataURL("image/jpeg");
     return dataURL;
-
-    // return dataURL.replace("data:image/png;base64,", "");
   }
-
 
   function getUserInfo() {
     $.ajax({
@@ -127,10 +121,9 @@
 
   function savePhoto() {
     base64 = getBase64Image(img);
-    $('#hiddenImg').attr('src', base64);
+    base64 = base64.split(',')[1];
     $('#savePhoto').html('上传图片中...请稍后');
-    console.log($('#imurl').attr('src'));
-    console.log($('#hiddenImg').attr('src'));
+    let base64Img = $('#hiddenImg').attr('src').split(',')[1];
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
       type: 'POST',
@@ -141,25 +134,25 @@
       success: function (data) {
         if (data.code == '0000') {
           showTips('修改成功', 0);
-          $('#savePhoto').html('保存图片');
+          $('#afterPhoto').html('修改图片');
           $('#savePhoto').css('display', 'none');
+          $('#afterPhoto').css('display', 'block');
           $('#fileBtn').css({
             display: 'block',
             visibility: 'hidden'
           });
-          $('#afterPhoto').css('display', 'block');
         } else {
-          //showTips('修改失败');
-          //setTimeout(function () {
-          //  window.location.href = './myPhoto.html';
-          //}, 1500);
+          showTips('修改失败');
+          setTimeout(function () {
+            window.location.href = './myPhoto.html';
+          }, 1500);
         }
       },
       error: function (e) {
-        //showTips('修改失败，刷新重试');
-        //setTimeout(function () {
-        //  window.location.href = './myPhoto.html';
-        //}, 1500);
+        showTips('修改失败，刷新重试');
+        setTimeout(function () {
+          window.location.href = './myPhoto.html';
+        }, 1500);
       }
     });
   }
@@ -178,8 +171,6 @@
       $('#savePhoto').css('display', 'block');
     };
   };
-
-
 </script>
 </body>
 </html>
