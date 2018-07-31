@@ -23,7 +23,6 @@
       margin: 0 auto;
       border: .01rem solid #ededed;
       border-radius: .04rem;
-      margin-top: 1rem;
     }
 
     .photoFooter {
@@ -172,7 +171,6 @@
     reader.readAsDataURL(file);
     reader.onload = function (e) {
       $('#imurl').attr('src', e.target.result);
-      $('#imurl').css('transform', 'rotate(90deg)');
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
