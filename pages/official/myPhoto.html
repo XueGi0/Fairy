@@ -124,12 +124,9 @@
   let base64;
 
   function savePhoto() {
-    base64 = getBase64Image(img, 0.7);
-    console.log(base64);
-    $('#hiddenImg').attr('src', base64);
+    base64 = getBase64Image(img, 0.9);
+    $('#imurl').attr('src', base64);
     base64 = base64.split(',')[1];
-    console.log(base64);
-    console.log($('#imurl').attr('src'));
     $('#savePhoto').html('上传图片中...请稍后');
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
