@@ -79,6 +79,7 @@
 
 <script src="../../js/jQuery-2.2.0.min.js"></script>
 <script src="../../js/showTips.js"></script>
+<script src="../../js/exif-js-master/exif.js"></script>
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
@@ -93,9 +94,31 @@
     canvas.height = img.height;
 
     let ctx = canvas.getContext("2d");
-    alert($('#imurl').width());
-    alert($('#imurl').height());
-    ctx.drawImage(img, 0, 0, img.height, img.width);
+
+    EXIF.getData(img, function () {
+      EXIF.getAllTags(this);
+      let Orientation = EXIF.getTag(this, 'Orientation');
+      if (Orientation != "" && Orientation != 1) {
+        alert('旋转处理');
+        switch (Orientation) {
+          case 6://需要顺时针（向左）90度旋转
+            alert('需要顺时针（向左）90度旋转');
+            $('#imurl').css('transform', 'rotate(90deg)');
+            break;
+          case 8://需要逆时针（向右）90度旋转
+            alert('需要顺时针（向右）90度旋转');
+            $('#imurl').css('transform', 'rotate(-90deg)');
+            break;
+          case 3://需要180度旋转
+            alert('需要180度旋转');
+            $('#imurl').css('transform', 'rotate(180deg)');
+            break;
+        }
+      }
+
+    });
+
+    ctx.drawImage(img, 0, 0, img.width, img.height);
 
     let dataURL = canvas.toDataURL("image/jpeg", ratio);
     return dataURL;
@@ -125,11 +148,9 @@
   let base64;
 
   function savePhoto() {
-    base64 = getBase64Image(img, 1);
+    base64 = getBase64Image(img, .7);
     $('#imurl').attr('src', base64);
     //$('#imurl').css('transform', 'rotate(90deg)');
-    alert($('#imurl').width());
-    alert($('#imurl').height());
     base64 = base64.split(',')[1];
     $('#savePhoto').html('上传图片中...请稍后');
     $.ajax({
@@ -175,13 +196,12 @@
     reader.readAsDataURL(file);
     reader.onload = function (e) {
       $('#imurl').attr('src', e.target.result);
-      alert($('#imurl').width());
-      alert($('#imurl').height());
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
     };
   };
+
 </script>
 </body>
 </html>
