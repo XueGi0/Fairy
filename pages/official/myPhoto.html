@@ -95,7 +95,7 @@
     let ctx = canvas.getContext("2d");
     alert($('#imurl').width());
     alert($('#imurl').height());
-    ctx.drawImage(img, 0, 0, img.width, img.height);
+    ctx.drawImage(img, 0, 0, img.height, img.width);
 
     let dataURL = canvas.toDataURL("image/jpeg", ratio);
     return dataURL;
