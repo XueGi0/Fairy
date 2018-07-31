@@ -10,7 +10,7 @@
     .myPhoto {
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      overflow: scroll;
     }
 
     .showImg {
@@ -56,7 +56,11 @@
       z-index: 99
     }
 
-    #savePhoto, #hiddenImg {
+    #hiddenImg {
+      display: block;
+    }
+
+    #savePhoto {
       display: none;
     }
   </style>
@@ -79,7 +83,7 @@
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    // getUserInfo();
+    getUserInfo();
   };
 
   let img = document.getElementById('imurl');
@@ -122,6 +126,7 @@
   function savePhoto() {
     base64 = getBase64Image(img, 0.7);
     console.log(base64);
+    $('#hiddenImg').attr('src', base64);
     base64 = base64.split(',')[1];
     console.log(base64);
     console.log($('#imurl').attr('src'));
