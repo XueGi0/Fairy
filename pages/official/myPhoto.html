@@ -82,7 +82,7 @@
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    getUserInfo();
+    //getUserInfo();
   };
 
   let img = document.getElementById('imurl');
@@ -93,6 +93,8 @@
     canvas.height = img.height;
 
     let ctx = canvas.getContext("2d");
+    alert($('#imurl').width());
+    alert($('#imurl').height());
     ctx.drawImage(img, 0, 0, img.width, img.height);
 
     let dataURL = canvas.toDataURL("image/jpeg", ratio);
@@ -146,7 +148,7 @@
             visibility: 'hidden'
           });
         } else {
-          showTips(data.code);
+          //showTips(data.code);
           showTips(data.msg);
           setTimeout(function () {
             window.location.href = './myPhoto.html';
@@ -171,6 +173,8 @@
     reader.readAsDataURL(file);
     reader.onload = function (e) {
       $('#imurl').attr('src', e.target.result);
+      alert($('#imurl').width());
+      alert($('#imurl').height());
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
