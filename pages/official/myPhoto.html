@@ -17,8 +17,6 @@
       margin: 0 auto;
       margin-top: 0.25rem;
       width: 3rem;
-      height: 3rem;
-      overflow: hidden;
     }
 
     .showImg img {
@@ -86,7 +84,7 @@
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    getUserInfo();
+    //getUserInfo();
   };
   let img = document.getElementById('imurl');
 
@@ -251,8 +249,8 @@
       case 3:
         canvas.width = width;
         canvas.height = height;
-        ctx.rotate(degree);
         ctx.drawImage($('#imurl')[0], 0, -width, width, height);
+        canvas.style.transform = 'rotate(90deg)';
         //width
         break;
     }
