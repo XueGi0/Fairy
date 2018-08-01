@@ -38,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="588">
-              <caret line="253" column="14" selection-start-line="253" selection-start-column="14" selection-end-line="253" selection-end-column="14" />
+              <caret line="265" column="44" selection-start-line="265" selection-start-column="39" selection-end-line="265" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -258,12 +258,12 @@
       <workItem from="1532398452746" duration="738000" />
       <workItem from="1532399212470" duration="120656000" />
       <workItem from="1532912787994" duration="11989000" />
-      <workItem from="1532998742748" duration="26746000" />
+      <workItem from="1532998742748" duration="27164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183368000" />
+    <option name="totallyTimeSpent" value="183786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -577,7 +577,7 @@
     <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
-          <caret line="253" column="14" selection-start-line="253" selection-start-column="14" selection-end-line="253" selection-end-column="14" />
+          <caret line="265" column="44" selection-start-line="265" selection-start-column="39" selection-end-line="265" selection-end-column="44" />
         </state>
       </provider>
     </entry>
