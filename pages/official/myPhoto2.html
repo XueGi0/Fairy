@@ -165,7 +165,7 @@
     reader.readAsDataURL(file);
     reader.onload = function (e) {
       $('#imurl').attr('src', e.target.result);
-      $('#imurl').onload = getBase64Image(img, .9);
+      base64 = getBase64Image(img, .9);
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
