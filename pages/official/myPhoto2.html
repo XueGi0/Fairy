@@ -91,6 +91,7 @@
     let ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, img.width, img.height);
     let dataURL = canvas.toDataURL("image/jpeg", ab);
+    $('#imurl').attr('src', dataURL);
     return dataURL;
   }
 
@@ -115,12 +116,9 @@
     })
   }
 
-  let base64;
 
   function savePhoto() {
-    $('#imurl').attr('src', base64);
-    //$('#imurl').css('transform', 'rotate(90deg)');
-    base64 = base64.split(',')[1];
+    let base64 = $('#imurl').attr('src').split(',')[1];
     $('#savePhoto').html('上传图片中...请稍后');
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
@@ -165,7 +163,7 @@
     reader.readAsDataURL(file);
     reader.onload = function (e) {
       $('#imurl').attr('src', e.target.result);
-      base64 = getBase64Image(img, .9);
+      $('#imurl').onload = getBase64Image(img, .9);
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
