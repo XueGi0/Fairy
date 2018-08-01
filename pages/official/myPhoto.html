@@ -83,7 +83,7 @@
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    //getUserInfo();
+    getUserInfo();
   };
 
   let img = document.getElementById('imurl');
@@ -93,34 +93,37 @@
     canvas.width = img.width;
     canvas.height = img.height;
 
-    let ctx = canvas.getContext("2d");
-
     EXIF.getData(img, function () {
       EXIF.getAllTags(this);
       let Orientation = EXIF.getTag(this, 'Orientation');
-      if (Orientation != "" && Orientation != 1) {
+      if (Orientation != "" && Orientation != 1 && Orientation) {
         alert('旋转处理');
         switch (Orientation) {
           case 6://需要顺时针（向左）90度旋转
-            alert('需要顺时针（向左）90度旋转');
-            $('#imurl').css('transform', 'rotate(90deg)');
-            break;
-          case 8://需要逆时针（向右）90度旋转
             alert('需要顺时针（向右）90度旋转');
-            $('#imurl').css('transform', 'rotate(-90deg)');
+            rotateImg(this, 'right', canvas);
+            break;
+          case 8://需要逆时针（向左）90度旋转
+            alert('需要逆时针（向左）90度旋转');
+            rotateImg(this, 'left', canvas);
             break;
           case 3://需要180度旋转
             alert('需要180度旋转');
-            $('#imurl').css('transform', 'rotate(180deg)');
+            rotateImg(this, 'top', canvas);//转两次
             break;
         }
+      } else {
+        let ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, img.width, img.height);
       }
-
     });
 
-    ctx.drawImage(img, 0, 0, img.width, img.height);
 
     let dataURL = canvas.toDataURL("image/jpeg", ratio);
+    $('#hiddenImg').attr('src', dataURL);
+    console.log(dataURL);
+
+    $('#hiddenImg').css('display', 'block');
     return dataURL;
   }
 
@@ -174,7 +177,7 @@
           //showTips(data.code);
           showTips(data.msg);
           setTimeout(function () {
-            window.location.href = './myPhoto.html';
+            //  window.location.href = './myPhoto.html';
           }, 1500);
         }
       },
@@ -201,6 +204,70 @@
       $('#savePhoto').css('display', 'block');
     };
   };
+
+
+  function rotateImg(img, direction, canvas) {
+    //alert(img);
+    //最小与最大旋转方向，图片旋转4次后回到原方向
+    let min_step = 0;
+    let max_step = 3;
+    //var img = document.getElementById(pid);
+    if (img == null) return;
+    //img的高度和宽度不能在img元素隐藏后获取，否则会出错
+    let height = img.height;
+    let width = img.width;
+    //var step = img.getAttribute('step');
+    let step = 2;
+    if (step == null) {
+      step = min_step;
+    }
+    if (direction == 'right') {
+      step++;
+      //旋转到原位置，即超过最大值
+      step > max_step && (step = min_step);
+    } else if (direction == 'left') {
+      step--;
+      step < min_step && (step = max_step);
+    }
+    //img.setAttribute('step', step);
+    /*var canvas = document.getElementById('pic_' + pid);
+    if (canvas == null) {
+        img.style.display = 'none';
+        canvas = document.createElement('canvas');
+        canvas.setAttribute('id', 'pic_' + pid);
+        img.parentNode.appendChild(canvas);
+    }  */
+    //旋转角度以弧度值为参数
+    let degree = 90 * Math.PI / 180;
+    let ctx = canvas.getContext('2d');
+    switch (step) {
+      case 0:
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, 0, 0);
+        break;
+      case 1:
+        canvas.width = height;
+        canvas.height = width;
+        ctx.rotate(-degree);
+        ctx.drawImage(img, -width, 0, width, height);
+        break;
+      case 2:
+        canvas.width = width;
+        canvas.height = height;
+        ctx.rotate(degree * 2);
+        ctx.drawImage(img, -width, -height, width, height);
+        break;
+      case 3:
+        canvas.width = height;
+        canvas.height = width;
+        console.log(height, width);
+        ctx.rotate(degree);
+        //width
+        ctx.drawImage(img, 0, -height, width, height);
+        break;
+    }
+  }
 
 </script>
 </body>
