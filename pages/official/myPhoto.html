@@ -149,11 +149,12 @@
 
   function savePhoto() {
     base64 = getBase64Image(img, .7);
-    $('#canvas').css('display', 'block');
+    $('#fileBtn').css('display', 'none');
     $('#imurl').attr('src', base64);
     //$('#imurl').css('transform', 'rotate(90deg)');
     base64 = base64.split(',')[1];
     $('#savePhoto').html('上传图片中...请稍后');
+    $('#savePhoto').attr('disabled', 'true');
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
       type: 'POST',
@@ -164,13 +165,10 @@
       success: function (data) {
         if (data.code == '0000') {
           showTips('修改成功', 0);
-          $('#afterPhoto').html('修改图片');
           $('#savePhoto').css('display', 'none');
           $('#afterPhoto').css('display', 'block');
-          $('#fileBtn').css({
-            display: 'block',
-            visibility: 'hidden'
-          });
+          $('#afterPhoto').attr('disabled', 'false');
+          $('#fileBtn').css('display', 'block');
         } else {
           //showTips(data.code);
           showTips(data.msg);
@@ -245,7 +243,6 @@
       case 1:
         canvas.width = width;
         canvas.height = height;
-        alert(canvas.width + '&&' + canvas.height);
         ctx.rotate(-degree);
         ctx.drawImage(img, -width, 0, width, height);
         break;
@@ -258,10 +255,7 @@
       case 3:
         canvas.width = width;
         canvas.height = height;
-        alert(canvas.width + '&&' + canvas.height);
         ctx.rotate(degree);
-        alert(canvas.width + '&&' + canvas.height);
-        alert(width + '--' + height);
         ctx.drawImage(img, 0, -width, width, height);
         //width
         break;
