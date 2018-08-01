@@ -19,6 +19,7 @@
 
     .showImg img {
       width: 3rem;
+      height: 4rem;
       display: block;
       margin: 0 auto;
       border: .01rem solid #ededed;
@@ -55,10 +56,6 @@
       z-index: 99
     }
 
-    #hiddenImg {
-      display: none;
-    }
-
     #savePhoto {
       display: none;
     }
@@ -68,7 +65,6 @@
 <section class="myPhoto">
   <section class="showImg">
     <img src="" alt="" id="imurl">
-    <img src="" alt="" id="hiddenImg">
   </section>
   <section class="photoFooter">
     <button class="alterPhoto" id="alterPhoto">修改图片</button>
@@ -88,17 +84,13 @@
 
   let img = document.getElementById('imurl');
 
-  function getBase64Image(img) {
+  function getBase64Image(img, ab) {
     let canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
-    alert(img.width + '--' + img.height);
     let ctx = canvas.getContext("2d");
-    alert('ctx=canvas.get');
     ctx.drawImage(img, 0, 0, img.width, img.height);
-    alert('ctx.draw');
-    let dataURL = canvas.toDataURL("image/jpeg");
-    alert(dataURL);
+    let dataURL = canvas.toDataURL("image/jpeg", ab);
     return dataURL;
   }
 
@@ -173,12 +165,12 @@
     reader.readAsDataURL(file);
     reader.onload = function (e) {
       $('#imurl').attr('src', e.target.result);
+      $('#imurl').onload = getBase64Image(img, .9);
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
     };
   };
-  $('#imurl').on('change', getBase64Image(img));
 
 
 </script>
