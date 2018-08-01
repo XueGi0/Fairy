@@ -247,8 +247,8 @@
         ctx.drawImage(img, -width, -height, width, height);
         break;
       case 3:
-        canvas.width = width;
-        canvas.height = height;
+        canvas.width = height;
+        canvas.height = width;
         $('#imurl').css('transform', 'rotate(90deg)');
         ctx.drawImage(img, 0, 0, width, height);
         //width
