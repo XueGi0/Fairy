@@ -17,7 +17,6 @@
       margin: 0 auto;
       margin-top: 0.25rem;
       width: 3rem;
-      position: relative;
       height: 3rem;
       overflow: hidden;
     }
@@ -59,12 +58,6 @@
       z-index: 99
     }
 
-    #canvas {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      display: none;
-    }
 
     #hiddenImg {
       display: none;
@@ -80,7 +73,6 @@
   <section class="showImg">
     <img src="" alt="" id="imurl">
     <img src="" alt="" id="hiddenImg">
-    <canvas id="canvas"></canvas>
   </section>
   <section class="photoFooter">
     <button class="alterPhoto" id="alterPhoto">修改图片</button>
@@ -100,7 +92,7 @@
   let img = document.getElementById('imurl');
 
   function getBase64Image(img, ratio) {
-    let canvas = document.getElementById("canvas");
+    let canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
     alert(img.width + '--' + img.height);
