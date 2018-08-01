@@ -255,10 +255,11 @@
         break;
       case 3:
         canvas.width = width;
-        canvas.height = width;
+        canvas.height = height;
         alert(canvas.width + '&&' + canvas.height);
         ctx.rotate(degree);
         alert(canvas.width + '&&' + canvas.height);
+        alert(width + '--' + height);
         ctx.drawImage(img, 0, -width, width, height);
         //width
         break;
