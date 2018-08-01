@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>眼神科技 · 刷脸购</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../../js/public.js"></script>
+  <link rel="stylesheet" href="../../css/reset.css">
+  <style>
+    .myPhoto {
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+    }
+
+    .showImg {
+      margin-top: 0.25rem;
+    }
+
+    .showImg img {
+      width: 3rem;
+      display: block;
+      margin: 0 auto;
+      border: .01rem solid #ededed;
+      border-radius: .04rem;
+    }
+
+    .photoFooter {
+      width: 80%;
+      height: 7%;
+      position: absolute;
+      left: 50%;
+      margin-left: -40%;
+      bottom: .5rem;
+    }
+
+    .photoFooter button {
+      height: 100%;
+      color: #fff;
+      width: 100%;
+      border-radius: .1rem;
+      background: #537EFA;
+      font-size: .25rem;
+      border: none;
+      display: block;
+    }
+
+    #fileBtn {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 99
+    }
+
+    #hiddenImg {
+      display: none;
+    }
+
+    #savePhoto {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<section class="myPhoto">
+  <section class="showImg">
+    <img src="" alt="" id="imurl">
+    <img src="" alt="" id="hiddenImg">
+  </section>
+  <section class="photoFooter">
+    <button class="alterPhoto" id="alterPhoto">修改图片</button>
+    <button class="alterPhoto" id="savePhoto">保存图片</button>
+    <input id="fileBtn" type="file" onchange="upload();" accept="image/*" capture="camera"/>
+  </section>
+</section>
+
+<script src="../../js/jQuery-2.2.0.min.js"></script>
+<script src="../../js/showTips.js"></script>
+<script src="../../js/exif-js-master/exif.js"></script>
+<script>
+  let session_3rd = sessionStorage.getItem('session_3rd');
+  window.onload = function () {
+    //getUserInfo();
+  };
+
+  let img = document.getElementById('imurl');
+
+  function getBase64Image(img, ratio) {
+    let canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    let ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+    let dataURL = canvas.toDataURL("image/jpeg", ratio);
+    $('#hiddenImg').attr('src', dataURL);
+    console.log(dataURL);
+
+    $('#hiddenImg').css('display', 'block');
+    return dataURL;
+  }
+
+  function getUserInfo() {
+    $.ajax({
+      type: 'POST',
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/info',
+      data: {
+        session_3rd: session_3rd
+      },
+      success: function (data) {
+        if (data.state == 1) {
+          $('#imurl').attr('src', data.imurl);
+        } else {
+          getUserInfo()
+        }
+      },
+      error: function (e) {
+        //alert('信息接口请求失败，重新请求中');
+        getUserInfo();
+      }
+    })
+  }
+
+  let base64;
+
+  function savePhoto() {
+    base64 = getBase64Image(img, .7);
+    $('#imurl').attr('src', base64);
+    //$('#imurl').css('transform', 'rotate(90deg)');
+    base64 = base64.split(',')[1];
+    $('#savePhoto').html('上传图片中...请稍后');
+    $.ajax({
+      url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
+      type: 'POST',
+      data: {
+        session_3rd: session_3rd,
+        photoImg: base64
+      },
+      success: function (data) {
+        if (data.code == '0000') {
+          showTips('修改成功', 0);
+          $('#afterPhoto').html('修改图片');
+          $('#savePhoto').css('display', 'none');
+          $('#afterPhoto').css('display', 'block');
+          $('#fileBtn').css({
+            display: 'block',
+            visibility: 'hidden'
+          });
+        } else {
+          //showTips(data.code);
+          showTips(data.msg);
+          setTimeout(function () {
+            //  window.location.href = './myPhoto.html';
+          }, 1500);
+        }
+      },
+      error: function (e) {
+        showTips('修改失败，刷新重试');
+        setTimeout(function () {
+          window.location.href = './myPhoto.html';
+        }, 1500);
+      }
+    });
+  }
+
+  $('#savePhoto').on('click', savePhoto);
+
+  let upload = function () {
+    "use strict";
+    let file = $('#fileBtn')[0].files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function (e) {
+      $('#imurl').attr('src', e.target.result);
+      $('#alterPhoto').css('display', 'none');
+      $('#fileBtn').css('display', 'none');
+      $('#savePhoto').css('display', 'block');
+    };
+  };
+
+
+</script>
+</body>
+</html>
