@@ -268,7 +268,10 @@
       case 3:
         canvas.width = height;
         canvas.height = width;
+        alert(canvas.width + '&&' + canvas.height);
         ctx.rotate(degree);
+        alert(canvas.width + '&&' + canvas.height);
+        alert(width + '--' + height);
         ctx.drawImage(img, 0, -height, width, height);
         //width
         break;
