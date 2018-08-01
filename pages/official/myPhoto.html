@@ -259,12 +259,12 @@
         ctx.drawImage(img, -width, -height, width, height);
         break;
       case 3:
-        canvas.width = height;
-        canvas.height = width;
+        canvas.width = width;
+        canvas.height = height;
         console.log(height, width);
         ctx.rotate(degree);
         //width
-        ctx.drawImage(img, 0, -height, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
         break;
     }
   }
