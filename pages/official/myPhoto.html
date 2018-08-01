@@ -69,6 +69,7 @@
   <section class="showImg">
     <img src="" alt="" id="imurl">
     <img src="" alt="" id="hiddenImg">
+    <canvas id="canvas"></canvas>
   </section>
   <section class="photoFooter">
     <button class="alterPhoto" id="alterPhoto">修改图片</button>
@@ -89,7 +90,7 @@
   let img = document.getElementById('imurl');
 
   function getBase64Image(img, ratio) {
-    let canvas = document.createElement("canvas");
+    let canvas = document.getElementById("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
     alert(img.width + '--' + img.height);
@@ -113,6 +114,7 @@
             break;
         }
       } else {
+        alert('不需要旋转操作');
         let ctx = canvas.getContext("2d");
         ctx.drawImage(img, 0, 0, img.width, img.height);
       }
@@ -260,7 +262,7 @@
         ctx.rotate(degree);
         alert(canvas.width + '&&' + canvas.height);
         alert(width + '--' + height);
-        ctx.drawImage(img, 0, -width, height, height);
+        ctx.drawImage(img, 0, -width, height, width);
         //width
         break;
     }
