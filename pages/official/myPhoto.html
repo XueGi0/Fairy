@@ -18,6 +18,8 @@
       margin-top: 0.25rem;
       width: 3rem;
       position: relative;
+      height: 3rem;
+      overflow: hidden;
     }
 
     .showImg img {
@@ -263,13 +265,13 @@
         ctx.drawImage(img, -width, -height, width, height);
         break;
       case 3:
-        canvas.width = height;
+        canvas.width = width;
         canvas.height = height;
         alert(canvas.width + '&&' + canvas.height);
         ctx.rotate(degree);
         alert(canvas.width + '&&' + canvas.height);
         alert(width + '--' + height);
-        ctx.drawImage(img, 0, -300, 300, height);
+        ctx.drawImage(img, 0, -width, width, height);
         //width
         break;
     }
