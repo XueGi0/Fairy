@@ -14,13 +14,15 @@
     }
 
     .showImg {
+      margin: 0 auto;
       margin-top: 0.25rem;
+      width: 3rem;
+      position: relative;
     }
 
     .showImg img {
-      width: 3rem;
+      width: 100%;
       display: block;
-      margin: 0 auto;
       border: .01rem solid #ededed;
       border-radius: .04rem;
     }
@@ -53,6 +55,13 @@
       height: 100%;
       opacity: 0;
       z-index: 99
+    }
+
+    #canvas {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
     }
 
     #hiddenImg {
@@ -148,6 +157,7 @@
 
   function savePhoto() {
     base64 = getBase64Image(img, .7);
+    $('#canvas').css('display', 'block');
     $('#imurl').attr('src', base64);
     //$('#imurl').css('transform', 'rotate(90deg)');
     base64 = base64.split(',')[1];
@@ -256,13 +266,10 @@
         ctx.drawImage(img, -width, -height, width, height);
         break;
       case 3:
-        canvas.width = width;
-        canvas.height = height;
-        alert(canvas.width + '&&' + canvas.height);
+        canvas.width = height;
+        canvas.height = width;
         ctx.rotate(degree);
-        alert(canvas.width + '&&' + canvas.height);
-        alert(width + '--' + height);
-        ctx.drawImage(img, 0, -width, width, height);
+        ctx.drawImage(img, 0, -height, width, height);
         //width
         break;
     }
