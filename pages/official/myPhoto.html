@@ -95,7 +95,6 @@
   window.onload = function () {
     //getUserInfo();
   };
-
   let img = document.getElementById('imurl');
 
   function getBase64Image(img, ratio) {
@@ -197,7 +196,6 @@
   }
 
   $('#savePhoto').on('click', savePhoto);
-
   let upload = function () {
     "use strict";
     let file = $('#fileBtn')[0].files[0];
@@ -210,7 +208,6 @@
       $('#savePhoto').css('display', 'block');
     };
   };
-
 
   function rotateImg(img, direction, canvas) {
     //alert(img);
@@ -266,18 +263,17 @@
         ctx.drawImage(img, -width, -height, width, height);
         break;
       case 3:
-        canvas.width = width;
+        canvas.width = height;
         canvas.height = height;
         alert(canvas.width + '&&' + canvas.height);
         ctx.rotate(degree);
         alert(canvas.width + '&&' + canvas.height);
         alert(width + '--' + height);
-        ctx.drawImage(img, 0, -width, width, height);
+        ctx.drawImage(img, 0, -300, 300, height);
         //width
         break;
     }
   }
-
 </script>
 </body>
 </html>
