@@ -83,7 +83,7 @@
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    //getUserInfo();
+    getUserInfo();
   };
 
   let img = document.getElementById('imurl');
@@ -92,7 +92,7 @@
     let canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
-
+    alert(img.width + '--' + img.height);
     EXIF.getData(img, function () {
       EXIF.getAllTags(this);
       let Orientation = EXIF.getTag(this, 'Orientation');
@@ -117,13 +117,7 @@
         ctx.drawImage(img, 0, 0, img.width, img.height);
       }
     });
-
-
     let dataURL = canvas.toDataURL("image/jpeg", ratio);
-    $('#hiddenImg').attr('src', dataURL);
-    console.log(dataURL);
-
-    $('#hiddenImg').css('display', 'block');
     return dataURL;
   }
 
@@ -249,8 +243,9 @@
       case 1:
         canvas.width = height;
         canvas.height = width;
+        alert(canvas.width + '&&' + canvas.height);
         ctx.rotate(-degree);
-        ctx.drawImage(img, -height, 0, width, height);
+        ctx.drawImage(img, -width, 0, width, height);
         break;
       case 2:
         canvas.width = width;
@@ -261,7 +256,9 @@
       case 3:
         canvas.width = height;
         canvas.height = width;
+        alert(canvas.width + '&&' + canvas.height);
         ctx.rotate(degree);
+        alert(canvas.width + '&&' + canvas.height);
         //width
         ctx.drawImage(img, 0, -width, width, height);
         break;
