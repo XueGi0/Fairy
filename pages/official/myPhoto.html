@@ -247,9 +247,11 @@
         ctx.drawImage(img, -width, -height, width, height);
         break;
       case 3:
-        canvas.width = height;
-        canvas.height = width;
+        canvas.width = width;
+        canvas.height = height;
+        alert(width + '你' + height);
         $('#imurl').css('transform', 'rotate(90deg)');
+        alert(width + '我' + height);
         ctx.drawImage(img, 0, 0, width, height);
         //width
         break;
