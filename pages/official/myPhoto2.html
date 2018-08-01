@@ -92,14 +92,13 @@
     let canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
-
+    alert(img.width + '--' + img.height);
     let ctx = canvas.getContext("2d");
+    alert('ctx=canvas.get');
     ctx.drawImage(img, 0, 0, img.width, img.height);
+    alert('ctx.draw');
     let dataURL = canvas.toDataURL("image/jpeg");
-    $('#hiddenImg').attr('src', dataURL);
-    console.log(dataURL);
-
-    $('#hiddenImg').css('display', 'block');
+    alert(dataURL);
     return dataURL;
   }
 
@@ -128,6 +127,7 @@
 
   function savePhoto() {
     base64 = getBase64Image(img);
+    alert('base64');
     $('#imurl').attr('src', base64);
     //$('#imurl').css('transform', 'rotate(90deg)');
     base64 = base64.split(',')[1];
