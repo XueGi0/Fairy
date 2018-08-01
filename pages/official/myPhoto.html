@@ -17,6 +17,8 @@
       margin: 0 auto;
       margin-top: 0.25rem;
       width: 3rem;
+      height: 3rem;
+      overflow: hidden;
     }
 
     .showImg img {
@@ -84,7 +86,7 @@
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    // getUserInfo();
+    getUserInfo();
   };
   let img = document.getElementById('imurl');
 
@@ -249,10 +251,8 @@
       case 3:
         canvas.width = width;
         canvas.height = height;
-        alert(width + '你' + height);
-        $('#imurl').css('transform', 'rotate(90deg)');
-        alert(width + '我' + height);
-        ctx.drawImage(img, 0, 0, width, height);
+        ctx.rotate(degree);
+        ctx.drawImage($('#imurl')[0], 0, -width, width, height);
         //width
         break;
     }
