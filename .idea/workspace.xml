@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="" />
+    <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/official/myPhoto.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/official/myPhoto.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,20 +35,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myPhoto.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myPhoto.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="242" column="19" lean-forward="true" selection-start-line="242" selection-start-column="19" selection-end-line="242" selection-end-column="19" />
+            <state relative-caret-position="328">
+              <caret line="252" column="28" selection-start-line="252" selection-start-column="28" selection-end-line="252" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myPhoto2.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myPhoto2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="175" column="34" selection-start-line="175" selection-start-column="34" selection-end-line="175" selection-end-column="34" />
+            <state relative-caret-position="961">
+              <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
             </state>
           </provider>
         </entry>
@@ -102,8 +105,8 @@
         <option value="$PROJECT_DIR$/pages/official/CES.html" />
         <option value="$PROJECT_DIR$/pages/official/return.html" />
         <option value="$PROJECT_DIR$/pages/official/1.html" />
-        <option value="$PROJECT_DIR$/pages/official/myPhoto.html" />
         <option value="$PROJECT_DIR$/pages/official/myPhoto2.html" />
+        <option value="$PROJECT_DIR$/pages/official/myPhoto.html" />
       </list>
     </option>
   </component>
@@ -256,12 +259,12 @@
       <workItem from="1532398452746" duration="738000" />
       <workItem from="1532399212470" duration="120656000" />
       <workItem from="1532912787994" duration="11989000" />
-      <workItem from="1532998742748" duration="24987000" />
+      <workItem from="1532998742748" duration="26105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181609000" />
+    <option name="totallyTimeSpent" value="182727000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -565,17 +568,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
+    <entry file="file://$PROJECT_DIR$/pages/official/myPhoto2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="242" column="19" lean-forward="true" selection-start-line="242" selection-start-column="19" selection-end-line="242" selection-end-column="19" />
+        <state relative-caret-position="961">
+          <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/official/myPhoto2.html">
+    <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="175" column="34" selection-start-line="175" selection-start-column="34" selection-end-line="175" selection-end-column="34" />
+        <state relative-caret-position="328">
+          <caret line="252" column="28" selection-start-line="252" selection-start-column="28" selection-end-line="252" selection-end-column="28" />
         </state>
       </provider>
     </entry>
