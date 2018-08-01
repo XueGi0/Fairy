@@ -126,8 +126,6 @@
   let base64;
 
   function savePhoto() {
-    base64 = getBase64Image(img);
-    alert('base64');
     $('#imurl').attr('src', base64);
     //$('#imurl').css('transform', 'rotate(90deg)');
     base64 = base64.split(',')[1];
@@ -180,6 +178,7 @@
       $('#savePhoto').css('display', 'block');
     };
   };
+  $('#imurl').on('change', getBase64Image(img));
 
 
 </script>
