@@ -241,8 +241,8 @@
         ctx.drawImage(img, 0, 0);
         break;
       case 1:
-        canvas.width = height;
-        canvas.height = width;
+        canvas.width = width;
+        canvas.height = height;
         alert(canvas.width + '&&' + canvas.height);
         ctx.rotate(-degree);
         ctx.drawImage(img, -width, 0, width, height);
@@ -257,10 +257,10 @@
         canvas.width = width;
         canvas.height = height;
         alert(canvas.width + '&&' + canvas.height);
+        ctx.drawImage(img, 0, -width, width, height);
         ctx.rotate(degree);
         alert(canvas.width + '&&' + canvas.height);
         //width
-        ctx.drawImage(img, 0, -height, width, height);
         break;
     }
   }
