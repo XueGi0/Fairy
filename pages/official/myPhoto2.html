@@ -84,15 +84,30 @@
 
   let img = document.getElementById('imurl');
 
-  function getBase64Image(img, ab) {
+  function ImgToBase64(maxLen) {
+    //生成比例
+    let width = img.width, height = img.height;
+    //计算缩放比例
+    let rate = 1;
+    if (width >= height) {
+      if (width > maxLen) {
+        rate = maxLen / width;
+      }
+    } else {
+      if (height > maxLen) {
+        rate = maxLen / height;
+      }
+    }
+    img.width = width * rate;
+    img.height = height * rate;
+    //生成canvas
     let canvas = document.createElement("canvas");
+    let ctx = canvas.getContext("2d");
     canvas.width = img.width;
     canvas.height = img.height;
-    let ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, img.width, img.height);
-    let dataURL = canvas.toDataURL("image/jpeg", ab);
-    $('#imurl').attr('src', dataURL);
-    return dataURL;
+    let base64 = canvas.toDataURL('image/jpeg', 0.9);
+    $('#imurl').attr('src', base64);
   }
 
   function getUserInfo() {
@@ -163,7 +178,7 @@
     reader.readAsDataURL(file);
     reader.onload = function (e) {
       $('#imurl').attr('src', e.target.result);
-      $('#imurl').onload = getBase64Image(img, .9);
+      ImgToBase64(400);
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
