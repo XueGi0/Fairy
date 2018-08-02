@@ -92,59 +92,24 @@
     let canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
-    let ctx = canvas.getContext("2d");
     EXIF.getData(img, function () {
       EXIF.getAllTags(this);
       let Orientation = EXIF.getTag(this, 'Orientation');
-      alert('方向为' + Orientation);
-      if (Orientation != "" && Orientation) {
+      if (Orientation != "" && Orientation != 1 && Orientation) {
         switch (Orientation) {
-          case 3:
-            alert('3');
-            ctx.rotate(180 * Math.PI / 180);
-            ctx.drawImage(img, -img.width, -img.height, img.width, img.height);
+          case 6://需要顺时针（向左）90度旋转
+            rotateImg(this, 'left', canvas);
             break;
-          case 6:
-            alert('6');
-            ctx.rotate(90 * Math.PI / 180);
-            ctx.drawImage(img, 0, -img.width, img.height, img.width);
+          case 8://需要逆时针（向左）90度旋转
+            rotateImg(this, 'left', canvas);
             break;
-          case 8:
-            alert('8');
-            ctx.rotate(270 * Math.PI / 180);
-            ctx.drawImage(img, -img.height, 0, img.height, img.width);
+          case 3://需要180度旋转
+            rotateImg(this, 'top', canvas);//转两次
             break;
-          case 2:
-            alert('2');
-            ctx.translate(img.width, 0);
-            ctx.scale(-1, 1);
-            ctx.drawImage(img, 0, 0, img.width, img.height);
-            break;
-          case 4:
-            alert('4');
-            ctx.translate(img.width, 0);
-            ctx.scale(-1, 1);
-            ctx.rotate(180 * Math.PI / 180);
-            ctx.drawImage(img, -img.width, -img.height, img.width, img.height);
-            break;
-          case 5:
-            alert('5');
-            ctx.translate(img.width, 0);
-            ctx.scale(-1, 1);
-            ctx.rotate(90 * Math.PI / 180);
-            ctx.drawImage(img, 0, -img.width, img.height, img.width);
-            break;
-          case 7:
-            alert('7');
-            ctx.translate(img.width, 0);
-            ctx.scale(-1, 1);
-            ctx.rotate(270 * Math.PI / 180);
-            ctx.drawImage(img, -img.height, 0, img.height, img.width);
-            break;
-          default:
-            alert('default');
-            ctx.drawImage(img, 0, 0, img.width, img.height);
         }
+      } else {
+        let ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, img.width, img.height);
       }
     });
 
@@ -229,6 +194,67 @@
     };
   };
 
+  function rotateImg(img, direction, canvas) {
+    //alert(img);
+    //最小与最大旋转方向，图片旋转4次后回到原方向
+    let min_step = 0;
+    let max_step = 3;
+    //var img = document.getElementById(pid);
+    if (img == null) return;
+    //img的高度和宽度不能在img元素隐藏后获取，否则会出错
+    let height = img.height;
+    let width = img.width;
+    //var step = img.getAttribute('step');
+    let step = 2;
+    if (step == null) {
+      step = min_step;
+    }
+    if (direction == 'right') {
+      step++;
+      //旋转到原位置，即超过最大值
+      step > max_step && (step = min_step);
+    } else if (direction == 'left') {
+      step--;
+      step < min_step && (step = max_step);
+    }
+    //img.setAttribute('step', step);
+    /*var canvas = document.getElementById('pic_' + pid);
+    if (canvas == null) {
+        img.style.display = 'none';
+        canvas = document.createElement('canvas');
+        canvas.setAttribute('id', 'pic_' + pid);
+        img.parentNode.appendChild(canvas);
+    }  */
+    //旋转角度以弧度值为参数
+    let degree = 90 * Math.PI / 180;
+    let ctx = canvas.getContext('2d');
+    switch (step) {
+      case 0:
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, 0, 0);
+        break;
+      case 1:
+        canvas.width = height;
+        canvas.height = width;
+        ctx.rotate(degree);
+        ctx.drawImage(img, 0, -height);
+        break;
+      case 2:
+        canvas.width = width;
+        canvas.height = height;
+        ctx.rotate(degree * 2);
+        ctx.drawImage(img, -width, -height, width, height);
+        break;
+      case 3:
+        canvas.width = width;
+        canvas.height = height;
+        ctx.rotate(degree);
+        ctx.drawImage(img, 0, -width, width, height);
+        //width
+        break;
+    }
+  }
 </script>
 </body>
 </html>
