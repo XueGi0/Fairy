@@ -82,33 +82,17 @@
     //getUserInfo();
   };
 
- // let img = document.getElementById('imurl');
+  let img = document.getElementById('imurl');
 
-  // function ImgToBase64(maxLen) {
-  //   //生成比例
-  //   let width = img.width, height = img.height;
-  //   //计算缩放比例
-  //   let rate = 1;
-  //   if (width >= height) {
-  //     if (width > maxLen) {
-  //       rate = maxLen / width;
-  //     }
-  //   } else {
-  //     if (height > maxLen) {
-  //       rate = maxLen / height;
-  //     }
-  //   }
-  //   img.width = width * rate;
-  //   img.height = height * rate;
-  //   //生成canvas
-  //   let canvas = document.createElement("canvas");
-  //   let ctx = canvas.getContext("2d");
-  //   canvas.width = img.width;
-  //   canvas.height = img.height;
-  //   ctx.drawImage(img, 0, 0, img.width, img.height);
-  //   let base64 = canvas.toDataURL('image/jpeg', 0.9);
-  //   $('#imurl').attr('src', base64);
-  // }
+  function ImgToBase64(img, ratio) {
+    let canvas = document.createElement("canvas");
+    let ctx = canvas.getContext("2d");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+    let base64 = canvas.toDataURL('image/jpeg', ratio);
+    $('#imurl').attr('src', base64);
+  }
 
   function getUserInfo() {
     $.ajax({
@@ -133,7 +117,9 @@
 
 
   function savePhoto() {
-    let base64 = $('#imurl').attr('src').split(',')[1];
+    let base64 = ImgToBase64(img, 1);
+    $('#imurl').attr('src', base64);
+    base64 = $('#imurl').attr('src').split(',')[1];
     $('#savePhoto').html('上传图片中...请稍后');
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
