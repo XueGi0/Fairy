@@ -99,41 +99,49 @@
       if (Orientation != "" && Orientation != 1 && Orientation) {
         switch (Orientation) {
           case 3:
+            alert('3');
             ctx.rotate(180 * Math.PI / 180);
             ctx.drawImage(img, -img.width, -img.height, img.width, img.height);
             break;
           case 6:
+            alert('6');
             ctx.rotate(90 * Math.PI / 180);
             ctx.drawImage(img, 0, -img.width, img.height, img.width);
             break;
           case 8:
+            alert('8');
             ctx.rotate(270 * Math.PI / 180);
             ctx.drawImage(img, -img.height, 0, img.height, img.width);
             break;
           case 2:
+            alert('2');
             ctx.translate(img.width, 0);
             ctx.scale(-1, 1);
             ctx.drawImage(img, 0, 0, img.width, img.height);
             break;
           case 4:
+            alert('4');
             ctx.translate(img.width, 0);
             ctx.scale(-1, 1);
             ctx.rotate(180 * Math.PI / 180);
             ctx.drawImage(img, -img.width, -img.height, img.width, img.height);
             break;
           case 5:
+            alert('5');
             ctx.translate(img.width, 0);
             ctx.scale(-1, 1);
             ctx.rotate(90 * Math.PI / 180);
             ctx.drawImage(img, 0, -img.width, img.height, img.width);
             break;
           case 7:
+            alert('7');
             ctx.translate(img.width, 0);
             ctx.scale(-1, 1);
             ctx.rotate(270 * Math.PI / 180);
             ctx.drawImage(img, -img.height, 0, img.height, img.width);
             break;
           default:
+            alert('default');
             ctx.drawImage(img, 0, 0, img.width, img.height);
         }
       }
