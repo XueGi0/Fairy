@@ -87,8 +87,8 @@
   function ImgToBase64(img, ratio) {
     let canvas = document.createElement("canvas");
     let ctx = canvas.getContext("2d");
-    canvas.width = img.width;
-    canvas.height = img.height;
+    canvas.width = img.height;
+    canvas.height = img.width;
     ctx.drawImage(img, 0, 0, img.width, img.height);
     let base64 = canvas.toDataURL('image/jpeg', ratio);
     $('#imurl').attr('src', base64);
