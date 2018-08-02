@@ -96,7 +96,8 @@
     EXIF.getData(img, function () {
       EXIF.getAllTags(this);
       let Orientation = EXIF.getTag(this, 'Orientation');
-      if (Orientation != "" && Orientation != 1 && Orientation) {
+      alert('方向为' + Orientation);
+      if (Orientation != "" && Orientation) {
         switch (Orientation) {
           case 3:
             alert('3');
