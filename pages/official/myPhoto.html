@@ -98,7 +98,7 @@
       if (Orientation != "" && Orientation != 1 && Orientation) {
         switch (Orientation) {
           case 6://需要顺时针（向左）90度旋转
-            rotateImg(this, 'left', canvas);
+            rotateImg(this, 'right', canvas);
             break;
           case 8://需要逆时针（向左）90度旋转
             rotateImg(this, 'left', canvas);
@@ -235,10 +235,10 @@
         ctx.drawImage(img, 0, 0);
         break;
       case 1:
-        canvas.width = height;
-        canvas.height = width;
-        ctx.rotate(degree);
-        ctx.drawImage(img, 0, -height);
+        canvas.width = width;
+        canvas.height = height;
+        ctx.rotate(-degree);
+        ctx.drawImage(img, -width, 0, width, height);
         break;
       case 2:
         canvas.width = width;

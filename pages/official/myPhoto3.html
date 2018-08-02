@@ -84,14 +84,32 @@
 
   let img = document.getElementById('imurl');
 
-  function ImgToBase64(img, ratio) {
-    let canvas = document.createElement("canvas");
-    let ctx = canvas.getContext("2d");
+  //图片压缩
+  function compress(img, ratio) {
+    let canvas, ctx, img64, orient;
+
+    //获取图片方向
+    orient = getPhotoOrientation(img);
+
+    canvas = document.createElement('canvas');
     canvas.width = img.width;
     canvas.height = img.height;
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-    let base64 = canvas.toDataURL('image/jpeg', ratio);
-    $('#imurl').attr('src', base64);
+
+    ctx = canvas.getContext("2d");
+
+    //如果图片方向等于6 ，则旋转矫正，反之则不做处理
+    if (orient == 6) {
+      ctx.save();
+      ctx.translate(img.width / 2, img.height / 2);
+      ctx.rotate(90 * Math.PI / 180);
+      ctx.drawImage(img, 0 - img.height / 2, 0 - img.width / 2, img.height, img.width);
+      ctx.restore();
+    } else {
+      ctx.drawImage(img, 0, 0, img.width, img.height);
+    }
+
+    img64 = canvas.toDataURL("image/jpeg", ratio);
+    return img64;
   }
 
   function getUserInfo() {
@@ -117,7 +135,7 @@
 
 
   function savePhoto() {
-    let base64 = ImgToBase64(img, 1);
+    let base64 = compress(img, 1);
     $('#imurl').attr('src', base64);
     base64 = $('#imurl').attr('src').split(',')[1];
     $('#savePhoto').html('上传图片中...请稍后');
@@ -169,6 +187,15 @@
       $('#savePhoto').css('display', 'block');
     };
   };
+
+  //获取图片方向
+  function getPhotoOrientation(img) {
+    let orient;
+    EXIF.getData(img, function () {
+      orient = EXIF.getTag(this, 'Orientation');
+    });
+    return orient;
+  }
 
 
 </script>
