@@ -87,11 +87,11 @@
   function getBase64Image(img, radio) {
     let canvas = document.createElement("canvas");
     let ctx = canvas.getContext("2d");
-    canvas.width = img.height;
-    canvas.height = img.width;
+    canvas.width = img.height / 2;
+    canvas.height = img.width / 2;
     alert(img.width + '--' + img.height);
     alert(canvas.width + '--' + canvas.height);
-    ctx.drawImage(img, 0, 0, img.height, img.width);
+    ctx.drawImage(img, 0, 0, img.height / 2, img.width / 2);
 
     let dataURL = canvas.toDataURL("image/jpeg", radio);
     return dataURL;
