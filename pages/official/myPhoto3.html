@@ -123,22 +123,19 @@
           showTips('修改成功', 0);
           $('#savePhoto').css('display', 'none');
           $('#afterPhoto').css('display', 'block');
-          /*$('#fileBtn').css({
-            display: 'block',
-            visibility: 'hidden'
-          });*/
+          $('#fileBtn').css('display', 'block');
         } else {
           //showTips(data.code);
           showTips(data.msg);
           setTimeout(function () {
-            //  window.location.href = './myPhoto.html';
+            window.location.href = './myPhoto3.html';
           }, 1500);
         }
       },
       error: function (e) {
         showTips('修改失败，刷新重试');
         setTimeout(function () {
-          //window.location.href = './myPhoto.html';
+          window.location.href = './myPhoto3.html';
         }, 1500);
       }
     });
@@ -157,6 +154,7 @@
         $('#imurl').attr('src', base64);
       });
       $('#afterPhoto').css('display', 'none');
+      $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
     };
   };
