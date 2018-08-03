@@ -67,7 +67,7 @@
     <img src="" alt="" id="imurl">
   </section>
   <section class="photoFooter">
-    <button class="alterPhoto" id="alterPhoto">修改图片</button>
+    <button class="alterPhoto" id="afterPhoto">修改图片</button>
     <button class="alterPhoto" id="savePhoto">保存图片</button>
     <input id="fileBtn" type="file" onchange="upload();" accept="image/*" capture="camera"/>
   </section>
@@ -80,7 +80,7 @@
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    //getUserInfo();
+    getUserInfo();
   };
 
 
@@ -107,11 +107,9 @@
 
 
   function savePhoto() {
-    alert('点击');
     base64 = $('#imurl').attr('src').split(',')[1];
-    alert(base64);
-    alert('图片处理完成');
     $('#savePhoto').html('上传图片中...请稍后');
+    $('#savePhoto').attr('disabled', 'true');
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
       type: 'POST',
@@ -122,7 +120,6 @@
       success: function (data) {
         if (data.code == '0000') {
           showTips('修改成功', 0);
-          $('#afterPhoto').html('修改图片');
           $('#savePhoto').css('display', 'none');
           $('#afterPhoto').css('display', 'block');
           $('#fileBtn').css({
@@ -154,13 +151,10 @@
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function (e) {
-      alert('lrz执行之前');
       lrz(e.target.result, {width: 300}).then(function (res) {
-        alert('lrz执行');
         let base64 = res.base64;
         $('#imurl').attr('src', base64);
       });
-
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
