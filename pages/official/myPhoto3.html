@@ -89,7 +89,7 @@
     canvas.width = img.height;
     canvas.height = img.width;
     let ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, img.width, img.height);
+    ctx.drawImage(img, 0, 0, img.height, img.width);
 
     let dataURL = canvas.toDataURL("image/jpeg", radio);
     return dataURL;
