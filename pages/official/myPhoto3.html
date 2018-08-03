@@ -107,8 +107,10 @@
 
 
   function savePhoto() {
-    let base64 = operateImg();
+    operateImg();
     base64 = $('#imurl').attr('src').split(',')[1];
+    alert(base64);
+    alert('图片处理完成');
     $('#savePhoto').html('上传图片中...请稍后');
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
@@ -165,7 +167,7 @@
       console.log(res.base64);
       let base64 = res.base64;
       $('#imurl').attr('src', base64);
-    })
+    });
   }
 
 

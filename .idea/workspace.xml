@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="" />
+    <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/pages/official/myPhoto3.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/official/myPhoto3.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,8 +100,8 @@
       <file leaf-file-name="myPhoto3.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
-              <caret line="141" column="17" lean-forward="true" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
+            <state relative-caret-position="459">
+              <caret line="151" column="17" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -349,12 +351,12 @@
       <workItem from="1532398452746" duration="738000" />
       <workItem from="1532399212470" duration="120656000" />
       <workItem from="1532912787994" duration="11989000" />
-      <workItem from="1532998742748" duration="72171000" />
+      <workItem from="1532998742748" duration="72605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228793000" />
+    <option name="totallyTimeSpent" value="229227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -682,8 +684,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/official/myPhoto3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="141" column="17" lean-forward="true" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
+        <state relative-caret-position="459">
+          <caret line="151" column="17" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
         </state>
       </provider>
     </entry>
