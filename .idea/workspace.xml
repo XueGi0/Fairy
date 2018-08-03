@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/official/myPhoto.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/official/myPhoto.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/official/myPhoto3.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/official/myPhoto3.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/pages/official/payAgree.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="417">
-              <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -87,9 +89,10 @@
       <file leaf-file-name="myPhoto.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="111" column="56" lean-forward="true" selection-start-line="110" selection-start-column="7" selection-end-line="111" selection-end-column="56" />
+            <state relative-caret-position="-972">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
               <folding>
+                <element signature="e#2170#3793#0" />
                 <element signature="e#6098#7791#0" />
               </folding>
             </state>
@@ -99,8 +102,8 @@
       <file leaf-file-name="myPhoto3.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+            <state relative-caret-position="613">
+              <caret line="140" column="12" selection-start-line="140" selection-start-column="12" selection-end-line="140" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -108,8 +111,8 @@
       <file leaf-file-name="myPhoto2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="100" column="13" lean-forward="true" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+            <state relative-caret-position="617">
+              <caret line="165" column="47" selection-start-line="165" selection-start-column="47" selection-end-line="165" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -196,6 +199,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/js/exif-js-master/package.json" />
+      <path value="$PROJECT_DIR$/js/localResizeIMG/package.json" />
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -228,6 +232,19 @@
               <item name="mini" type="b2602c69:ProjectViewProjectNode" />
               <item name="mini" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="localResizeIMG" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="localResizeIMG" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mini" type="b2602c69:ProjectViewProjectNode" />
@@ -336,12 +353,12 @@
       <workItem from="1532398452746" duration="738000" />
       <workItem from="1532399212470" duration="120656000" />
       <workItem from="1532912787994" duration="11989000" />
-      <workItem from="1532998742748" duration="69205000" />
+      <workItem from="1532998742748" duration="71786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225827000" />
+    <option name="totallyTimeSpent" value="228408000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -410,6 +427,7 @@
         <state relative-caret-position="2684">
           <caret line="122" column="36" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
           <folding>
+            <element signature="e#2170#3793#0" />
             <element signature="e#6098#7791#0" />
           </folding>
         </state>
@@ -616,7 +634,7 @@
     <entry file="file://$PROJECT_DIR$/pages/official/payAgree.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
-          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -648,27 +666,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/official/myPhoto2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="100" column="13" lean-forward="true" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="111" column="56" lean-forward="true" selection-start-line="110" selection-start-column="7" selection-end-line="111" selection-end-column="56" />
+        <state relative-caret-position="-972">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
           <folding>
+            <element signature="e#2170#3793#0" />
             <element signature="e#6098#7791#0" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/official/myPhoto2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="165" column="47" selection-start-line="165" selection-start-column="47" selection-end-line="165" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/official/myPhoto3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+        <state relative-caret-position="613">
+          <caret line="140" column="12" selection-start-line="140" selection-start-column="12" selection-end-line="140" selection-end-column="12" />
         </state>
       </provider>
     </entry>

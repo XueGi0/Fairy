@@ -76,26 +76,12 @@
 <script src="../../js/jQuery-2.2.0.min.js"></script>
 <script src="../../js/showTips.js"></script>
 <script src="../../js/exif-js-master/exif.js"></script>
+<script src="../../js/localResizeIMG/dist/lrz.bundle.js"></script>
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
     //getUserInfo();
   };
-
-  let img = document.getElementById('imurl');
-
-  function getBase64Image(img, radio) {
-    let canvas = document.createElement("canvas");
-    canvas.width = img.height / 2;
-    canvas.height = img.width / 2;
-    alert(img.width + '--' + img.height);
-    alert(canvas.width + '--' + canvas.height);
-    let ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, img.height / 2, img.width / 2);
-
-    let dataURL = canvas.toDataURL("image/jpeg", radio);
-    return dataURL;
-  }
 
 
   function getUserInfo() {
@@ -121,8 +107,7 @@
 
 
   function savePhoto() {
-    let base64 = getBase64Image(img, 1);
-    $('#imurl').attr('src', base64);
+    let base64 = operateImg();
     base64 = $('#imurl').attr('src').split(',')[1];
     $('#savePhoto').html('上传图片中...请稍后');
     $.ajax({
@@ -153,7 +138,7 @@
       error: function (e) {
         showTips('修改失败，刷新重试');
         setTimeout(function () {
-          window.location.href = './myPhoto.html';
+          //window.location.href = './myPhoto.html';
         }, 1500);
       }
     });
@@ -173,6 +158,15 @@
       $('#savePhoto').css('display', 'block');
     };
   };
+
+  function operateImg() {
+    lrz($('#imurl')[0].src, {width: 300}).then(function (res) {
+      console.log($('#imurl')[0].src);
+      console.log(res.base64);
+      let base64 = res.base64;
+      $('#imurl').attr('src', base64);
+    })
+  }
 
 
 </script>
