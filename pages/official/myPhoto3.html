@@ -108,8 +108,6 @@
 
   function savePhoto() {
     alert('点击');
-    operateImg();
-    alert('出错');
     base64 = $('#imurl').attr('src').split(',')[1];
     alert(base64);
     alert('图片处理完成');
@@ -156,21 +154,18 @@
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function (e) {
-      $('#imurl').attr('src', e.target.result);
+      alert('lrz执行之前');
+      lrz(e.target.result, {width: 300}).then(function (res) {
+        alert('lrz执行');
+        let base64 = res.base64;
+        $('#imurl').attr('src', base64);
+      });
+
       $('#alterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
     };
   };
-
-  function operateImg() {
-    alert('执行');
-    lrz($('#imurl')[0].src, {width: 300}).then(function (res) {
-      alert('执行');
-      let base64 = res.base64;
-      $('#imurl').attr('src', base64);
-    });
-  }
 
 
 </script>
