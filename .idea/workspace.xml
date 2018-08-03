@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/js/localResizeIMG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/official/myPhoto3.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/official/myPhoto3.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -197,7 +198,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/js/exif-js-master/package.json" />
-      <path value="$PROJECT_DIR$/js/localResizeIMG/package.json" />
+      <path value="$PROJECT_DIR$/js/lrz.js/package.json" />
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -230,6 +231,12 @@
               <item name="mini" type="b2602c69:ProjectViewProjectNode" />
               <item name="mini" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mini" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mini" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="lrz.js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mini" type="b2602c69:ProjectViewProjectNode" />
@@ -338,16 +345,15 @@
       <workItem from="1532398452746" duration="738000" />
       <workItem from="1532399212470" duration="120656000" />
       <workItem from="1532912787994" duration="11989000" />
-      <workItem from="1532998742748" duration="74109000" />
+      <workItem from="1532998742748" duration="74385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230731000" />
+    <option name="totallyTimeSpent" value="231007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
