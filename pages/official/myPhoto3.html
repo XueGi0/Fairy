@@ -23,6 +23,7 @@
       margin: 0 auto;
       border: .01rem solid #ededed;
       border-radius: .04rem;
+      max-height: 4.5rem;
     }
 
     .photoFooter {
@@ -52,7 +53,7 @@
       width: 100%;
       height: 100%;
       opacity: 0;
-      z-index: 99
+      z-index: 99;
     }
 
     #savePhoto {
@@ -109,6 +110,7 @@
     base64 = $('#imurl').attr('src').split(',')[1];
     $('#savePhoto').html('上传图片中...请稍后');
     $('#savePhoto').attr('disabled', 'true');
+    $()
     $.ajax({
       url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
       type: 'POST',
@@ -121,10 +123,10 @@
           showTips('修改成功', 0);
           $('#savePhoto').css('display', 'none');
           $('#afterPhoto').css('display', 'block');
-          $('#fileBtn').css({
+          /*$('#fileBtn').css({
             display: 'block',
             visibility: 'hidden'
-          });
+          });*/
         } else {
           //showTips(data.code);
           showTips(data.msg);
@@ -155,7 +157,6 @@
         $('#imurl').attr('src', base64);
       });
       $('#afterPhoto').css('display', 'none');
-      $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
     };
   };
