@@ -162,9 +162,9 @@
   };
 
   function operateImg() {
+    alert('执行');
     lrz($('#imurl')[0].src, {width: 300}).then(function (res) {
-      console.log($('#imurl')[0].src);
-      console.log(res.base64);
+      alert('执行');
       let base64 = res.base64;
       $('#imurl').attr('src', base64);
     });
