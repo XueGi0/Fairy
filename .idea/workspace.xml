@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51733af1-907f-41d1-b1d4-32d3b7cebd46" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/pages/official/loginSuc.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/official/loginSuc.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/official/myPhoto3.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/official/myPhoto3.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,8 +79,8 @@
       <file leaf-file-name="myPhoto3.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
-              <caret line="125" column="29" lean-forward="true" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="29" />
+            <state relative-caret-position="264">
+              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -318,12 +317,12 @@
       <workItem from="1532398452746" duration="738000" />
       <workItem from="1532399212470" duration="120656000" />
       <workItem from="1532912787994" duration="11989000" />
-      <workItem from="1532998742748" duration="74901000" />
+      <workItem from="1532998742748" duration="76095000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231523000" />
+    <option name="totallyTimeSpent" value="232717000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -668,8 +667,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/official/myPhoto3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="125" column="29" lean-forward="true" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="29" />
+        <state relative-caret-position="264">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
         </state>
       </provider>
     </entry>
