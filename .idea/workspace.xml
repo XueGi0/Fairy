@@ -87,10 +87,9 @@
       <file leaf-file-name="myPhoto.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="90" selection-start-line="90" selection-end-line="119" />
+            <state relative-caret-position="349">
+              <caret line="111" column="56" lean-forward="true" selection-start-line="110" selection-start-column="7" selection-end-line="111" selection-end-column="56" />
               <folding>
-                <element signature="e#2170#3793#0" />
                 <element signature="e#6098#7791#0" />
               </folding>
             </state>
@@ -100,8 +99,8 @@
       <file leaf-file-name="myPhoto3.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/official/myPhoto3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="94" column="3" selection-start-line="94" selection-start-column="3" selection-end-line="94" selection-end-column="3" />
+            <state relative-caret-position="418">
+              <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -337,12 +336,12 @@
       <workItem from="1532398452746" duration="738000" />
       <workItem from="1532399212470" duration="120656000" />
       <workItem from="1532912787994" duration="11989000" />
-      <workItem from="1532998742748" duration="67575000" />
+      <workItem from="1532998742748" duration="67870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224197000" />
+    <option name="totallyTimeSpent" value="224492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -411,7 +410,6 @@
         <state relative-caret-position="2684">
           <caret line="122" column="36" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
           <folding>
-            <element signature="e#2170#3793#0" />
             <element signature="e#6098#7791#0" />
           </folding>
         </state>
@@ -659,10 +657,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/official/myPhoto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="90" selection-start-line="90" selection-end-line="119" />
+        <state relative-caret-position="349">
+          <caret line="111" column="56" lean-forward="true" selection-start-line="110" selection-start-column="7" selection-end-line="111" selection-end-column="56" />
           <folding>
-            <element signature="e#2170#3793#0" />
             <element signature="e#6098#7791#0" />
           </folding>
         </state>
@@ -670,8 +667,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/official/myPhoto3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="94" column="3" selection-start-line="94" selection-start-column="3" selection-end-line="94" selection-end-column="3" />
+        <state relative-caret-position="418">
+          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
         </state>
       </provider>
     </entry>
