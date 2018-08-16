@@ -14,16 +14,16 @@
     }
 
     .showImg {
-      margin: 0 auto;
       margin-top: 0.25rem;
-      width: 3rem;
     }
 
     .showImg img {
-      width: 100%;
+      width: 3rem;
       display: block;
+      margin: 0 auto;
       border: .01rem solid #ededed;
       border-radius: .04rem;
+      max-height: 4.5rem;
     }
 
     .photoFooter {
@@ -53,11 +53,7 @@
       width: 100%;
       height: 100%;
       opacity: 0;
-      z-index: 99
-    }
-
-    #hiddenImg {
-      display: none;
+      z-index: 99;
     }
 
     #savePhoto {
@@ -69,10 +65,9 @@
 <section class="myPhoto">
   <section class="showImg">
     <img src="" alt="" id="imurl">
-    <img src="" alt="" id="hiddenImg">
   </section>
   <section class="photoFooter">
-    <button class="alterPhoto" id="alterPhoto">修改图片</button>
+    <button class="alterPhoto" id="afterPhoto">修改图片</button>
     <button class="alterPhoto" id="savePhoto">保存图片</button>
     <input id="fileBtn" type="file" onchange="upload();" accept="image/*" capture="camera"/>
   </section>
@@ -81,42 +76,13 @@
 <script src="../../js/jQuery-2.2.0.min.js"></script>
 <script src="../../js/showTips.js"></script>
 <script src="../../js/exif-js-master/exif.js"></script>
+<script src="../../js/dist/lrz.bundle.js"></script>
 <script>
   let session_3rd = sessionStorage.getItem('session_3rd');
   window.onload = function () {
-    //getUserInfo();
+    getUserInfo();
   };
-  let img = document.getElementById('imurl');
 
-  function getBase64Image(img) {
-    let canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    EXIF.getData(img, function () {
-      EXIF.getAllTags(this);
-      let Orientation = EXIF.getTag(this, 'Orientation');
-      if (Orientation != "" && Orientation != 1 && Orientation) {
-        switch (Orientation) {
-          case 6://需要顺时针（向左）90度旋转
-            rotateImg(this, 'right', canvas);
-            break;
-          case 8://需要逆时针（向左）90度旋转
-            rotateImg(this, 'left', canvas);
-            break;
-          case 3://需要180度旋转
-            rotateImg(this, 'top', canvas);//转两次
-            break;
-        }
-      } else {
-        let ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0, img.width, img.height);
-      }
-    });
-
-
-    let dataURL = canvas.toDataURL("image/jpeg");
-    return dataURL;
-  }
 
   function getUserInfo() {
     $.ajax({
@@ -139,14 +105,9 @@
     })
   }
 
-  let base64;
 
   function savePhoto() {
-    base64 = getBase64Image(img);
-    $('#fileBtn').css('display', 'none');
-    $('#imurl').attr('src', base64);
-    //$('#imurl').css('transform', 'rotate(90deg)');
-    base64 = base64.split(',')[1];
+    base64 = $('#imurl').attr('src').split(',')[1];
     $('#savePhoto').html('上传图片中...请稍后');
     $('#savePhoto').attr('disabled', 'true');
     $.ajax({
@@ -160,14 +121,13 @@
         if (data.code == '0000') {
           showTips('修改成功', 0);
           $('#savePhoto').css('display', 'none');
+          $('#savePhoto').html('保存图片');
           $('#afterPhoto').css('display', 'block');
-          $('#afterPhoto').attr('disabled', 'false');
           $('#fileBtn').css('display', 'block');
         } else {
-          //showTips(data.code);
           showTips(data.msg);
           setTimeout(function () {
-            //  window.location.href = './myPhoto.html';
+            window.location.href = './myPhoto.html';
           }, 1500);
         }
       },
@@ -181,80 +141,24 @@
   }
 
   $('#savePhoto').on('click', savePhoto);
+
   let upload = function () {
     "use strict";
     let file = $('#fileBtn')[0].files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function (e) {
-      $('#imurl').attr('src', e.target.result);
-      $('#alterPhoto').css('display', 'none');
+      lrz(e.target.result, {width: 300}).then(function (res) {
+        let base64 = res.base64;
+        $('#imurl').attr('src', base64);
+      });
+      $('#afterPhoto').css('display', 'none');
       $('#fileBtn').css('display', 'none');
       $('#savePhoto').css('display', 'block');
     };
   };
 
-  function rotateImg(img, direction, canvas) {
-    //alert(img);
-    //最小与最大旋转方向，图片旋转4次后回到原方向
-    let min_step = 0;
-    let max_step = 3;
-    //var img = document.getElementById(pid);
-    if (img == null) return;
-    //img的高度和宽度不能在img元素隐藏后获取，否则会出错
-    let height = img.height;
-    let width = img.width;
-    //var step = img.getAttribute('step');
-    let step = 2;
-    if (step == null) {
-      step = min_step;
-    }
-    if (direction == 'right') {
-      step++;
-      //旋转到原位置，即超过最大值
-      step > max_step && (step = min_step);
-    } else if (direction == 'left') {
-      step--;
-      step < min_step && (step = max_step);
-    }
-    //img.setAttribute('step', step);
-    /*var canvas = document.getElementById('pic_' + pid);
-    if (canvas == null) {
-        img.style.display = 'none';
-        canvas = document.createElement('canvas');
-        canvas.setAttribute('id', 'pic_' + pid);
-        img.parentNode.appendChild(canvas);
-    }  */
-    //旋转角度以弧度值为参数
-    let degree = 90 * Math.PI / 180;
-    let ctx = canvas.getContext('2d');
-    switch (step) {
-      case 0:
-        canvas.width = width;
-        canvas.height = height;
-        ctx.drawImage(img, 0, 0);
-        break;
-      case 1:
-        canvas.width = width;
-        canvas.height = height;
-        ctx.rotate(-degree);
-        ctx.drawImage(img, -width, 0, width, height);
-        break;
-      case 2:
-        canvas.width = width;
-        canvas.height = height;
-        ctx.rotate(degree * 2);
-        ctx.drawImage(img, -width, -height, width, height);
-        break;
-      case 3:
-        canvas.width = width;
-        canvas.height = height;
-        ctx.rotate(degree);
-        ctx.drawImage(img, 0, -width, width, height);
-        //width
-        break;
-    }
-  }
+
 </script>
 </body>
 </html>
