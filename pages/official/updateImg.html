@@ -76,6 +76,15 @@
       z-index: 99
     }
 
+    #imurl {
+      width: 3rem;
+      height: 4rem;
+      display: block;
+      visibility: hidden;
+      position: relative;
+      z-index: -1;
+    }
+
 
   </style>
 </head>
@@ -87,6 +96,7 @@
   <section class="schPhotoIcon"></section>
   <p class="schPhotoTit">上传自拍照</p>
   <input id="fileBtn" type="file" onchange="upload();" accept="image/*" capture="camera"/>
+  <img src="" alt="" id="imurl">
 </section>
 
 <section class="schPhotoCon">
@@ -105,8 +115,10 @@
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function (e) {
-      sessionStorage.setItem('baseImg', e.target.result);
-      let base64Img = e.target.result.split(',')[1];
+      $('#imurl').attr('src', e.target.result);
+      var newBase64 = getBase64Image(img);
+      let base64Img = newBase64.split(',')[1];
+      sessionStorage.setItem('baseImg', base64Img);
       let session_3rd = sessionStorage.getItem('session_3rd');
       $.ajax({
         url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
@@ -120,17 +132,33 @@
           if (data.state == '1') {
             window.location.href = './photoRes.html';
           } else if (data.state == '2') {
-            showTips('审核未通过')
+            showTips('审核未通过');
+            window.location.href = './updateImg.html';
           } else {
-            showTips('操作失败')
+            showTips('操作失败');
+            window.location.href = './updateImg.html';
           }
         },
         error: function (e) {
-          alert(e)
+          alert(e);
         }
       });
     };
   };
+
+  let img = document.getElementById('imurl');
+
+  function getBase64Image(img) {
+    let canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    let ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    let dataURL = canvas.toDataURL("image/jpeg");
+    return dataURL;
+  }
 </script>
 </body>
 </html>
