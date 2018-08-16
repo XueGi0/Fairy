@@ -18,13 +18,6 @@
       margin: 0 auto;
     }
 
-    #imurl {
-      width: 3rem;
-      height: 4rem;
-      display: block;
-      position: relative;
-    }
-
     .schPhoto {
       border-radius: 50%;
       height: 2rem;
@@ -94,7 +87,6 @@
   <section class="schPhotoIcon"></section>
   <p class="schPhotoTit">上传自拍照</p>
   <input id="fileBtn" type="file" onchange="upload();" accept="image/*" capture="camera"/>
-  <img src="" alt="" id="imurl">
 </section>
 
 <section class="schPhotoCon">
@@ -105,34 +97,17 @@
 <script src="../../js/jQuery-2.2.0.min.js"></script>
 <script src="../../js/showTips.js"></script>
 <script>
-  let img = document.getElementById('imurl');
-
-  function getBase64Image(img) {
-    let canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    let ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-
-    let dataURL = canvas.toDataURL("image/jpeg");
-    return dataURL;
-  }
 
   let upload = function () {
+    console.log($('#fileBtn')[0].files);
     "use strict";
-    alert('1');
     let file = $('#fileBtn')[0].files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
-    alert('onload');
     reader.onload = function (e) {
-      $('imurl').attr('src', e.target.result);
-      let base64 = getBase64Image(img);
-      let base64Img = base64.split(',')[1];
+      sessionStorage.setItem('baseImg', e.target.result);
+      let base64Img = e.target.result.split(',')[1];
       let session_3rd = sessionStorage.getItem('session_3rd');
-      sessionStorage.setItem('baseImg', base64);
-      alert('2');
       $.ajax({
         url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
         type: 'POST',
@@ -141,13 +116,13 @@
           photoImg: base64Img
         },
         success: function (data) {
-          alert('3');
+          alert(data.state);
           if (data.state == '1') {
             window.location.href = './photoRes.html';
           } else if (data.state == '2') {
-            showTips('审核未通过，请重新上传');
+            showTips('审核未通过')
           } else {
-            showTips('操作失败');
+            showTips('操作失败')
           }
         },
         error: function (e) {
