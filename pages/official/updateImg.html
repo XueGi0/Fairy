@@ -125,12 +125,14 @@
     let file = $('#fileBtn')[0].files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
+    alert('onload');
     reader.onload = function (e) {
       $('imurl').attr('src', e.target.result);
       let base64 = getBase64Image(img);
       let base64Img = base64.split(',')[1];
       let session_3rd = sessionStorage.getItem('session_3rd');
       sessionStorage.setItem('baseImg', base64);
+      alert('2');
       $.ajax({
         url: 'https://payh5.xiongan.eyecool.cn/faceSell/wx/uploadimgH5',
         type: 'POST',
@@ -139,6 +141,7 @@
           photoImg: base64Img
         },
         success: function (data) {
+          alert('3');
           if (data.state == '1') {
             window.location.href = './photoRes.html';
           } else if (data.state == '2') {
